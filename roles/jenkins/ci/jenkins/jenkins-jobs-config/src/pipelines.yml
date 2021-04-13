@@ -1,0 +1,17 @@
+#!/usr/bin/env -S jenkins-jobs --ignore-cache update
+---
+
+- job:
+    name: pipelines/universal
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:pipelines/universal.git
+          credentials-id: gitlab-git
+

@@ -1,0 +1,251 @@
+#!/usr/bin/env -S jenkins-jobs --ignore-cache update
+---
+
+- job:
+    name: apps/bitrix-business
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/bitrix-business.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/bitrix-expert
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    regular-branches: true
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/bitrix-expert.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/bitrix-first-site
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/bitrix-first-site.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/bitrix-small-business
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/bitrix-small-business.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/bitrix-standard
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/bitrix-standard.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/bitrix-start
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/bitrix-start.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/joomla
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/joomla.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/opencart
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/opencart.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/opencart-rus
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/opencart-rus.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/test
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/test.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/wordpress
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/wordpress.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/moodle
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/moodle.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
+    name: apps/drupal
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/drupal.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+

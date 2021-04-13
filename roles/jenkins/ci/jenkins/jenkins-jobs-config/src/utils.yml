@@ -1,0 +1,74 @@
+#!/usr/bin/env -S bash -c 'PYTHONPATH="" jenkins-jobs --ignore-cache update'
+---
+- job:
+    name: utils
+    project-type: folder
+
+- job:
+    name: utils/htrace
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:utils/htrace.git
+          credentials-id: gitlab-git
+
+- job:
+    name: utils/nix-ipmi
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:utils/nix-ipmi.git
+          credentials-id: gitlab-git
+
+- job:
+    name: utils/nix-docker-firefox-esr
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:utils/nix-docker-firefox-esr.git
+          credentials-id: gitlab-git
+
+- job:
+    name: utils/homer
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:utils/homer.git
+          credentials-id: gitlab-git
+
+- job:
+    name: utils/ipmiview
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:utils/ipmiview.git
+          credentials-id: gitlab-git

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+help_main()
+{
+    echo "\
+Usage: system COMMANDS ARGS...
+Run COMMANDS with ARGS
+
+COMMAND must be one of the sub-commands listed below:
+
+   deploy
+
+Report bugs to: eng-list@mailman.majordomo.ru"
+}
+
+case "$1" in
+    --help)
+        help_main
+        ;;
+    deploy)
+        (
+            set -xue
+            cd /etc/nixos
+            git pull --rebase
+            make install
+        )
+        ;;
+    *)
+        help_main
+        ;;
+esac

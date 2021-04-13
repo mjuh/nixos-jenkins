@@ -1,0 +1,51 @@
+#!/usr/bin/env -S jenkins-jobs --ignore-cache update
+---
+
+- job:
+    name: apps
+    project-type: folder
+- job:
+    name: backup       
+    project-type: folder
+- job:
+    name: base
+    project-type: folder
+- job:
+    name: billing2
+    project-type: folder
+- job:
+    name: ci
+    project-type: folder
+- job:
+    name: db
+    project-type: folder
+- job:
+    name: deploy
+    project-type: folder
+- job:
+    name: domains
+    project-type: folder
+- job:
+    name: HMS
+    project-type: folder
+- job:
+    name: legacy
+    project-type: folder
+- job:
+    name: mail
+    project-type: folder
+- job:
+    name: monitoring
+    project-type: folder
+- job:
+    name: net
+    project-type: folder
+- job:
+    name: office
+    project-type: folder
+- job:
+    name: pipelines
+    project-type: folder
+- job:
+    name: pr
+    project-type: folder
