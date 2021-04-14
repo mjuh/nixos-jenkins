@@ -45,7 +45,8 @@ in [
   "mkdir --parents /var/lib/jenkins/.ssh"
 
   # XXX: Permission denied workaround.
-  "cp --verbose ${sshPrivateKey} /var/lib/jenkins/.ssh/id_rsa || true"
+  "cp --verbose ${sshPrivateKey} /var/lib/jenkins/.ssh/id_rsa"
+  "chmod 0400 /var/lib/jenkins/.ssh/id_rsa"
 
   (jenkinsCreateCredentialsSecret {
     id = "slack";

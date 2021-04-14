@@ -84,7 +84,7 @@
                                 path = deploy-rs.lib.${system}.activate.nixos
                                   self.nixosConfigurations."${name}";
 
-                                sshUser = "root";
+                                sshUser = "jenkins";
 
                                 user = "root";
                               };

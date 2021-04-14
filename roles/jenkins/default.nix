@@ -12,6 +12,7 @@
     inputs.nix-flake-common.nixosModules.sup
     # inputs.nix-flake-common.nixosModules.pkgs.override
     inputs.nix-flake-common.nixosModules.security
+    inputs.nix-flake-common.nixosModules.jenkins
   ];
 
   environment.systemPackages =
