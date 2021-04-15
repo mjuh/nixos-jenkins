@@ -1,0 +1,110 @@
+#!/usr/bin/env -S jenkins-jobs --ignore-cache update
+---
+
+- job:
+    name: tests
+    project-type: folder
+- job:
+    name: tests/php54
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '100'
+    days-to-keep: '30'
+    script-path: JenkinsfilePHP.groovy
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nixpkgs.git
+          credentials-id: gitlab-git
+          wipe-workspace: false
+- job:
+    name: tests/php55
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '100'
+    days-to-keep: '30'
+    script-path: JenkinsfilePHP.groovy
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nixpkgs.git
+          credentials-id: gitlab-git
+          wipe-workspace: false
+- job:
+    name: tests/php56
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '100'
+    days-to-keep: '30'
+    script-path: JenkinsfilePHP.groovy
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nixpkgs.git
+          credentials-id: gitlab-git
+          wipe-workspace: false
+- job:
+    name: tests/php70
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '100'
+    days-to-keep: '30'
+    script-path: JenkinsfilePHP.groovy
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nixpkgs.git
+          credentials-id: gitlab-git
+          wipe-workspace: false
+- job:
+    name: tests/php71
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '100'
+    days-to-keep: '30'
+    script-path: JenkinsfilePHP.groovy
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nixpkgs.git
+          credentials-id: gitlab-git
+          wipe-workspace: false
+- job:
+    name: tests/php72
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '100'
+    days-to-keep: '30'
+    script-path: JenkinsfilePHP.groovy
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nixpkgs.git
+          credentials-id: gitlab-git
+          wipe-workspace: false
+- job:
+    name: tests/php73
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '100'
+    days-to-keep: '30'
+    script-path: JenkinsfilePHP.groovy
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nixpkgs.git
+          credentials-id: gitlab-git
+          wipe-workspace: false
+- job:
+    name: tests/php74
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '100'
+    days-to-keep: '30'
+    script-path: JenkinsfilePHP.groovy
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nixpkgs.git
+          credentials-id: gitlab-git
+          wipe-workspace: false

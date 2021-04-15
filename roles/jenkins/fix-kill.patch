@@ -1,0 +1,122 @@
+commit 16ed48e6b1921260563685e6195c00b34ef9c1ef
+Author: Oleg Pykhalov <go.wigust@gmail.com>
+Date:   Sun Aug 11 10:32:39 2019 +0300
+
+    Fix kill
+
+diff --git a/executors/shell/executor_shell.go b/executors/shell/executor_shell.go
+index 236cd660..2103fbd6 100644
+--- a/executors/shell/executor_shell.go
++++ b/executors/shell/executor_shell.go
+@@ -17,6 +17,7 @@ import (
+ 	"gitlab.com/gitlab-org/gitlab-runner/common"
+ 	"gitlab.com/gitlab-org/gitlab-runner/executors"
+ 	"gitlab.com/gitlab-org/gitlab-runner/helpers"
++	"gitlab.com/gitlab-org/gitlab-runner/helpers/featureflags"
+ )
+ 
+ type executor struct {
+@@ -59,7 +60,7 @@ func (s *executor) Prepare(options common.ExecutorPrepareOptions) error {
+ func (s *executor) killAndWait(cmd *exec.Cmd, waitCh chan error) error {
+ 	for {
+ 		s.Debugln("Aborting command...")
+-		helpers.KillProcessGroup(cmd)
++		s.killProcessGroup(cmd)
+ 		select {
+ 		case <-time.After(time.Second):
+ 		case err := <-waitCh:
+@@ -68,6 +69,15 @@ func (s *executor) killAndWait(cmd *exec.Cmd, waitCh chan error) error {
+ 	}
+ }
+ 
++func (s *executor) killProcessGroup(cmd *exec.Cmd) {
++	if s.Build.IsFeatureFlagOn(featureflags.UseLegacyUnixProcessKillSignal) {
++		helpers.LegacyKillProcessGroup(cmd)
++		return
++	}
++
++	helpers.KillProcessGroup(cmd)
++}
++
+ func (s *executor) Run(cmd common.ExecutorCommand) error {
+ 	// Create execution command
+ 	c := exec.Command(s.BuildShell.Command, s.BuildShell.Arguments...)
+@@ -76,7 +86,7 @@ func (s *executor) Run(cmd common.ExecutorCommand) error {
+ 	}
+ 
+ 	helpers.SetProcessGroup(c)
+-	defer helpers.KillProcessGroup(c)
++	defer s.killProcessGroup(c)
+ 
+ 	// Fill process environment variables
+ 	c.Env = append(os.Environ(), s.BuildShell.Environment...)
+diff --git a/helpers/featureflags/flags.go b/helpers/featureflags/flags.go
+index 8284d3cd..bc013cc6 100644
+--- a/helpers/featureflags/flags.go
++++ b/helpers/featureflags/flags.go
+@@ -7,6 +7,7 @@ import (
+ const (
+ 	CmdDisableDelayedErrorLevelExpansion string = "FF_CMD_DISABLE_DELAYED_ERROR_LEVEL_EXPANSION"
+ 	UseLegacyBuildsDirForDocker          string = "FF_USE_LEGACY_BUILDS_DIR_FOR_DOCKER"
++	UseLegacyUnixProcessKillSignal       string = "FF_USE_LEGACY_UNIX_PROCESS_KILL_SIGNAL"
+ 	UseLegacyVolumesMountingOrder        string = "FF_USE_LEGACY_VOLUMES_MOUNTING_ORDER"
+ )
+ 
+@@ -45,6 +46,13 @@ var flags = []FeatureFlag{
+ 		ToBeRemovedWith: "12.6",
+ 		Description:     "Disables the new ordering of volumes mounting when `docker*` executors are being used.",
+ 	},
++	{
++		Name:            UseLegacyUnixProcessKillSignal,
++		DefaultValue:    "false",
++		Deprecated:      false,
++		ToBeRemovedWith: "",
++		Description:     "Switches back from `SIGTERM` to `SIGKILL` for process termination on Unix systems when Shell executor is used",
++	},
+ }
+ 
+ func GetAll() []FeatureFlag {
+diff --git a/helpers/process_group_unix.go b/helpers/process_group_unix.go
+index 3faad624..4e4942ea 100644
+--- a/helpers/process_group_unix.go
++++ b/helpers/process_group_unix.go
+@@ -15,6 +15,14 @@ func SetProcessGroup(cmd *exec.Cmd) {
+ }
+ 
+ func KillProcessGroup(cmd *exec.Cmd) {
++	killUnixProcessGroup(cmd, syscall.SIGTERM)
++}
++
++func LegacyKillProcessGroup(cmd *exec.Cmd) {
++	killUnixProcessGroup(cmd, syscall.SIGKILL)
++}
++
++func killUnixProcessGroup(cmd *exec.Cmd, signal syscall.Signal) {
+ 	if cmd == nil {
+ 		return
+ 	}
+@@ -22,10 +30,10 @@ func KillProcessGroup(cmd *exec.Cmd) {
+ 	process := cmd.Process
+ 	if process != nil {
+ 		if process.Pid > 0 {
+-			syscall.Kill(-process.Pid, syscall.SIGKILL)
++                        _ = syscall.Kill(-process.Pid, signal)
+ 		} else {
+ 			// doing normal kill
+-			process.Kill()
++                        _ = process.Signal(signal)
+ 		}
+ 	}
+ }
+diff --git a/helpers/process_group_windows.go b/helpers/process_group_windows.go
+index 187ee026..1e0305e7 100644
+--- a/helpers/process_group_windows.go
++++ b/helpers/process_group_windows.go
+@@ -16,3 +16,7 @@ func KillProcessGroup(cmd *exec.Cmd) {
+ 	exec.Command("taskkill", "/F", "/T", "/PID", strconv.Itoa(cmd.Process.Pid)).Run()
+ 	cmd.Process.Kill()
+ }
++
++func LegacyKillProcessGroup(cmd *exec.Cmd) {
++	KillProcessGroup(cmd)
++}

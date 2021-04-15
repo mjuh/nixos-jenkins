@@ -1,0 +1,142 @@
+#!/usr/bin/env -S jenkins-jobs --ignore-cache update
+---
+
+- job:
+    name: mail/mailing_manager
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/mailing_manager.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/mda-proxy
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/mda-proxy.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/smtp-out
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/smtp-out.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/mail-tests
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/mail-tests.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/mail-storage-mda
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/mail-storage-mda.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/mail-storage-mta
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/mail-storage-mta.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/webui
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/webui.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/freshclam
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/freshclam.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/mail-checker
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/mail-checker.git
+          credentials-id: gitlab-git
+
+- job:
+    name: mail/mx
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:mail/mx.git
+          credentials-id: gitlab-git

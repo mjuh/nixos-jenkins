@@ -1,0 +1,170 @@
+#!/usr/bin/env -S jenkins-jobs --ignore-cache update
+---
+
+- job:
+    name: office/app-feedback
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/app-feedback.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/cerberus
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/cerberus.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/mailman
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/mailman.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/office-majordomo-ru
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/office-majordomo-ru.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/pma-intr
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/pma-intr.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/redmine
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/redmine.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/snoop
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/snoop.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/snoop-client
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/snoop-client.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/wiki-intr
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/wiki-intr.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/ssl-certificates
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/ssl-certificates.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/cerberus-slack
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/cerberus-slack.git
+          credentials-id: gitlab-git
+
+- job:
+    name: office/static
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:office/static.git
+          credentials-id: gitlab-git

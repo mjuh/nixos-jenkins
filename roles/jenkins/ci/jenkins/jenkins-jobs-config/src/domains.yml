@@ -1,0 +1,170 @@
+#!/usr/bin/env -S jenkins-jobs --ignore-cache update
+---
+
+- job:
+    name: domains/control
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/control.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/dit
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/dit.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/expired-page
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/expired-page.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/nethouse-redirect
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/nethouse-redirect.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/oauth-registrant
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/oauth-registrant.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/reg-admin
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/reg-admin.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/reg-rpc
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/reg-rpc.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/reg-rpc-cron
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/reg-rpc-cron.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/staff-registrant
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/staff-registrant.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/whois
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/whois.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/redirector
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/redirector.git
+          credentials-id: gitlab-git
+
+- job:
+    name: domains/payment-listener-domains
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:domains/payment-listener-domains.git
+          credentials-id: gitlab-git
