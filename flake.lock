@@ -403,6 +403,7 @@
         "net-vpn-si": "net-vpn-si",
         "nixpkgs": "nixpkgs_7",
         "nixpkgs-20-03": "nixpkgs-20-03",
+        "nixpkgs-20-09": "nixpkgs-20-09",
         "nixpkgs-unstable": "nixpkgs-unstable_3",
         "nixpkgs-vulnix": "nixpkgs-vulnix",
         "ssl-certificates": "ssl-certificates",
@@ -411,11 +412,11 @@
         "zabbix-agentd-conf": "zabbix-agentd-conf"
       },
       "locked": {
-        "lastModified": 1618396874,
-        "narHash": "sha256-nOn+R7400YaMZ8negXWFkfP07CbBprXDV7GDzZlhA7c=",
+        "lastModified": 1618483612,
+        "narHash": "sha256-QbeWr2tDNR+KZY98UDutsPJUolcM2KucuU/y0veTXQs=",
         "ref": "master",
-        "rev": "816804ae48117cbd8c629a0cd3005927f71fd775",
-        "revCount": 1424,
+        "rev": "d990f68a6ebff42fac55f1bba7054fd561f5bb7f",
+        "revCount": 1428,
         "type": "git",
         "url": "ssh://git@gitlab.intr/_ci/nixops"
       },
@@ -453,6 +454,36 @@
       "original": {
         "id": "nixpkgs",
         "ref": "20.03",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-20-09": {
+      "locked": {
+        "lastModified": 1603791972,
+        "narHash": "sha256-nj2SvACFH+NERpye1kudcuygCcvnsZYv26M2+wgM5vE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cd63096d6d887d689543a0b97743d28995bc9bc3",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "20.09",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-20-09_2": {
+      "locked": {
+        "lastModified": 1618358082,
+        "narHash": "sha256-4vyEiTcCk7hRigwcRqDAF86YQbUzALUNxyH8SLG4oeo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "dec334fa196a4aeedb1b60d8f7d61aa00d327499",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-20.09",
         "type": "indirect"
       }
     },
@@ -1107,6 +1138,7 @@
         "majordomo": "majordomo",
         "nix-flake-common": "nix-flake-common",
         "nixpkgs": "nixpkgs_13",
+        "nixpkgs-20-09": "nixpkgs-20-09_2",
         "nixpkgs-unstable": "nixpkgs-unstable_9",
         "nixpkgs-vulnix": "nixpkgs-vulnix_2",
         "ssl-certificates": "ssl-certificates_2",

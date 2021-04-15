@@ -3,6 +3,7 @@
   imports = [ # Include the results of the hardware scan.
     # ./zram.nix # XXX: Fix before uncomment
     inputs.nix-flake-common.nixosModules.zabbix-agent
+    inputs.nix-flake-common.nixosModules.mjzabbix
     ./services/admin.nix
     # TODO: Add androidemu in ./roles/jenkins/android.nix file.
     ./services/jenkins.nix
@@ -19,6 +20,11 @@
     (with pkgs; [ sqlite woof ])
     ++ (with inputs.majordomo.packages.${system}; [ arcconf influxdb-subscription-cleaner ])
     ++ (with inputs.nixpkgs-unstable.legacyPackages.${system}; [ packer ]);
+
+  services.mjzabbixAgent = {
+    enable = true;
+    listenIP = (builtins.head config.networking.interfaces.enp1s0f0.ipv4.addresses).address;
+  };
 
   nixpkgs.config.packageOverrides = pkgs: with pkgs; rec {
     addsshnode = callPackage ./ci/jenkins/add-ssh-node { };
