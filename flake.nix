@@ -18,6 +18,7 @@
       url = "github:nixos/nixpkgs/329102c47bd1c68f0acdf4feec64232202948c7a";
       flake = false;
     };
+    nixpkgs-20-09.url = "nixpkgs/nixos-20.09";
   };
 
   outputs = { self
@@ -43,12 +44,17 @@
                           nixpkgs.lib.nixosSystem {
                             inherit system;
                             modules = [ host ];
-                            specialArgs = { inherit inputs system; };
+                            specialArgs = {
+                              inherit inputs system;
+                              inherit (self.outputs) nixConfig;
+                            };
                           };
                       })
                     { }
                     (pkgs-unstable.lib.filesystem.listFilesRecursive directory);
               in {
+                nixConfig.allowUnfree = true;
+
                 nixosConfigurations = directoryToNixosConfigurations ./hosts;
 
                 deploy.nodes = with lib;
