@@ -4,11 +4,13 @@
     # ./zram.nix # XXX: Fix before uncomment
     inputs.nix-flake-common.nixosModules.zabbix-agent
     inputs.nix-flake-common.nixosModules.mjzabbix
+    inputs.nix-flake-common.nixosModules.mj-smartd
     ./services/admin.nix
     # TODO: Add androidemu in ./roles/jenkins/android.nix file.
     ./services/jenkins.nix
     ./hardware-configuration.nix
     ./packages.nix
+    ./binary-cache.nix
     inputs.nix-flake-common.nixosModules.eng
     inputs.nix-flake-common.nixosModules.sup
     # inputs.nix-flake-common.nixosModules.pkgs.override
@@ -53,20 +55,6 @@
     # XXX:
     # services.gitlab.serviceConfig.TimeoutStartSec = "10min";
     # gitlab-runner.path = with pkgs; [ shadow.su ];
-
-    # zabbixAgent = {
-    #   enable = true;
-    #   package =
-    #     pkgs.zabbix30.agent.overrideAttrs (old: { version = "3.4.11"; });
-    #   listen.ip = with pkgs.lib;
-    #     (head config.networking.interfaces.enp1s0f0.ipv4.addresses).address;
-    #   server = "zabbix.intr";
-    #   extraConfig = ''
-    #     Hostname=${config.networking.hostName}
-    #     Timeout=20
-    #     Include=${inputs.zabbix-agentd-conf.packages.${system}.zabbix-agentd-conf}/etc/zabbix_agentd.conf.d
-    #   '';
-    # };
 
    nginx = {
       preStart = " set -x ; mkdir -p /run/nginx /var/log/nginx/ ; chown -R nginx:nginx /run/nginx /var/log/nginx/ ; ls -la /run/nginx";

@@ -48,10 +48,6 @@
       dbus.enable = true;
       # timesyncd.enable = true; # Replace ntpd by timesyncd
 
-      nix-serve = {
-        enable = true;
-        secretKeyFile = "/var/cache-priv-key.pem";
-      };
       cron = {
         enable = true;
         systemCronJobs = [
