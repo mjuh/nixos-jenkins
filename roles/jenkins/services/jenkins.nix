@@ -36,6 +36,21 @@ in {
     '';
   };
 
+  environment.etc."containers/policy.json" = {
+    text = builtins.toJSON {
+      default = [
+        { type = "insecureAcceptAnything"; }
+      ];
+      transports = {
+        docker-daemon = {
+          "" = [
+            { type = "insecureAcceptAnything"; }
+          ];
+        };
+      };
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     jenkins-jcasc-config jenkins-job-builder jenkins-jobs-config
 
