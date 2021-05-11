@@ -7,7 +7,7 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
-    deploy-rs.url = "git+ssh://git@gitlab.intr/_ci/deploy-rs?ref=dry_activate";
+    deploy-rs.url = "github:serokell/deploy-rs";
     utils.url = "github:numtide/flake-utils";
 
     majordomo.url = "git+https://gitlab.intr/_ci/nixpkgs";
