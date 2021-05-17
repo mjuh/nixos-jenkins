@@ -566,3 +566,17 @@
       - git:
           url: git@gitlab.intr:HMS/hardy-frontend.git
           credentials-id: gitlab-git
+
+- job:
+    name: HMS/sbis
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:HMS/sbis.git
+          credentials-id: gitlab-git
