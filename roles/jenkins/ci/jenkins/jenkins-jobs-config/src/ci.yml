@@ -162,3 +162,15 @@
           url: git@gitlab.intr:_ci/hms.git
           credentials-id: gitlab-git
 
+- job:
+    name: ci/nix-flake-update
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:_ci/nix-flake-update.git
+          credentials-id: gitlab-git
