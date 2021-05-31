@@ -231,6 +231,25 @@
             - regular-branches: true
 
 - job:
+    name: apps/moodle-language
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:apps/moodle-language.git
+          credentials-id: gitlab-git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
+
+- job:
     name: apps/drupal
     description: null
     project-type: multibranch
