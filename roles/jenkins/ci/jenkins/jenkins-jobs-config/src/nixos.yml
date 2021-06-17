@@ -43,3 +43,7 @@
     <<: *job
     name: nixos/webmail
     scm: [ git: { url: git@gitlab.intr:nixos/webmail.git } ]
+- job:
+    <<: *job
+    name: nixos/ispconfig
+    scm: [ git: { url: git@gitlab.intr:nixos/ispconfig.git } ]
