@@ -100,6 +100,10 @@ in {
       "-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true"
       "-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.HEARTBEAT_CHECK_INTERVAL=86400"
 
+      # XXX: Fix CSP for https://www.gnu.org/
+      # https://www.jenkins.io/doc/book/security/configuring-content-security-policy/
+      "-Dhudson.model.DirectoryBrowserSupport.CSP="
+
       # TODO: Avoid disable crumb
       # - [[https://www.jenkins.io/doc/book/managing/security/#disable-csrf-checking][Managing Security]]
       # - [[https://www.jenkins.io/doc/upgrade-guide/2.176/#SECURITY-626][Upgrading to Jenkins LTS 2.176.x]]
