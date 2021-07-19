@@ -46,7 +46,14 @@
 - job:
     <<: *job
     name: nixos/ispconfig
-    scm: [ git: { url: git@gitlab.intr:nixos/ispconfig.git } ]
+    scm:
+      - git:
+          url: git@gitlab.intr:nixos/ispconfig.git
+          discover-tags: true
+          build-strategies:
+            - tags:
+                ignore-tags-newer-than: 7
+            - regular-branches: true
 - job:
     <<: *job
     name: nixos/vm
