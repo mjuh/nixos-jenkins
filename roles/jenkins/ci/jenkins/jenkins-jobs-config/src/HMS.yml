@@ -622,3 +622,17 @@
       - git:
           url: git@gitlab.intr:HMS/tracker.git
           credentials-id: gitlab-git
+
+- job:
+    name: HMS/tracker-frontend
+    description: null
+    project-type: multibranch
+    periodic-folder-trigger: 1d
+    prune-dead-branches: true
+    number-to-keep: '10'
+    days-to-keep: '10'
+    script-path: Jenkinsfile
+    scm:
+      - git:
+          url: git@gitlab.intr:HMS/tracker-frontend.git
+          credentials-id: gitlab-git
