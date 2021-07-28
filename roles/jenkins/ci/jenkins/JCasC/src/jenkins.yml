@@ -1594,3 +1594,9 @@ tool:
           installers:
           - gradleInstaller:
               id: "6.3"
+    - name: "6.8"
+      properties:
+      - installSource:
+          installers:
+          - gradleInstaller:
+              id: "6.8"
