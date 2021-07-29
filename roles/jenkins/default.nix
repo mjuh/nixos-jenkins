@@ -19,7 +19,7 @@
   ];
 
   environment.systemPackages =
-    (with pkgs; [ sqlite woof ])
+    (with pkgs; [ sqlite woof yarn ])
     ++ (with inputs.majordomo.packages.${system}; [ arcconf influxdb-subscription-cleaner ])
     ++ (with inputs.nixpkgs-unstable.legacyPackages.${system}; [ packer ]);
 

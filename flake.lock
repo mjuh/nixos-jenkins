@@ -411,11 +411,11 @@
         "zabbix-agentd-conf": "zabbix-agentd-conf"
       },
       "locked": {
-        "lastModified": 1618483612,
-        "narHash": "sha256-QbeWr2tDNR+KZY98UDutsPJUolcM2KucuU/y0veTXQs=",
+        "lastModified": 1624881010,
+        "narHash": "sha256-zuNknzfeYy62DKl6J7GJmaq4O88Kk4L+Cn5V4oVmOYg=",
         "ref": "master",
-        "rev": "d990f68a6ebff42fac55f1bba7054fd561f5bb7f",
-        "revCount": 1428,
+        "rev": "3796cefc619f39b2c9646c63e62127fcf720a8fb",
+        "revCount": 1450,
         "type": "git",
         "url": "ssh://git@gitlab.intr/_ci/nixops"
       },
