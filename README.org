@@ -1,0 +1,7 @@
+* Testing in a virtual machine
+
+#+begin_src bash
+  nix build .#nixosConfigurations.vm.config.system.build.vm -L
+  result/bin/run-vmhost-vm -nic user,model=virtio-net-pci,hostfwd=tcp::10022-:22
+  ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 -l vm localhost
+#+end_src
