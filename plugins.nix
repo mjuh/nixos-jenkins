@@ -42,6 +42,160 @@
         sha256 = "abf3344d603cec6b9a8608ab04b89b7a9fcfa01acc8b0fa049a4bf275e66cc6c";
         };
       };
+    blueocean = mkJenkinsPlugin {
+      name = "blueocean";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean/1.24.8/blueocean.hpi";
+        sha256 = "406b7a3e38956aecec3b4780b8413cc6dfd724abd74750d07aefbc5281fe8f26";
+        };
+      };
+    blueocean-autofavorite = mkJenkinsPlugin {
+      name = "blueocean-autofavorite";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-autofavorite/1.2.4/blueocean-autofavorite.hpi";
+        sha256 = "8aaf0df1533387cff3a81d04c544e8f650eba5e0c0df2c93dffb3af79770074b";
+        };
+      };
+    blueocean-bitbucket-pipeline = mkJenkinsPlugin {
+      name = "blueocean-bitbucket-pipeline";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-bitbucket-pipeline/1.24.8/blueocean-bitbucket-pipeline.hpi";
+        sha256 = "4583996cf6951be5261f96c3f90dd93f7c9ed28d8f5a92a21ab31fca211e7b5b";
+        };
+      };
+    blueocean-commons = mkJenkinsPlugin {
+      name = "blueocean-commons";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-commons/1.24.8/blueocean-commons.hpi";
+        sha256 = "6637636a19e85e2d6c9c0150a02dfcbb88fb1f975ffb28ee68ba6994de014944";
+        };
+      };
+    blueocean-config = mkJenkinsPlugin {
+      name = "blueocean-config";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-config/1.24.8/blueocean-config.hpi";
+        sha256 = "61994738b9436664966ce790562dab9285acad72c2f380162f813f84eacf06ee";
+        };
+      };
+    blueocean-core-js = mkJenkinsPlugin {
+      name = "blueocean-core-js";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-core-js/1.24.8/blueocean-core-js.hpi";
+        sha256 = "92d4fef4ef4f42dd303d08547997384798e76f058afc45c46a15768914c80914";
+        };
+      };
+    blueocean-dashboard = mkJenkinsPlugin {
+      name = "blueocean-dashboard";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-dashboard/1.24.8/blueocean-dashboard.hpi";
+        sha256 = "9a62639272634a4444403f45f6fcb406e51ad4c09f752cbb82e809e354a2aa7f";
+        };
+      };
+    blueocean-display-url = mkJenkinsPlugin {
+      name = "blueocean-display-url";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-display-url/2.4.1/blueocean-display-url.hpi";
+        sha256 = "f4179b8221e6c330317bd8a037d4074a03361290687a25c162335ee82710b303";
+        };
+      };
+    blueocean-events = mkJenkinsPlugin {
+      name = "blueocean-events";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-events/1.24.8/blueocean-events.hpi";
+        sha256 = "43bd236b0a9963e1fc3ff34a4d24c8e2eb83b9c2771ac9744721ea567c7c629b";
+        };
+      };
+    blueocean-executor-info = mkJenkinsPlugin {
+      name = "blueocean-executor-info";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-executor-info/1.24.8/blueocean-executor-info.hpi";
+        sha256 = "e9c75cedde228278f9034c0e8704a01fd7a967daa8ed33d83532445c4411588b";
+        };
+      };
+    blueocean-git-pipeline = mkJenkinsPlugin {
+      name = "blueocean-git-pipeline";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-git-pipeline/1.24.8/blueocean-git-pipeline.hpi";
+        sha256 = "8792cf273933c80e95021961c3f73fd3ada7ced7a66c600055b2c531d2797122";
+        };
+      };
+    blueocean-github-pipeline = mkJenkinsPlugin {
+      name = "blueocean-github-pipeline";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-github-pipeline/1.24.8/blueocean-github-pipeline.hpi";
+        sha256 = "103907cdb206d16b0fdb789b5ceeaa4724fa26d53b39f6890f8cb252f313ee29";
+        };
+      };
+    blueocean-i18n = mkJenkinsPlugin {
+      name = "blueocean-i18n";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-i18n/1.24.8/blueocean-i18n.hpi";
+        sha256 = "4b1d40944c6098268a3a3e6f724f573aafb09a1dd9441f50ff8787b0e2751086";
+        };
+      };
+    blueocean-jira = mkJenkinsPlugin {
+      name = "blueocean-jira";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-jira/1.24.8/blueocean-jira.hpi";
+        sha256 = "bcf7caed265f258d0f341892c2a6e1b94b6837b995de1ffbbdee3c2eca5ad309";
+        };
+      };
+    blueocean-jwt = mkJenkinsPlugin {
+      name = "blueocean-jwt";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-jwt/1.24.8/blueocean-jwt.hpi";
+        sha256 = "fc678f8406ca46075232aba9da353ac5c4f4f62ec449a763b8b31c0368eb3315";
+        };
+      };
+    blueocean-personalization = mkJenkinsPlugin {
+      name = "blueocean-personalization";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-personalization/1.24.8/blueocean-personalization.hpi";
+        sha256 = "aa26e2a0f53927c7e6ba35e95de4b88c8d2c40b930337158c9d6a64868060858";
+        };
+      };
+    blueocean-pipeline-api-impl = mkJenkinsPlugin {
+      name = "blueocean-pipeline-api-impl";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-pipeline-api-impl/1.24.8/blueocean-pipeline-api-impl.hpi";
+        sha256 = "d92bab4d4ea8508a37cb8dd955bd56007192502976a682880151219e31658283";
+        };
+      };
+    blueocean-pipeline-editor = mkJenkinsPlugin {
+      name = "blueocean-pipeline-editor";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-pipeline-editor/1.24.8/blueocean-pipeline-editor.hpi";
+        sha256 = "c1cc5b99be80fde7bfdc3c7c09d6e7de8748b84bfd1e2a23b8b409edd4a600c5";
+        };
+      };
+    blueocean-pipeline-scm-api = mkJenkinsPlugin {
+      name = "blueocean-pipeline-scm-api";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-pipeline-scm-api/1.24.8/blueocean-pipeline-scm-api.hpi";
+        sha256 = "a6c1cdeb1d57c261ba75d6a3e83020d71084863ed98f6cec1dd0c012129c44c3";
+        };
+      };
+    blueocean-rest = mkJenkinsPlugin {
+      name = "blueocean-rest";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-rest/1.24.8/blueocean-rest.hpi";
+        sha256 = "10c13594eb283259ced63101eda0caa99821801851ec87c62a62b4d04e4627ca";
+        };
+      };
+    blueocean-rest-impl = mkJenkinsPlugin {
+      name = "blueocean-rest-impl";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-rest-impl/1.24.8/blueocean-rest-impl.hpi";
+        sha256 = "7ca1446798e500b2f363e8dac326db37ceee477024553a7b7f7243c53c65606e";
+        };
+      };
+    blueocean-web = mkJenkinsPlugin {
+      name = "blueocean-web";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/blueocean-web/1.24.8/blueocean-web.hpi";
+        sha256 = "c7e8cd7f609115ef70ce05eba998ad24ec4a5bba034237ee655869341252343c";
+        };
+      };
     bootstrap4-api = mkJenkinsPlugin {
       name = "bootstrap4-api";
       src = fetchurl {
@@ -75,6 +229,13 @@
       src = fetchurl {
         url = "https://updates.jenkins-ci.org/download/plugins/checks-api/1.7.2/checks-api.hpi";
         sha256 = "effbec009c054395fd6052edea58887a16f3c4f96fbb86a14933fa9bcc9a8d0b";
+        };
+      };
+    cloudbees-bitbucket-branch-source = mkJenkinsPlugin {
+      name = "cloudbees-bitbucket-branch-source";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/cloudbees-bitbucket-branch-source/2.9.10/cloudbees-bitbucket-branch-source.hpi";
+        sha256 = "e07dbacfbe9c95a3563e9952615a3b70d611800ef0bcd1bb97842591644a6985";
         };
       };
     cloudbees-folder = mkJenkinsPlugin {
@@ -161,6 +322,13 @@
         sha256 = "eb6d4344b6ccfe54d629c3c6b27262a0eaae9b80f59841cdb6ef6655f68c8901";
         };
       };
+    favorite = mkJenkinsPlugin {
+      name = "favorite";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/favorite/2.3.3/favorite.hpi";
+        sha256 = "2cfa7f82b9268ba370f7067a18136822ae4fa5244eaa818095b6faf0bb9b293e";
+        };
+      };
     font-awesome-api = mkJenkinsPlugin {
       name = "font-awesome-api";
       src = fetchurl {
@@ -187,6 +355,27 @@
       src = fetchurl {
         url = "https://updates.jenkins-ci.org/download/plugins/git-server/1.10/git-server.hpi";
         sha256 = "34095b9ed64e9252dfa7591c8a49ce5e244732b0884325e9258670dae587a8b8";
+        };
+      };
+    github = mkJenkinsPlugin {
+      name = "github";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/github/1.33.1/github.hpi";
+        sha256 = "24bfea243941611fdb75677af2b3ac3c6869549b45cdeaba4cdce1139f57aa8b";
+        };
+      };
+    github-api = mkJenkinsPlugin {
+      name = "github-api";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/github-api/1.123/github-api.hpi";
+        sha256 = "b654ef6fe933b5b1ea3dace9314cacb47ea925d0056ab801d8cf1844cc66ab1e";
+        };
+      };
+    github-branch-source = mkJenkinsPlugin {
+      name = "github-branch-source";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/github-branch-source/2.11.2/github-branch-source.hpi";
+        sha256 = "f582b4fdcbd3ceffe1929712bc3a3e3e415d38e0c01986484fcb8f4eb06a2d35";
         };
       };
     gitlab-api = mkJenkinsPlugin {
@@ -231,6 +420,13 @@
         sha256 = "e5e4dd29f39bb6daf2c4773e56da8c8e189c3a824af7707d44f1f593c9c6424f";
         };
       };
+    htmlpublisher = mkJenkinsPlugin {
+      name = "htmlpublisher";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/htmlpublisher/1.25/htmlpublisher.hpi";
+        sha256 = "6b973b9aacd1642ebf6ef53fb677ffca94ce576d13970eb26aad55da07a0d327";
+        };
+      };
     jackson2-api = mkJenkinsPlugin {
       name = "jackson2-api";
       src = fetchurl {
@@ -243,6 +439,27 @@
       src = fetchurl {
         url = "https://updates.jenkins-ci.org/download/plugins/javadoc/1.6/javadoc.hpi";
         sha256 = "a5f2321aed9ec068781962114413f305665dfbcc89ba13bee9b797551de6bbc9";
+        };
+      };
+    jenkins-design-language = mkJenkinsPlugin {
+      name = "jenkins-design-language";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/jenkins-design-language/1.24.8/jenkins-design-language.hpi";
+        sha256 = "0bedbc3001c3e4538f5fc7df60dc190d4dee9176150ea891f16a2928e2f99f2f";
+        };
+      };
+    jira = mkJenkinsPlugin {
+      name = "jira";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/jira/3.5/jira.hpi";
+        sha256 = "dedf4924db5d849a552bbd2641d1f2261458c5645e15549f35848ed5a5f69a5a";
+        };
+      };
+    jjwt-api = mkJenkinsPlugin {
+      name = "jjwt-api";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/jjwt-api/0.11.2-9.c8b45b8bb173/jjwt-api.hpi";
+        sha256 = "b051f96e04239821191c3144cd17a52701d10433cb742851cd329b5140253fd3";
         };
       };
     job-dsl = mkJenkinsPlugin {
@@ -329,6 +546,13 @@
         sha256 = "ca3c2d264cff55f71e900dc7de1f13c0bfbffdb9b3419b854dce175bcb8a4848";
         };
       };
+    multiple-scms = mkJenkinsPlugin {
+      name = "multiple-scms";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/multiple-scms/0.8/multiple-scms.hpi";
+        sha256 = "efdef27a505e5f19d2321acb24577dea4bd83bb81383a575fdafbd2996f52813";
+        };
+      };
     nexus-jenkins-plugin = mkJenkinsPlugin {
       name = "nexus-jenkins-plugin";
       src = fetchurl {
@@ -341,6 +565,20 @@
       src = fetchurl {
         url = "https://updates.jenkins-ci.org/download/plugins/node-iterator-api/1.5.0/node-iterator-api.hpi";
         sha256 = "531b04f2187a086e29963f3f4a9823b711b242eba2393ddf029038a5deb7df39";
+        };
+      };
+    okhttp-api = mkJenkinsPlugin {
+      name = "okhttp-api";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/okhttp-api/3.14.9/okhttp-api.hpi";
+        sha256 = "df641b642ac840f0492ee25faea093e2ea093c0508f25eb7606ae77485d012fd";
+        };
+      };
+    p4 = mkJenkinsPlugin {
+      name = "p4";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/p4/1.11.5/p4.hpi";
+        sha256 = "724a81c99649f168eba6c67b5efe70727a0409b4320c4b259da9082a5848ed0f";
         };
       };
     parameterized-trigger = mkJenkinsPlugin {
@@ -476,6 +714,13 @@
         sha256 = "1cc5f1a8d823cd9e009f6bec14ae285dab50d84a6e3547014b29d51533d967b9";
         };
       };
+    pubsub-light = mkJenkinsPlugin {
+      name = "pubsub-light";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/pubsub-light/1.16/pubsub-light.hpi";
+        sha256 = "1f449c9aac92bb18f77aa81290fa9ee81ac5300129e0986c47a4b196211219d1";
+        };
+      };
     rebuild = mkJenkinsPlugin {
       name = "rebuild";
       src = fetchurl {
@@ -523,6 +768,13 @@
       src = fetchurl {
         url = "https://updates.jenkins-ci.org/download/plugins/snakeyaml-api/1.29.1/snakeyaml-api.hpi";
         sha256 = "9f8b34f1e657a4e88349663988b405e2dead6b1f9e737e8fac9736a69b6e5595";
+        };
+      };
+    sse-gateway = mkJenkinsPlugin {
+      name = "sse-gateway";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/sse-gateway/1.24/sse-gateway.hpi";
+        sha256 = "8e9209c8a8a41389a2052c2a22e32ce016386caac9acd2acfb0a3332c2c8d51c";
         };
       };
     ssh-credentials = mkJenkinsPlugin {

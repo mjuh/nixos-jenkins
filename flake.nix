@@ -58,6 +58,7 @@
                           (plugin: "-p ${plugin}")
                           [
                             "ansicolor"
+                            "blueocean"
                             "docker-workflow"
                             "git"
                             "gitlab-branch-source"
