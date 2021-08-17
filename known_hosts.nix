@@ -6,6 +6,21 @@
     publicKeyFile = writeText "dh1.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG1sT9eBoVq3s31h2rv3U13v+Yj3YKxNWlY86sLa2V+c";
   };
+  dh2 = {
+    hostNames = [ "dh2.intr" ];
+    publicKeyFile = writeText "dh2.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMyhcM2Dw+OE1enixmnWZFJOXPhHmrBrh5Iwkj5vvjES";
+  };
+  dh3 = {
+    hostNames = [ "dh3.intr" ];
+    publicKeyFile = writeText "dh3.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMVuiCrPOgvtmFmQqOEofd4+LPs+s+NHi6NGk9BMYnh1";
+  };
+  dh4 = {
+    hostNames = [ "dh4.intr" ];
+    publicKeyFile = writeText "dh4.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIvLe8F4soEq06AUu87FfYegKFTMg0kITfam4jlSG6iV";
+  };
   dh5 = {
     hostNames = [ "dh5.intr" ];
     publicKeyFile = writeText "dh5.pub"
