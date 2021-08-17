@@ -140,7 +140,7 @@
                         nameValuePair
                           name
                           {
-                            hostname = name;
+                            hostname = name + ".intr";
                             profiles = {
                               system = {
                                 # If the previous profile should be re-activated if activation fails.
