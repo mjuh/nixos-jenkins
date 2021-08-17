@@ -14,6 +14,13 @@
         sha256 = "abc97028893c8a71581a5f559ea48e8e1f1a65164faee96dabfed9e95e9abad2";
         };
       };
+    ansicolor = mkJenkinsPlugin {
+      name = "ansicolor";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/ansicolor/1.0.0/ansicolor.hpi";
+        sha256 = "9b774ea4c64ca7b56a6ccae9f07c51921ed13df71496bdab03981e4613074856";
+        };
+      };
     apache-httpcomponents-client-4-api = mkJenkinsPlugin {
       name = "apache-httpcomponents-client-4-api";
       src = fetchurl {
@@ -577,8 +584,8 @@
     workflow-basic-steps = mkJenkinsPlugin {
       name = "workflow-basic-steps";
       src = fetchurl {
-        url = "https://updates.jenkins-ci.org/download/plugins/workflow-basic-steps/2.23/workflow-basic-steps.hpi";
-        sha256 = "1b11a2de09de70a4f61bd015223f490189d1fc7e24eb82da42e187a083bc1c4a";
+        url = "https://updates.jenkins-ci.org/download/plugins/workflow-basic-steps/2.24/workflow-basic-steps.hpi";
+        sha256 = "3cb39af3c0c8a83be7a6ff987901c04940cdf442e02ee44a15c99e829b510506";
         };
       };
     workflow-cps = mkJenkinsPlugin {

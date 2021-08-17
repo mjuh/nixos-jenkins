@@ -57,6 +57,7 @@
                         (map
                           (plugin: "-p ${plugin}")
                           [
+                            "ansicolor"
                             "git"
                             "gitlab-branch-source"
                             "gradle"
