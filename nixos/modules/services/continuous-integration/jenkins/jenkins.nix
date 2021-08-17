@@ -87,6 +87,12 @@ in {
         }/Majordomo_LLC_Root_CA.crt")
     ];
 
+    systemd.services.jenkins.serviceConfig = {
+      TimeoutStartSec = "10min";
+      OOMScoreAdjust = "-1000";
+      PermissionsStartOnly = true;
+    };
+
     vault-secrets = rec {
       # This applies to all secrets
       vaultPrefix = "secret/vaultPass/majordomo";
