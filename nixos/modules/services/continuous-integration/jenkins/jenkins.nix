@@ -87,10 +87,15 @@ in {
         }/Majordomo_LLC_Root_CA.crt")
     ];
 
-    systemd.services.jenkins.serviceConfig = {
-      TimeoutStartSec = "10min";
-      OOMScoreAdjust = "-1000";
-      PermissionsStartOnly = true;
+    systemd.services.jenkins = {
+      preStart = with config.services.jenkins; ''
+        chown -R ${user}:${group} ${home}/plugins
+      '';
+      serviceConfig = {
+        TimeoutStartSec = "10min";
+        OOMScoreAdjust = "-1000";
+        PermissionsStartOnly = true;
+      };
     };
 
     vault-secrets = rec {
