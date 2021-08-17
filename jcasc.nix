@@ -2225,6 +2225,22 @@
         }
       ];
     };
+    jdk = {
+      installations = [
+        {
+          home = pkgs.openjdk;
+          name = "latest";
+        }
+        {
+          home = pkgs.openjdk8;
+          name = "8";
+        }
+        {
+          home = pkgs.openjdk11;
+          name = "11";
+        }
+      ];
+    };
   };
   unclassified = {
     defaultFolderConfiguration = {
