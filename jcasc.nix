@@ -2194,7 +2194,7 @@
       ];
     };
   };
-  tool = {
+  tool = with pkgs; {
     git = {
       installations = [{
         home = "git";
@@ -2204,23 +2204,23 @@
     gradle = {
       installations = [
         {
-          home = "${pkgs.gradle}";
+          home = gradle;
           name = "latest";
         }
         {
-          home = "${pkgs.gradle_4}";
+          home = gradle_4;
           name = "4";
         }
         {
-          home = "${pkgs.gradle_5}";
+          home = gradle_5;
           name = "5";
         }
         {
-          home = "${pkgs.gradle_6}";
+          home = gradle_6;
           name = "6";
         }
         {
-          home = "${pkgs.gradle_7}";
+          home = gradle_7;
           name = "7";
         }
       ];
@@ -2228,11 +2228,11 @@
     jdk = {
       installations = [
         {
-          home = pkgs.openjdk;
+          home = openjdk;
           name = "latest";
         }
         {
-          home = pkgs.openjdk8;
+          home = openjdk8;
           name = "8";
         }
         {
