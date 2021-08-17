@@ -35,6 +35,13 @@
         sha256 = "b1413a1b677e786a53adbf2c3e72aa6e6bf130baa52afa2ecc69d0fd7bc8ebbd";
         };
       };
+    authentication-tokens = mkJenkinsPlugin {
+      name = "authentication-tokens";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/authentication-tokens/1.4/authentication-tokens.hpi";
+        sha256 = "abf3344d603cec6b9a8608ab04b89b7a9fcfa01acc8b0fa049a4bf275e66cc6c";
+        };
+      };
     bootstrap4-api = mkJenkinsPlugin {
       name = "bootstrap4-api";
       src = fetchurl {
@@ -47,6 +54,13 @@
       src = fetchurl {
         url = "https://updates.jenkins-ci.org/download/plugins/bootstrap5-api/5.1.0-1/bootstrap5-api.hpi";
         sha256 = "99f11738abb1ba31c34f439400373284cecfb8fc5bca01d18e48005c6265c085";
+        };
+      };
+    bouncycastle-api = mkJenkinsPlugin {
+      name = "bouncycastle-api";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/bouncycastle-api/2.22/bouncycastle-api.hpi";
+        sha256 = "2795848fdd0005273feb3b632fee5cebbd0a7e37c8b9e39ae87a11646e8a3c44";
         };
       };
     branch-api = mkJenkinsPlugin {
@@ -124,6 +138,27 @@
       src = fetchurl {
         url = "https://updates.jenkins-ci.org/download/plugins/display-url-api/2.3.5/display-url-api.hpi";
         sha256 = "4a418820b9faa7f01cfa990b75ddc67f090809d3f9bd8b95707cd7840eb45209";
+        };
+      };
+    docker-commons = mkJenkinsPlugin {
+      name = "docker-commons";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/docker-commons/1.17/docker-commons.hpi";
+        sha256 = "f8803889d00060616b9611f8f448b1b79e15304bc53c7b6b3f27da3ae39f77f4";
+        };
+      };
+    docker-java-api = mkJenkinsPlugin {
+      name = "docker-java-api";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/docker-java-api/3.1.5.2/docker-java-api.hpi";
+        sha256 = "4b8820691ab7f58a62c5db20ae2c43e19c99cb7d7044f776a85b6689d7dd897e";
+        };
+      };
+    docker-plugin = mkJenkinsPlugin {
+      name = "docker-plugin";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/docker-plugin/1.2.2/docker-plugin.hpi";
+        sha256 = "42f48e96ccd5eb74fbee306a615f8ec18fd0870ada9d07104da480ea3fcdcdac";
         };
       };
     durable-task = mkJenkinsPlugin {
