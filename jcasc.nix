@@ -283,6 +283,7 @@
               port = 22;
               sshHostKeyVerificationStrategy =
                 "knownHostsFileKeyVerificationStrategy";
+              javaPath = "/usr/bin/java";
             };
           };
           name = "dh1";
@@ -331,6 +332,7 @@
               port = 22;
               sshHostKeyVerificationStrategy =
                 "knownHostsFileKeyVerificationStrategy";
+              javaPath = "/usr/bin/java";
             };
           };
           name = "dh2";
@@ -355,6 +357,7 @@
               port = 22;
               sshHostKeyVerificationStrategy =
                 "knownHostsFileKeyVerificationStrategy";
+              javaPath = "/usr/bin/java";
             };
           };
           name = "dh3";
@@ -379,6 +382,7 @@
               port = 22;
               sshHostKeyVerificationStrategy =
                 "knownHostsFileKeyVerificationStrategy";
+              javaPath = "/usr/bin/java";
             };
           };
           name = "dh4";
@@ -403,6 +407,7 @@
               port = 22;
               sshHostKeyVerificationStrategy =
                 "knownHostsFileKeyVerificationStrategy";
+              javaPath = "/run/current-system/sw/bin/java";
             };
           };
           name = "dh5";
