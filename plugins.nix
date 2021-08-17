@@ -56,13 +56,6 @@
         sha256 = "99f11738abb1ba31c34f439400373284cecfb8fc5bca01d18e48005c6265c085";
         };
       };
-    bouncycastle-api = mkJenkinsPlugin {
-      name = "bouncycastle-api";
-      src = fetchurl {
-        url = "https://updates.jenkins-ci.org/download/plugins/bouncycastle-api/2.22/bouncycastle-api.hpi";
-        sha256 = "2795848fdd0005273feb3b632fee5cebbd0a7e37c8b9e39ae87a11646e8a3c44";
-        };
-      };
     branch-api = mkJenkinsPlugin {
       name = "branch-api";
       src = fetchurl {
@@ -147,18 +140,11 @@
         sha256 = "f8803889d00060616b9611f8f448b1b79e15304bc53c7b6b3f27da3ae39f77f4";
         };
       };
-    docker-java-api = mkJenkinsPlugin {
-      name = "docker-java-api";
+    docker-workflow = mkJenkinsPlugin {
+      name = "docker-workflow";
       src = fetchurl {
-        url = "https://updates.jenkins-ci.org/download/plugins/docker-java-api/3.1.5.2/docker-java-api.hpi";
-        sha256 = "4b8820691ab7f58a62c5db20ae2c43e19c99cb7d7044f776a85b6689d7dd897e";
-        };
-      };
-    docker-plugin = mkJenkinsPlugin {
-      name = "docker-plugin";
-      src = fetchurl {
-        url = "https://updates.jenkins-ci.org/download/plugins/docker-plugin/1.2.2/docker-plugin.hpi";
-        sha256 = "42f48e96ccd5eb74fbee306a615f8ec18fd0870ada9d07104da480ea3fcdcdac";
+        url = "https://updates.jenkins-ci.org/download/plugins/docker-workflow/1.26/docker-workflow.hpi";
+        sha256 = "de5b98f918fcf228d39eb2aa6c9a133e95b7f187839b4941cd08252ffca0fd3c";
         };
       };
     durable-task = mkJenkinsPlugin {

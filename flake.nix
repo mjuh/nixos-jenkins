@@ -58,6 +58,7 @@
                           (plugin: "-p ${plugin}")
                           [
                             "ansicolor"
+                            "docker-workflow"
                             "git"
                             "gitlab-branch-source"
                             "gradle"
