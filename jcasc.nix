@@ -2192,7 +2192,7 @@
   tool = {
     git = {
       installations = [{
-        home = "${pkgs.git}/bin/git";
+        home = "git";
         name = "default";
       }];
     };
