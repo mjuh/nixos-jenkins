@@ -65,6 +65,7 @@
                             "hashicorp-vault-plugin"
                             "junit"
                             "lockable-resources"
+                            "pipeline-utility-steps"
                             "nexus-jenkins-plugin"
                             "slack"
                             "ssh-slaves"

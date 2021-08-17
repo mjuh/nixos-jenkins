@@ -427,6 +427,13 @@
         sha256 = "5dee54199a33e8f959e4e35b8c265713b11768086d20a8c1dd596ddfe45297ce";
         };
       };
+    pipeline-utility-steps = mkJenkinsPlugin {
+      name = "pipeline-utility-steps";
+      src = fetchurl {
+        url = "https://updates.jenkins-ci.org/download/plugins/pipeline-utility-steps/2.8.0/pipeline-utility-steps.hpi";
+        sha256 = "c0f7ef1b97f54a78e70171648e487ffda9d7c095940ae952049ebedf68c01fef";
+        };
+      };
     plain-credentials = mkJenkinsPlugin {
       name = "plain-credentials";
       src = fetchurl {
