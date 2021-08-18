@@ -1312,7 +1312,7 @@
       }
       {
         permanent = {
-          labelString = "kvm-template-builder";
+          labelString = "kvm-template-builder prometheus-server";
           launcher = {
             ssh = {
               credentialsId = "jenkins-ssh-deploy";
