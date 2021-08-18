@@ -173,7 +173,7 @@
                               };
                             };
                           })
-                      nixosConfigurations);
+                      (filterAttrs (name: nixos: name != "vm") nixosConfigurations));
 
                 checks =
                   builtins.mapAttrs
