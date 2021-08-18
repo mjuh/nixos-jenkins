@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, system, ... }: {
+{ pkgs, lib, options, inputs, system, ... }: {
   # Use the GRUB 2 boot loader.
   boot = {
     initrd = {
@@ -48,9 +48,7 @@
   '';
 
   services = {
-    openssh = {
-      enable = true;
-    };
+    openssh = { enable = true; };
 
     dbus.enable = true;
     ci = {
@@ -79,6 +77,348 @@
         { name = "tests"; }
         { name = "utils"; }
         { name = "webservices"; }
+      ];
+      jcasc.jenkins.nodes = options.services.ci.jcasc.default.jenkins.nodes
+        ++
+        (map (host: {
+          permanent = {
+            inherit (host) name labelString;
+            launcher = {
+              ssh = {
+                credentialsId = "jenkins-ssh-deploy";
+                host = host.name + ".intr";
+                port = 22;
+                sshHostKeyVerificationStrategy =
+                  "knownHostsFileKeyVerificationStrategy";
+              };
+            };
+            nodeDescription = host.name;
+            numExecutors = 1;
+            remoteFS = "/home/jenkins";
+            retentionStrategy = {
+              demand = {
+                idleDelay = 1;
+                inDemandDelay = 0;
+              };
+            };
+          };
+        })) [
+        {
+          labelString = "restic backup";
+          name = "bareos";
+        }
+        {
+          labelString = "pxe elk";
+          name = "chef-server";
+        }
+        {
+          labelString = "dhost-production";
+          name = "dh1";
+        }
+        {
+          labelString = "js";
+          name = "ci";
+        }
+        {
+          labelString = "dhost-production";
+          name = "dh2";
+        }
+        {
+          labelString = "dhost-production";
+          name = "dh3";
+        }
+        {
+          labelString = "dhost-development";
+          name = "dh4";
+        }
+        {
+          labelString = "dhost-development";
+          name = "dh5";
+        }
+        {
+          labelString = "elk";
+          name = "fluentd";
+        }
+        {
+          labelString = "production";
+          name = "hms01";
+        }
+        {
+          labelString = "production";
+          name = "hms02";
+        }
+        {
+          labelString = "production";
+          name = "hms03";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm1";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm10";
+        }
+        {
+          labelString = "kvm kvmbionic kvm-template-builder";
+          name = "kvm11";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm12";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm13";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm14";
+        }
+        {
+          labelString = "kvm kvm-template-builder";
+          name = "kvm15";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm16";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm17";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm19";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm2";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm20";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm21";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm22";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm23";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm24";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm25";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm26";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm27";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm28";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm29";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm30";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm31";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm32";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm33";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm34";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm35";
+        }
+        {
+          labelString = "";
+          name = "kvm36";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm37";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm5";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm6";
+        }
+        {
+          labelString = "kvm kvmbionic";
+          name = "kvm9";
+        }
+        {
+          labelString = "kvm-template-builder";
+          name = "mx1-mr";
+        }
+        {
+          labelString = "kvm-template-builder prometheus-server";
+          name = "mx2-mr";
+        }
+        {
+          labelString = "mail-production webmail-mr smtp-out";
+          name = "webmail1-mr";
+        }
+        {
+          labelString = "mail-production webmail-mr smtp-out";
+          name = "webmail2-mr";
+        }
+        {
+          labelString = "nginx-mr";
+          name = "nginx1";
+        }
+        {
+          labelString = "nginx-mr";
+          name = "nginx2";
+        }
+        {
+          labelString = "dns-production";
+          name = "ns1-dh";
+        }
+        {
+          labelString = "dns-production";
+          name = "ns1-mr";
+        }
+        {
+          labelString = "dns-production";
+          name = "ns2-dh";
+        }
+        {
+          labelString = "dns-production";
+          name = "ns2-mr";
+        }
+        {
+          labelString = "pop";
+          name = "pop1";
+        }
+        {
+          labelString = "pop pop-nix";
+          name = "pop2";
+        }
+        {
+          labelString = "pop elk";
+          name = "pop5";
+        }
+        {
+          labelString = "web";
+          name = "web15";
+        }
+        {
+          labelString = "web";
+          name = "web16";
+        }
+        {
+          labelString = "web";
+          name = "web17";
+        }
+        {
+          labelString = "web";
+          name = "web18";
+        }
+        {
+          labelString = "web";
+          name = "web19";
+        }
+        {
+          labelString = "web";
+          name = "web20";
+        }
+        {
+          labelString = "web";
+          name = "web21";
+        }
+        {
+          labelString = "web";
+          name = "web22";
+        }
+        {
+          labelString = "web";
+          name = "web23";
+        }
+        {
+          labelString = "web";
+          name = "web25";
+        }
+        {
+          labelString = "web";
+          name = "web26";
+        }
+        {
+          labelString = "web";
+          name = "web27";
+        }
+        {
+          labelString = "web";
+          name = "web28";
+        }
+        {
+          labelString = "web";
+          name = "web29";
+        }
+        {
+          labelString = "web";
+          name = "web30";
+        }
+        {
+          labelString = "web";
+          name = "web31";
+        }
+        {
+          labelString = "web";
+          name = "web32";
+        }
+        {
+          labelString = "web";
+          name = "web33";
+        }
+        {
+          labelString = "web";
+          name = "web34";
+        }
+        {
+          labelString = "web";
+          name = "web35";
+        }
+        {
+          labelString = "web";
+          name = "web36";
+        }
+        {
+          labelString = "web";
+          name = "web37";
+        }
       ];
     };
 
@@ -164,7 +504,6 @@
     file
     findutils
     gcc9
-    git
     gron
     htop
     iotop
