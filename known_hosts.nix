@@ -201,9 +201,9 @@
     publicKeyFile = writeText "nginx3.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFdqPFP16/C12LOgKVXbcvz0zP0l1unrqC1ogsXRp6h0";
   };
-  nginx4 = {
-    hostNames = [ "nginx4.intr" ];
-    publicKeyFile = writeText "nginx4.pub"
+  mx2-mr = {
+    hostNames = [ "mx2-mr.intr" ];
+    publicKeyFile = writeText "mx2-mr.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP/35T/WQeT99SS9sXb9GGHUVDH4cpNe9x2pGcthU1ER";
   };
   ns1-dh = {
