@@ -195,6 +195,17 @@ in {
                 }
 
                 {
+                  vaultStringCredentialImpl = {
+                    description = "security@majordomo.ru password";
+                    path = "secret/vaultPass/majordomo/smtp.majordomo.ru";
+                    vaultKey = "security@majordomo.ru";
+                    engineVersion = 2;
+                    id = "EMAIL_PASSWORD_SECURITY";
+                    scope = "GLOBAL";
+                  };
+                }
+
+                {
                   vaultUsernamePasswordCredentialImpl = {
                     description = "Gradle user for nexus.intr";
                     engineVersion = 2;
