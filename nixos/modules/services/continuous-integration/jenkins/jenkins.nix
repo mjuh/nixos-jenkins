@@ -45,6 +45,19 @@ in {
                   };
                 }
 
+                # Same as gitlabPersonalAccessToken but a type which works
+                # with "credentials()" in Jenkins Groovy DSL.
+                {
+                  vaultStringCredentialImpl = {
+                    description = "gitlab.intr personal access token";
+                    path = "secret/vaultPass/majordomo/gitlab.intr";
+                    vaultKey = "personal-access-token";
+                    engineVersion = 2;
+                    id = "GITLAB_JENKINS_API_KEY";
+                    scope = "GLOBAL";
+                  };
+                }
+
                 {
                   basicSSHUserPrivateKey = {
                     description = "jenkins-ssh-deploy";
