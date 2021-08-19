@@ -460,12 +460,20 @@ in {
             url = "https://jenkins.intr/";
           };
           lockableResourcesManager = {
-            declaredResources = [{
-              description = "";
-              labels = "";
-              name = "git@gitlab.intr:_ci/docker-stacks.git";
-              reservedBy = "";
-            }];
+            declaredResources = [
+              {
+                description = "";
+                labels = "";
+                name = "git@gitlab.intr:_ci/docker-stacks.git";
+                reservedBy = "";
+              }
+              {
+                description = "";
+                labels = "";
+                name = "docker-registry";
+                reservedBy = "";
+              }
+            ];
           };
           mavenModuleSet = { localRepository = "default"; };
           pollSCM = { pollingThreadCount = 10; };
