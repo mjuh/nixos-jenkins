@@ -531,6 +531,7 @@
     unzip
     wget
     yq
+    yarn
   ];
 
   environment.interactiveShellInit = ''
