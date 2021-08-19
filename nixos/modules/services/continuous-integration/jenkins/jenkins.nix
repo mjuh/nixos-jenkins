@@ -682,6 +682,22 @@ in {
               sendfile on;
             '';
           };
+          "cache.nixos.intr" = with inputs.ssl-certificates.packages.${system}; {
+            addSSL = true;
+            #        forceSSL = false;
+            sslCertificate =
+              "${certificates}/ssl/cache.nixos.intr.pem";
+            sslCertificateKey =
+              "${certificates}/ssl/cache.nixos.intr.key";
+            locations."/".extraConfig = ''
+              proxy_pass http://localhost:${
+                toString config.services.nix-serve.port
+              };
+              proxy_set_header Host $host;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            '';
+          };
         };
       };
     };
