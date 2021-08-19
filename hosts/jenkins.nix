@@ -78,8 +78,8 @@
         { name = "utils"; }
         { name = "webservices"; }
       ];
-      jcasc.jenkins.nodes = options.services.ci.jcasc.default // {
-        jcasc.jenkins.nodes = (options.services.ci.jcasc.default.jenkins.nodes
+      jcasc = options.services.ci.jcasc.default // {
+        jenkins.nodes = (options.services.ci.jcasc.default.jenkins.nodes
           ++ (map (host: {
             permanent = {
               inherit (host) name labelString;
