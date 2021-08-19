@@ -96,7 +96,7 @@ in {
                 {
                   vaultStringCredentialImpl = {
                     description = "OFFICE_SSL-CERTIFICATES";
-                    path = "secret/vaultPass/cfssl.intr";
+                    path = "secret/vaultPass/majordomo/cfssl.intr";
                     vaultKey = "password";
                     engineVersion = 2;
                     id = "OFFICE_SSL-CERTIFICATES";
