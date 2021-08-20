@@ -384,7 +384,7 @@ in {
                 name = "5";
               }
               {
-                home = gradle_6;
+                home = (gradleGen.override { java = openjdk11; }).gradle_6_8;
                 name = "6";
               }
               {
