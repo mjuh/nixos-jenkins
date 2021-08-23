@@ -392,7 +392,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDjaT3qWzQ74bXfqf8XhJE7bWi0Q7M+CAp4BGD1JXNGx";
   };
   staff = {
-    hostName = [ "staff.intr" ];
+    hostNames = [ "staff.intr" ];
     publicKeyFile = writeText "staff.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMhMAuWky46KWGCtkjkpIYLXWXtpsQxRTlg4+rwDMNBN";
   };
