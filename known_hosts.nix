@@ -379,16 +379,16 @@
   pop5 = {
     hostNames = [ "pop5.intr" ];
     publicKeyFile = writeText "pop5.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJe8vsFmHT8llRa+6IkauSZoursCYbRxOk3Yeyr879pE"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJe8vsFmHT8llRa+6IkauSZoursCYbRxOk3Yeyr879pE";
   };
   chef-server = {
     hostNames = [ "chef-server.intr" ];
     publicKeyFile = writeText "chef-server.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMEio+hXB7WrQ8zxCSQXstZv9fL/23MHxZ4Tg4dMs38b"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMEio+hXB7WrQ8zxCSQXstZv9fL/23MHxZ4Tg4dMs38b";
   };
   fluentd = {
     hostNames = [ "fluentd.intr" ];
     publicKeyFile = writeText "fluentd.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDjaT3qWzQ74bXfqf8XhJE7bWi0Q7M+CAp4BGD1JXNGx"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDjaT3qWzQ74bXfqf8XhJE7bWi0Q7M+CAp4BGD1JXNGx";
   };
 }
