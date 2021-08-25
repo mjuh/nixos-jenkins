@@ -160,7 +160,7 @@
               name = "kvm10";
             }
             {
-              labelString = "kvm kvmbionic kvm-template-builder";
+              labelString = "kvm kvmbionic";
               name = "kvm11";
             }
             {
@@ -280,11 +280,7 @@
               name = "kvm9";
             }
             {
-              labelString = "kvm-template-builder";
-              name = "mx1-mr";
-            }
-            {
-              labelString = "kvm-template-builder prometheus-server";
+              labelString = "prometheus-server";
               name = "mx2-mr";
             }
             {
@@ -324,7 +320,7 @@
               name = "pop1";
             }
             {
-              labelString = "pop pop-nix";
+              labelString = "pop pop-nix kvm-template-builder";
               name = "pop2";
             }
             {
