@@ -286,11 +286,6 @@
     publicKeyFile = writeText "web23.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0lbZoEBB7tPcRWT8ChgBK1wYmtr9pTxlbsdEuszQiY";
   };
-  web24 = {
-    hostNames = [ "web24.intr" ];
-    publicKeyFile = writeText "web24.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGRYjTYmhLnhlVox2/V+zue8sNRA39t63Azz6Dp9aKEQ";
-  };
   web25 = {
     hostNames = [ "web25.intr" ];
     publicKeyFile = writeText "web25.pub"
@@ -395,5 +390,10 @@
     hostNames = [ "staff.intr" ];
     publicKeyFile = writeText "staff.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMhMAuWky46KWGCtkjkpIYLXWXtpsQxRTlg4+rwDMNBN";
+  };
+  es2 = {
+    hostNames = [ "es2.intr" ];
+    publicKeyFile = writeText "es2.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKWKxxJF202dzNUm7jxmErGtzfvjGsqJSxBaG1fFj/jL";
   };
 }

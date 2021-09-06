@@ -108,7 +108,7 @@
               name = "bareos";
             }
             {
-              labelString = "pxe elk";
+              labelString = "pxe";
               name = "chef-server";
             }
             {
@@ -138,6 +138,10 @@
             {
               labelString = "elk";
               name = "fluentd";
+            }
+            {
+              labelString = "elk";
+              name = "es2";
             }
             {
               labelString = "production";
