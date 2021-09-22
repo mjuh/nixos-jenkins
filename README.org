@@ -1,7 +1,25 @@
-* Testing in a virtual machine
+NixOS Jenkins is a configuration to setup a GNU/Linux system with Jenkins
+continuous integration service.
+
+Almost everything is defined as Nix expressions, including [[https://www.jenkins.io/projects/jcasc/][Jenkins JCASC]]
+plugin.
+
+* Requirements
+
+The latest version of [[https://nixos.org/][Nix package manager]].
+
+* Building from Git
 
 #+begin_src bash
   nix build .#nixosConfigurations.vm.config.system.build.vm -L
+#+end_src
+
+You need to forward the SSH port, 22 by default, to the host.  You can do this with:
+#+begin_src bash
   result/bin/run-vmhost-vm -nic user,model=virtio-net-pci,hostfwd=tcp::10022-:22
+#+end_src
+
+To connect to the VM you can run
+#+begin_src bash
   ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 -l vm localhost
 #+end_src
