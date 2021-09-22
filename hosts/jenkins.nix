@@ -555,4 +555,21 @@
     sup
     security
   ];
+
+  users.users.veretelnikov = {
+    description = "Roman Veretelnikov";
+    uid = 1003;
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [
+      "no-touch-required sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBJF2yJWXX93EEZs89naMaJqpoNfuNHTZPCYs9laTdgK9Nq1n6N8iDO00O+2yX6gfY9/aeWzezZEjbHUoahlf31cAAAAEc3NoOg== dims@workplace.local"
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC6Vxd16qVDmY+KEzLh3ChROAcY7REa7hWai+BtBBUy3YTodDr2Lsjn2qLXbAwplu7ZvM+q8hsAV78DtCq9vvnzgyr0+dXrMqH8ZfgzE5kgpiXiAa4QvjBgnqS86cUQKRx3XjkH8sq0mnti4d+nYvdKXmQQWiOQlp5MnyA3uIBK5c0sGD7Ly8HwS4E3nigFhn04uaANJtHAgIMWaL/vQ+6XIw5gpKcHyVnVXxMaZCCFYhmruNhWIo4stucdn2lO7o8osxFJ7WIBqmCqFM7YaomnKzwqH7W6jCxi4enGCiWpwwXfphbP0rOskhWP6TDAgVI5RtO4yXaRYxvF7CnFM14sjl6bMdeYEFRkpYVXiClkV59iHIEwOSFbznUEBrf3TcBji/cwI0prtFFHKiejjWMmBuCKp+qCtYFcFy2U3MTgTsnt376It39DHFvgxdo3yQEWHNtsckyx7sZvdkAk4HWfe/V5HRm3xuPc30JI8f+Qp1J5qX3hEaQ5HOglhjgMKGFPGoz1uLRHtUTVRZRgFTEBizFVwwdEZBdLelY142d/zrBUgj0fM4aSGWm6cy/jTlpl+eAQVRzeeyUOBcQROqwANaYTY5khS+nTR88iNWb1Rw0MPuWN8Si6wAked86SOeLecYqeuIIOLscnhPdGBx+IZz2B8ouqA8A2Ty4qNNBfGQ== cardno:000611584224"
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD2XLYoULGOplafJzAs6A4bOeYL1UbfG7sEnWemHRteHJ33wNiSc+DghyWFmy0Tn7U08cq9yYt0CR+j+L5hELluRi6mCu9r7nyU9l14BtJC2Y5Ls0H2Qk65xIyI79s7C8i15P1XNr+bVT2+z+iwkIFOGudp2PW3YA9AuRiQfdN8807cYdlJfU9sPvIjF+Nu/m7Kvy8f/ocsUHvcAnjpFvrFoUbH25sc+sXX8b6rMKktQP75tjluM/g8n26xvWMyxiYd+FC04u7onDBiGF5vq2p1wT//vZ+d6em0JQntlAh4P5L6nVuu0Q9kZScECwBsafaJnHRfLHD6HB6fw0B77OKI8C9d7d6Gewg7/FnCGOJxsvUIdvgsViuZhcEe04ej9acihQShDsTGEzf1PAExGv8zy6Zs/vMvIaqIYgSDDs5lnSanLYMFgOteUtpKizu3JoCAdg+9gtusbApIgfy8e8N6EfMmwNVnV/tqDGlgCAkNCCvPedDw0FPWk6QamVcMhPkfwTGXKuoMv6cWfID6FJ6gRyooHF8I0sQ7qBGiN9grXB7mkkWIhlIBF7zUYSLL2G8JLECYI+/DR1/XV5vxMmSV4jepbupx8REJ632+rSdRw0m2PVhCWUlorDPo0jH5q6olQSXOp+WrEMkIHhoCId5ajYCLEGOEfK43tNMkHCl9cw== cardno:000611064215"
+      "no-touch-required sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBM+VOYZWXHy6wSQt8QCoAX6vymNvDlkRMGomJgmQJnUxKG0BFoPpEswTcnzLlJWo+WOzWjaeoFkbttoWRiXvzn4AAAAEc3NoOg== cyberfunk@cyberfunk"
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDODo3D1hz8PUbX6EDHHGP7vNJb6tXujzS4gxcqQ9vEndxE110N9aXfgo0voh10upvC3es2GJlhZ/tiDPBsi9ZB0bdRKRkS0r8pTUHKgj4nWsMHRo/47luhS9EAFAb/dFLPADMvs/O1LuaHQIlpbx5JCV/LRP3jJ/6OTS/qdMrYazHo2gsfZOvsfjlwC/sq9pHI/c/O6sd/OT4cvEKoyx9NRPHi7fhdd3twVge1b5T2sekUkX9t6ri9Mjha4wQRXijRhFQJK36K2DYI59aWs+0e7cGniESD+8Q8LzCwTi8ogCLxAcIp5PsD6smbvuiH3BH77fOfTRBQeXCOrAj/w95V roman@iMac-Roman.local"
+    ];
+  };
+  security.sudo.extraConfig = ''
+    veretelnikov ALL=(ALL:ALL) NOPASSWD:ALL
+  '';
 }
