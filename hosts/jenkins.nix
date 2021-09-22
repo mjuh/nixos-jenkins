@@ -45,6 +45,7 @@
   security.sudo.extraConfig = ''
     jenkins ALL=(ALL:ALL) NOPASSWD:ALL
     zabbix-agent ALL=(ALL:ALL) NOPASSWD:ALL
+    veretelnikov ALL=(ALL:ALL) NOPASSWD:ALL
   '';
 
   services = {
@@ -569,7 +570,4 @@
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDODo3D1hz8PUbX6EDHHGP7vNJb6tXujzS4gxcqQ9vEndxE110N9aXfgo0voh10upvC3es2GJlhZ/tiDPBsi9ZB0bdRKRkS0r8pTUHKgj4nWsMHRo/47luhS9EAFAb/dFLPADMvs/O1LuaHQIlpbx5JCV/LRP3jJ/6OTS/qdMrYazHo2gsfZOvsfjlwC/sq9pHI/c/O6sd/OT4cvEKoyx9NRPHi7fhdd3twVge1b5T2sekUkX9t6ri9Mjha4wQRXijRhFQJK36K2DYI59aWs+0e7cGniESD+8Q8LzCwTi8ogCLxAcIp5PsD6smbvuiH3BH77fOfTRBQeXCOrAj/w95V roman@iMac-Roman.local"
     ];
   };
-  security.sudo.extraConfig = ''
-    veretelnikov ALL=(ALL:ALL) NOPASSWD:ALL
-  '';
 }
