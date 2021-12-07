@@ -504,7 +504,7 @@
   environment.systemPackages = with pkgs; [
     bind
     file
-    findutils
+    findutils ripgrep
     gcc9
     gron
     htop
