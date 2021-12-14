@@ -67,7 +67,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHNqf5mPe7hAUT6EDt56ai+aBoLjTTGNvwFcdDzuvLOK";
   };
   kvm15 = {
-    hostNames = [ "kvm15.intr" ];
+    hostNames = [ "kvm15.intr" "es2.intr" ];
     publicKeyFile = writeText "kvm15.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAiRHSHc2dew4YW4bRmkEycafLrBNELQPjh08LTjLBgA";
   };
@@ -395,10 +395,5 @@
     hostNames = [ "staff.intr" ];
     publicKeyFile = writeText "staff.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMhMAuWky46KWGCtkjkpIYLXWXtpsQxRTlg4+rwDMNBN";
-  };
-  es2 = {
-    hostNames = [ "es2.intr" ];
-    publicKeyFile = writeText "es2.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKWKxxJF202dzNUm7jxmErGtzfvjGsqJSxBaG1fFj/jL";
   };
 }
