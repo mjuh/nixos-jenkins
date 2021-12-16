@@ -362,12 +362,12 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA2ndToN39OkURjT651QwfFAW8aQLed6cpAAioKpWVt";
   };
   webmail1 = {
-    hostNames = [ "webmail1" ];
+    hostNames = [ "webmail1.intr" ];
     publicKeyFile = writeText "webmail1.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAqshIuxkqMXa3/rg6pLBkOcfGNWCyuhwOOsAitmmeNV";
   };
   webmail2 = {
-    hostNames = [ "webmail2" ];
+    hostNames = [ "webmail2.intr" ];
     publicKeyFile = writeText "webmail2.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBO6X+yRi7xbr8iqOT3th7frxf6vjvp08yqyGrbg7AXT";
   };
