@@ -22,6 +22,7 @@
     };
     nixpkgs-20-09.url = "nixpkgs/nixos-20.09";
     vault-secrets.url = "git+https://github.com/serokell/vault-secrets";
+    home-manager.url = "github:nix-community/home-manager";
   };
 
   outputs = { self
@@ -35,12 +36,14 @@
             , nix-flake-common
             , zabbix-agentd-conf
             , vault-secrets
+            , home-manager
             , ... } @ inputs:
               let
                 system = "x86_64-linux";
                 pkgs = import nixpkgs { inherit system; };
                 pkgs-unstable = import nixpkgs-unstable { inherit system; };
                 inherit (pkgs) lib;
+                hm = import home-manager { inherit system; };
               in rec {
                 packages.${system} = rec {
                   jdk11 = jdk;
@@ -170,6 +173,23 @@
                                 sshUser = "jenkins";
 
                                 user = "root";
+                              };
+                              jenkins = rec {
+                                user = "jenkins";
+                                sshUser = user;
+                                profilePath = "/nix/var/nix/profiles/per-user/${user}/home-manager";
+                                autoRollback = false;
+                                magicRollback = false;
+                                path = deploy-rs.lib.${system}.activate.home-manager (home-manager.lib.homeManagerConfiguration {
+                                  inherit pkgs system;
+                                  extraSpecialArgs = {
+                                    inherit pkgs inputs;
+                                    inherit (self) nixosConfigurations;
+                                  };
+                                  homeDirectory = "/home/${user}";
+                                  username = user;
+                                  configuration = ./home-manager/configuration.nix;
+                                });
                               };
                             };
                           })
