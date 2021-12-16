@@ -231,10 +231,20 @@
     publicKeyFile = writeText "ns2-mr.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEQlrpFyq9rahU87YDNjL/+tNeMaYgTjWvbsD22KvnjX";
   };
+  pop1 = {
+    hostNames = [ "pop1.intr" ];
+    publicKeyFile = writeText "pop1.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDwQvaJq/AvAHbGnwA5/wz6A6L/9d2ti6dfW0naw1XgS";
+  };
   pop2 = {
     hostNames = [ "pop2.intr" ];
     publicKeyFile = writeText "pop2.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG1pxA7ntoj3UrdnNa5iZyVeoYJpf/PNWOYaGVQFTC83";
+  };
+  pop5 = {
+    hostNames = [ "pop5.intr" ];
+    publicKeyFile = writeText "pop5.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOC9Km+6vSadrdKv08OnMB+J3ZjwHMYAEXnoW3HXYZZZ";
   };
   router1 = {
     hostNames = [ "router1.intr" ];
@@ -375,11 +385,6 @@
     hostNames = [ "webmail3.intr" ];
     publicKeyFile = writeText "webmail3.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF4x35Z4qnL+uribDncs9aQOMAMOqKmjGE9ugDLEw3Be";
-  };
-  pop5 = {
-    hostNames = [ "pop5.intr" ];
-    publicKeyFile = writeText "pop5.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJe8vsFmHT8llRa+6IkauSZoursCYbRxOk3Yeyr879pE";
   };
   chef-server = {
     hostNames = [ "chef-server.intr" ];
