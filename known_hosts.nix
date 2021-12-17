@@ -6,6 +6,11 @@
     publicKeyFile = writeText "bareos.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMvfnIhhOcbQvQuCOHkCFyvw/5hxIuCkGX3Hw5HeUsRU";
   };
+  ci = {
+    hostNames = [ "ci.intr" ];
+    publicKeyFile = writeText "ci.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMuoVDym2GI2U57ibfQxrUSw0Tn354aZf+Ojf3mKY43i";
+  };
   dh1 = {
     hostNames = [ "dh1.intr" ];
     publicKeyFile = writeText "dh1.pub"
