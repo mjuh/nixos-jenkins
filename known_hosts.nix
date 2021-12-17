@@ -406,4 +406,24 @@
     publicKeyFile = writeText "staff.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMhMAuWky46KWGCtkjkpIYLXWXtpsQxRTlg4+rwDMNBN";
   };
+  sup1 = {
+    hostNames = [ "172.16.107.41" ];
+    publicKeyFile = writeText "sup1.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQbrBq3ZuHO8j+iTi8e1OV3JFqtXLbmqxSoDO+YPjON";
+  };
+  sup2 = {
+    hostNames = [ "172.16.107.42" ];
+    publicKeyFile = writeText "sup2.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPfA7QfWl3O1o3Ek4mdNVL9RYDOYGSYozyx52ui6NHbq";
+  };
+  sup3 = {
+    hostNames = [ "172.16.107.43" ];
+    publicKeyFile = writeText "sup3.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDj4szVjJae1LQiHOj5b7+0+xWsrjfhNb/yv6O5CevIg";
+  };
+  sup4 = {
+    hostNames = [ "172.16.107.44" ];
+    publicKeyFile = writeText "sup4.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhBBXj6kwe4nRmZXt5MNzJbL3X1AnSbUqhYUFE2eIdJ";
+  };
 }
