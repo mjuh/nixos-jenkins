@@ -407,6 +407,10 @@ in {
                 home = pkgs.openjdk11;
                 name = "11";
               }
+              {
+                home = pkgs.openjdk14;
+                name = "14";
+              }
             ];
           };
         };

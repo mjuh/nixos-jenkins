@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-21.05";
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
+    nixpkgs-deprecated = {
+      url = "github:nixos/nixpkgs/ef7c2d3cea3714d24669e16c290dcc8ffb703c3b";
+      flake = false;
+    };
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -29,6 +33,7 @@
             , nixpkgs
             , nixpkgs-unstable
             , nixpkgs-vulnix
+            , nixpkgs-deprecated
             , flake-utils
             , deploy-rs
             , majordomo
@@ -42,6 +47,7 @@
                 system = "x86_64-linux";
                 pkgs = import nixpkgs { inherit system; };
                 pkgs-unstable = import nixpkgs-unstable { inherit system; };
+                pkgs-deprecated = import nixpkgs-deprecated { inherit system; };
                 inherit (pkgs) lib;
                 hm = import home-manager { inherit system; };
               in rec {
@@ -93,6 +99,9 @@
 
                   inherit (pkgs-unstable)
                     jenkins;
+
+                  inherit (pkgs-deprecated)
+                    openjdk14;
                 };
 
                 apps.${system}.jenkins-update-plugins = flake-utils.lib.mkApp {
