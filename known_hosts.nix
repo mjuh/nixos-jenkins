@@ -1,6 +1,11 @@
 { writeText }:
 
 {
+  backup = {
+    hostNames = [ "backup.intr" ];
+    publicKeyFile = writeText "backup.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL6+2glj3YytDgU7sPYkl4ujvzZH7+fYuaTkViWyuMac";
+  };
   bareos = {
     hostNames = [ "bareos.intr" ];
     publicKeyFile = writeText "bareos.pub"
