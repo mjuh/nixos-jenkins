@@ -371,6 +371,11 @@
     publicKeyFile = writeText "web37.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN4Jq6nmRgvwm0XTUrpfUj+53pNx04nOWeUs//ryga6a";
   };
+  web38 = {
+    hostNames = [ "web38.intr" ];
+    publicKeyFile = writeText "web38.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4+zDQ8cRF5W3hHFlftnd8OICK9Vf/VyUqNKDhiabp6";
+  };
   web98 = {
     hostNames = [ "web98.intr" ];
     publicKeyFile = writeText "web98.pub"
