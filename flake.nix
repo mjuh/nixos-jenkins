@@ -27,6 +27,7 @@
     nixpkgs-20-09.url = "nixpkgs/nixos-20.09";
     vault-secrets.url = "git+https://github.com/serokell/vault-secrets";
     home-manager.url = "github:nix-community/home-manager";
+    guix.url = "github:foo-dogsquared/nix-overlay-guix";
   };
 
   outputs = { self
@@ -42,6 +43,7 @@
             , zabbix-agentd-conf
             , vault-secrets
             , home-manager
+            , guix
             , ... } @ inputs:
               let
                 system = "x86_64-linux";
@@ -102,6 +104,8 @@
 
                   inherit (pkgs-deprecated)
                     openjdk14;
+
+                  inherit (guix.packages.${system}) guix_binary_1_3_0;
                 };
 
                 apps.${system}.jenkins-update-plugins = flake-utils.lib.mkApp {
@@ -136,6 +140,7 @@
                             modules = [
                               host
                               vault-secrets.nixosModules.vault-secrets
+                              guix.nixosModules.guix-binary
                             ] ++ (attrValues self.nixosModules)
                               ++ (if name == "vm" then [(pkgs.path + /nixos/modules/virtualisation/qemu-vm.nix)] else []);
                             specialArgs = {
