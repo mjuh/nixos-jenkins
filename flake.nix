@@ -129,7 +129,9 @@
                     (host: hosts:
                       hosts //
                       (let
-                        name = removeSuffix ".nix" (builtins.baseNameOf host); in {
+                        name = removeSuffix ".nix" (builtins.baseNameOf host);
+                        hostName = removeSuffix ".nix" (builtins.baseNameOf host);
+                      in {
                         ${name} =
                           nixpkgs.lib.nixosSystem {
                             pkgs = import nixpkgs {
@@ -138,6 +140,7 @@
                             };
                             inherit system;
                             modules = [
+                              self.nixosModules."hardware-${hostName}"
                               host
                               vault-secrets.nixosModules.vault-secrets
                               guix.nixosModules.guix-binary

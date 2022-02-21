@@ -1,36 +1,16 @@
-{ pkgs, lib, options, inputs, system, ... }: {
+{ config, pkgs, lib, options, inputs, system, ... }: {
   # Use the GRUB 2 boot loader.
-  boot = {
-    initrd = {
-      availableKernelModules =
-        [ "uhci_hcd" "ehci_pci" "ahci" "aacraid" "usbhid" "sd_mod" "sr_mod" ];
-      kernelModules = [ "kvm-intel" ];
-    };
-    extraModulePackages = [ ];
-    loader.grub.enable = true;
-    loader.grub.version = 2;
-    loader.grub.devices = [ "/dev/sda" "/dev/sdb" ];
-    kernelParams = [ "mitigations=off" "aacraid.expose_physicals=1" ];
-    kernel.sysctl = {
-      "kernel.sysrq" = 1;
-      "dev.raid.speed_limit_min" = 10000;
-      "dev.raid.speed_limit_max" = 90000;
-      "vm.overcommit_memory" = "1";
-    };
-
-    # remove the fsck that runs at startup. It will always fail to run, stopping
-    # your boot until you press *.
-    initrd.checkJournalingFS = false;
-  };
-
-  fileSystems = {
-    "/".device = "/dev/disk/by-label/nixos";
-    "/var/lib/jenkins".device = "/dev/disk/by-label/jenkins";
-  };
-
-  swapDevices = [ ];
-
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiInstallAsRemovable = true;
+  boot.loader.grub.mirroredBoots = [
+    {
+      efiSysMountPoint = "/boot1/efi";
+      path = "/boot1";
+      devices = [ "nodev" ];
+    }
+  ];
 
   virtualisation = {
     docker.enable = true;

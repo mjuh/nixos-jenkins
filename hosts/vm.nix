@@ -11,8 +11,6 @@
     initrd.checkJournalingFS = false;
   };
 
-  fileSystems."/".label = "vmdisk";
-
   networking = {
     hostName = "vmhost";
     firewall.enable = false;

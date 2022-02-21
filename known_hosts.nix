@@ -49,7 +49,7 @@
   jenkins = {
     hostNames = [ "jenkins.intr" ];
     publicKeyFile = writeText "jenkins.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIByQ1KiJqh+B2KGmG9xhRhC3LPmZQCbKrcjnSLvf323v";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDngvW1IgUSW4Lna7tOoDBsC2sG+IlpDfYCe1wBVMp2";
   };
   kvm1 = {
     hostNames = [ "kvm1.intr" ];
