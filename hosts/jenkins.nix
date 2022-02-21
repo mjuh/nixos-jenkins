@@ -438,7 +438,7 @@
 
   programs.adb.enable = true;
 
-  system.stateVersion = "19.09";
+  system.stateVersion = "21.11";
 
   systemd.services = {
     "serial-getty@ttyS0" = {
