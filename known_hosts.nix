@@ -1,4 +1,4 @@
-{ writeText }:
+{ nixosConfigurations, writeText }:
 
 {
   backup = {
@@ -221,26 +221,6 @@
     publicKeyFile = writeText "mx2-mr.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP/35T/WQeT99SS9sXb9GGHUVDH4cpNe9x2pGcthU1ER";
   };
-  ns1-dh = {
-    hostNames = [ "ns1-dh.intr" ];
-    publicKeyFile = writeText "ns1-dh.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO8rIJL2e6YdTv0c/f9D3WIah8cISFxJXGbvMJZRXUIJ";
-  };
-  ns1-mr = {
-    hostNames = [ "ns1-mr.intr" ];
-    publicKeyFile = writeText "ns1-mr.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICiJIUaThTHR+IdW283fLo6fX3M/a/meTH8kxtmEmFno";
-  };
-  ns2-dh = {
-    hostNames = [ "ns2-dh.intr" ];
-    publicKeyFile = writeText "ns2-dh.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKF1maL0yzCMHHu1zL32z6/jufehlR+byFu1uY3as82i";
-  };
-  ns2-mr = {
-    hostNames = [ "ns2-mr.intr" ];
-    publicKeyFile = writeText "ns2-mr.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEQlrpFyq9rahU87YDNjL/+tNeMaYgTjWvbsD22KvnjX";
-  };
   pop1 = {
     hostNames = [ "pop1.intr" ];
     publicKeyFile = writeText "pop1.pub"
@@ -436,4 +416,29 @@
     publicKeyFile = writeText "sup4.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhBBXj6kwe4nRmZXt5MNzJbL3X1AnSbUqhYUFE2eIdJ";
   };
-}
+} // (let
+  ipAddress = host:
+    (builtins.head
+      nixosConfigurations.${host}.config.networking.interfaces.br0.ipv4.addresses).address;
+in {
+  ns1-dh = {
+    hostNames = [ "ns1-dh.intr" (ipAddress "ns1-dh") ];
+    publicKeyFile = writeText "ns1-dh.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO8rIJL2e6YdTv0c/f9D3WIah8cISFxJXGbvMJZRXUIJ";
+  };
+  ns1-mr = {
+    hostNames = [ "ns1-mr.intr" (ipAddress "ns1-mr") ];
+    publicKeyFile = writeText "ns1-mr.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICiJIUaThTHR+IdW283fLo6fX3M/a/meTH8kxtmEmFno";
+  };
+  ns2-dh = {
+    hostNames = [ "ns2-dh.intr" (ipAddress "ns2-dh") ];
+    publicKeyFile = writeText "ns2-dh.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKF1maL0yzCMHHu1zL32z6/jufehlR+byFu1uY3as82i";
+  };
+  ns2-mr = {
+    hostNames = [ "ns2-mr.intr" (ipAddress "ns2-mr") ];
+    publicKeyFile = writeText "ns2-mr.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEQlrpFyq9rahU87YDNjL/+tNeMaYgTjWvbsD22KvnjX";
+  };
+})

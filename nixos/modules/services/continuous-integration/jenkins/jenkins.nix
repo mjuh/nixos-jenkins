@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, system, ... }:
+{ config, lib, pkgs, inputs, system, flake, ... }:
 
 with lib;
 
@@ -641,8 +641,7 @@ in {
       };
     };
 
-    programs.ssh.knownHosts =
-      import ../../../../../known_hosts.nix { inherit (pkgs) writeText; };
+    programs.ssh.knownHosts = flake.lib.knownHosts;
 
     services = {
       nginx = {

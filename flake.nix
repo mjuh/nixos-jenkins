@@ -28,6 +28,7 @@
     vault-secrets.url = "git+https://github.com/serokell/vault-secrets";
     home-manager.url = "github:nix-community/home-manager";
     guix.url = "github:foo-dogsquared/nix-overlay-guix";
+    nixos-ns.url = "git+ssh://git@gitlab.intr/nixos/ns";
   };
 
   outputs = { self
@@ -44,6 +45,7 @@
             , vault-secrets
             , home-manager
             , guix
+            , nixos-ns
             , ... } @ inputs:
               let
                 system = "x86_64-linux";
@@ -108,6 +110,20 @@
                   inherit (guix.packages.${system}) guix_binary_1_3_0;
                 };
 
+                lib = {
+                  knownHosts = import ./known_hosts.nix {
+                    inherit (pkgs) writeText;
+                    nixosConfigurations =
+                      pkgs.lib.foldr
+                        (flake: nixosConfigurations:
+                          nixosConfigurations // flake.nixosConfigurations)
+                        {}
+                        [
+                          nixos-ns
+                        ];
+                  };
+                };
+
                 apps.${system}.jenkins-update-plugins = flake-utils.lib.mkApp {
                   drv = packages.${system}.jenkins-update-plugins;
                 };
@@ -148,13 +164,14 @@
                               ++ (if name == "vm" then [(pkgs.path + /nixos/modules/virtualisation/qemu-vm.nix)] else []);
                             specialArgs = {
                               inherit inputs system;
+                              flake = self;
                             };
                           };
                       }))
                     { }
                     (pkgs-unstable.lib.filesystem.listFilesRecursive ./hosts);
 
-                deploy.nodes = with lib;
+                deploy.nodes = with pkgs.lib;
                   listToAttrs
                     (mapAttrsFlatten
                       (name: nixos:
