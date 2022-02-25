@@ -4581,11 +4581,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_40"
       },
       "locked": {
-        "lastModified": 1616505333,
-        "narHash": "sha256-JjZOqQshh2CJzB/iVZsxLFGdkdyoeL/a7oc6VzQt0QY=",
+        "lastModified": 1645706736,
+        "narHash": "sha256-WROH23sQOctiVKsZG6bfmy23szmWH+3sQfgQ4sVqWNw=",
         "ref": "master",
-        "rev": "df6f550ac1f21ea4982673512fa961c1541b3824",
-        "revCount": 107,
+        "rev": "c252ad5615d48513628e064bc9aea5ea4bae3de5",
+        "revCount": 145,
         "type": "git",
         "url": "ssh://git@gitlab.intr/office/ssl-certificates"
       },
