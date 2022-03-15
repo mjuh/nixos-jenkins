@@ -42,6 +42,7 @@
         { name = "db"; }
         { name = "deploy"; }
         { name = "domains"; }
+        { name = "jenkinsci"; }
         { name = "folders"; }
         { name = "kvm-templates"; }
         { name = "legacy"; }
