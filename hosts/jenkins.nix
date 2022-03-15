@@ -411,7 +411,7 @@
         bind
         deploy-rs
         influxdb-subscription-cleaner
-        nix
+        nixFlakes
         nodejs
         packer
       ];
@@ -451,6 +451,7 @@
   };
 
   nix = {
+    package = pkgs.nixFlakes;
     maxJobs = lib.mkDefault 64;
     trustedUsers = [ "root" "eng" ];
     gc = {
@@ -459,6 +460,7 @@
     };
     requireSignedBinaryCaches = true;
     extraOptions = ''
+      experimental-features = nix-command flakes
       tarball-ttl = 30
       narinfo-cache-negative-ttl = 3
       max-silent-time = ${toString (60 * 10)}

@@ -931,4 +931,11 @@
         sha256 = "7bc8f0058aee2f25e15eaf31a2de1816d251de9953933a35c702b05f0016e4f3";
         };
       };
+    nix-flake-update = mkJenkinsPlugin {
+      name = "nix-flake-update";
+      src = fetchurl {
+        url = "https://jenkins.intr/job/jenkinsci/job/jenkinsci%252Fnix-flake-lock-update-plugin/job/wip/8/artifact/jenkins-plugin/build/libs/nix-flake-update.hpi";
+        sha256 = "0xfq2ydaxyfr3i2x85c7mmpzm45x8dq3pzfngz8gbka8bmw48ds0";
+        };
+      };
     }
