@@ -108,6 +108,8 @@
                     openjdk14;
 
                   inherit (guix.packages.${system}) guix_binary_1_3_0;
+
+                  inherit (deploy-rs.packages.${system}) deploy-rs;
                 };
 
                 lib = {

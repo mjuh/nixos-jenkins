@@ -408,6 +408,7 @@
       packages = with pkgs; [
         bats
         bind
+        deploy-rs
         influxdb-subscription-cleaner
         nix
         nodejs
