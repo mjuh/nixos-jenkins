@@ -490,7 +490,7 @@
     };
     interfaces = {
       vlan252.ipv4.addresses = [{
-        address = "192.168.103.87";
+        address = "192.168.103.3";
         prefixLength = 24;
       }];
       vlan253.ipv4.addresses = [{
