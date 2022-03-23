@@ -544,6 +544,8 @@
 
   services.lldpd.enable = true;
 
+  users.users.root.password = ""; # Empty password.
+
   # XXX: Make machinectl default to eng account for convenience before
   # uncommenting.
   #
