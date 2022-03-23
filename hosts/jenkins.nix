@@ -471,11 +471,37 @@
     dhcpcd.enable = false;
     hostName = "jenkins";
     firewall.enable = false;
-    interfaces.enp1s0f0.ipv4.addresses = [{
-      address = "172.16.103.238";
-      prefixLength = 24;
-    }];
-    defaultGateway = "172.16.103.1";
+    bonds.bond0 = {
+      interfaces = [ "enp1s0f0" "enp1s0f1" ];
+      driverOptions = {
+        mode = "802.3ad";
+        lacp_rate = "fast";
+      };
+    };
+    vlans = {
+      vlan252 = {
+        id = 109;
+        interface = "bond0";
+      };
+      vlan253 = {
+        id = 253;
+        interface = "bond0";
+      };
+    };
+    interfaces = {
+      vlan252.ipv4.addresses = [{
+        address = "192.168.103.87";
+        prefixLength = 24;
+      }];
+      vlan253.ipv4.addresses = [{
+        address = "172.16.103.238";
+        prefixLength = 24;
+      }];
+    };
+    defaultGateway = {
+      address = "172.16.103.1";
+      interface = "vlan253";
+    };
     nameservers = [ "172.16.103.2" "172.16.102.2" "8.8.8.8" ];
     search = [ "intr" "majordomo.ru" ];
     extraHosts = ''
