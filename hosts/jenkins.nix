@@ -542,6 +542,8 @@
     security
   ];
 
+  services.lldpd.enable = true;
+
   # XXX: Make machinectl default to eng account for convenience before
   # uncommenting.
   #
