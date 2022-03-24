@@ -489,14 +489,28 @@
       };
     };
     interfaces = {
-      vlan252.ipv4.addresses = [{
-        address = "192.168.103.3";
-        prefixLength = 24;
-      }];
-      vlan253.ipv4.addresses = [{
-        address = "172.16.103.238";
-        prefixLength = 24;
-      }];
+      vlan252.ipv4 = {
+        addresses = [{
+          address = "192.168.103.3";
+          prefixLength = 24;
+        }];
+        routes = [{
+          address = "192.168.103.0";
+          prefixLength = 24;
+          via = "192.168.103.1";
+        }];
+      };
+      vlan253.ipv4 = {
+        addresses = [{
+          address = "172.16.103.238";
+          prefixLength = 24;
+        }];
+        routes = [{
+          address = "172.16.0.0";
+          prefixLength = 16;
+          via = "172.16.103.1";
+        }];
+      };
     };
     defaultGateway = {
       address = "172.16.103.1";
