@@ -246,6 +246,21 @@
     publicKeyFile = writeText "router2.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPs6TAjJkg8TBe0whA7CvsvaXJbIpviR34tlG0MzCTzf";
   };
+  deprecated-web30 = {
+    hostNames = [ "deprecated-web30.intr" "172.16.103.136" ];
+    publicKeyFile = writeText "deprecated-web30.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDdts7IDmbD989bXhNtxA1kXm6+4CTeYXGQuC3neQGFc";
+  };
+  deprecated-web32 = {
+    hostNames = [ "deprecated-web32.intr" "172.16.103.35" ];
+    publicKeyFile = writeText "deprecated-web32.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdu5ZUZK2ARi8kOCjH5OhWK73gI+jIaAatJSGIIpUT9";
+  };
+  deprecated-web34 = {
+    hostNames = [ "deprecated-web34.intr" "172.16.103.34" ];
+    publicKeyFile = writeText "deprecated-web34.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY+LXRT03nGlp29NXUYO8/G/h3LbWB2plHZoMJgb8Kv";
+  };
   web15 = {
     hostNames = [ "web15.intr" ];
     publicKeyFile = writeText "web15.pub"
@@ -286,9 +301,9 @@
     publicKeyFile = writeText "web22.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkmrKtjfO23ApT4fyli4ONiliteNhk7ud12nLqH1Mw9";
   };
-  web23 = {
-    hostNames = [ "web23.intr" ];
-    publicKeyFile = writeText "web23.pub"
+  deprecated-web23 = {
+    hostNames = [ "deprecated-web23.intr" "172.16.103.69" ];
+    publicKeyFile = writeText "deprecated-web23.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0lbZoEBB7tPcRWT8ChgBK1wYmtr9pTxlbsdEuszQiY";
   };
   web25 = {
@@ -316,30 +331,15 @@
     publicKeyFile = writeText "web29.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC8KAzfJaQD7ZDfgh4D7PuEgAIihHo7/8pC8Hd/eeUSc";
   };
-  web30 = {
-    hostNames = [ "web30.intr" ];
-    publicKeyFile = writeText "web30.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDdts7IDmbD989bXhNtxA1kXm6+4CTeYXGQuC3neQGFc";
-  };
   web31 = {
     hostNames = [ "web31.intr" ];
     publicKeyFile = writeText "web31.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDGdVaUpw17zg9sgDtvG0aQhjcTYdoNjU5IiagDLLe2l";
   };
-  web32 = {
-    hostNames = [ "web32.intr" ];
-    publicKeyFile = writeText "web32.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdu5ZUZK2ARi8kOCjH5OhWK73gI+jIaAatJSGIIpUT9";
-  };
   web33 = {
     hostNames = [ "web33.intr" ];
     publicKeyFile = writeText "web33.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAisxyZRFSQRKelzLqezIXMnsdHOL4kj3aihOHm5UCs4";
-  };
-  web34 = {
-    hostNames = [ "web34.intr" ];
-    publicKeyFile = writeText "web34.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY+LXRT03nGlp29NXUYO8/G/h3LbWB2plHZoMJgb8Kv";
   };
   web35 = {
     hostNames = [ "web35.intr" ];
@@ -361,10 +361,65 @@
     publicKeyFile = writeText "web38.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4+zDQ8cRF5W3hHFlftnd8OICK9Vf/VyUqNKDhiabp6";
   };
+  web39 = {
+    hostNames = [ "web39.intr" ];
+    publicKeyFile = writeText "web39.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJLk/W2v+06Wd4IlAefTJjjfmffbjyMSvk0lW8gEJnFf";
+  };
+  web40 = {
+    hostNames = [ "web40.intr" ];
+    publicKeyFile = writeText "web40.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB0jYkEZDOi3j3C+/SxavHBfKkVKkrhVISy+pmnaAITY";
+  };
+  web41 = {
+    hostNames = [ "web41.intr" ];
+    publicKeyFile = writeText "web41.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDrwu6zz0Vz4lS9nKRCHm/GykZdolehpreHLAoGrjM4C";
+  };
+  web42 = {
+    hostNames = [ "web42.intr" ];
+    publicKeyFile = writeText "web42.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOmG7BqVoaY2QGtEb8R5wwotJCMhNuUydBpbsfeEiK14";
+  };
+  web43 = {
+    hostNames = [ "web43.intr" ];
+    publicKeyFile = writeText "web43.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMiH1LU+Xs6br/50px8/dK3bVNhtbogmApLUoIDRY0SQ";
+  };
   web98 = {
     hostNames = [ "web98.intr" ];
     publicKeyFile = writeText "web98.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA2ndToN39OkURjT651QwfFAW8aQLed6cpAAioKpWVt";
+  };
+  container-web23 = {
+    hostNames = [ "container-web23.intr" "172.16.103.67" ];
+    publicKeyFile = writeText "container-web23.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcjIilVAjZwaG6CJRmtRKF3ep6Rb7ni5BwJLcF+SHP6";
+  };
+  container-web30 = {
+    hostNames = [ "container-web30.intr" "172.16.103.14" "172.16.103.135" ];
+    publicKeyFile = writeText "container-web30.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINJm2wnSG6haBYAzI7Az+zdMbtTeUhaCYKXb3n+HCC2e";
+  };
+  container-web31 = {
+    hostNames = [ "container-web31.intr" "172.16.103.141" ];
+    publicKeyFile = writeText "container-web31.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDGdVaUpw17zg9sgDtvG0aQhjcTYdoNjU5IiagDLLe2l";
+  };
+  container-web32 = {
+    hostNames = [ "container-web32.intr" "185.84.108.28" ];
+    publicKeyFile = writeText "container-web32.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMf9W486kfN17a3XRS4UY0CQ0rCH2giSPra3oZSKiujS";
+  };
+  container-web34 = {
+    hostNames = [ "container-web34.intr" "172.16.103.99" ];
+    publicKeyFile = writeText "container-web34.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjpfdpAaoSYtxFUuq8dLASOH4FkcM5OkZjGJLfkiJ9J";
+  };
+  container-web99 = {
+    hostNames = [ "container-web99.intr" "185.84.108.223" ];
+    publicKeyFile = writeText "container-web99.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHYYVdm1qtD3+FyJAlEkKnr0MvAR9o0BVwy2dTHOZgj4";
   };
   webmail1 = {
     hostNames = [ "webmail1.intr" ];
