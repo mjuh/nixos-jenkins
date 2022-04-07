@@ -261,10 +261,15 @@
     publicKeyFile = writeText "deprecated-web34.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBY+LXRT03nGlp29NXUYO8/G/h3LbWB2plHZoMJgb8Kv";
   };
+  deprecated-web15 = {
+    hostNames = [ "deprecated-web15.intr" "172.16.103.34" ];
+    publicKeyFile = writeText "deprecated-web15.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICuHU0kawpIccDN0WXFppxsUCR9OO+Kac7rz2Tn3NYS+";
+  };
   web15 = {
     hostNames = [ "web15.intr" ];
     publicKeyFile = writeText "web15.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICuHU0kawpIccDN0WXFppxsUCR9OO+Kac7rz2Tn3NYS+";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP0HPsEIKEMnR+kYBr1vgkUvtKkRT534NL/uSyKCNvJ0";
   };
   web16 = {
     hostNames = [ "web16.intr" ];
