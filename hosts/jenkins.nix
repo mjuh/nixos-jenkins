@@ -400,6 +400,10 @@
                 labelString = "web";
                 name = "web37";
               }
+              {
+                labelString = "elk";
+                name = "deprecated-web32";
+              }
             ]);
         };
       };
