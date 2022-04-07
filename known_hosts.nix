@@ -391,6 +391,11 @@
     publicKeyFile = writeText "web98.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA2ndToN39OkURjT651QwfFAW8aQLed6cpAAioKpWVt";
   };
+  container-web15 = {
+    hostNames = [ "container-web15.intr" "172.16.103.15" ];
+    publicKeyFile = writeText "container-web15.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP0HPsEIKEMnR+kYBr1vgkUvtKkRT534NL/uSyKCNvJ0";
+  };
   container-web23 = {
     hostNames = [ "container-web23.intr" "172.16.103.67" ];
     publicKeyFile = writeText "container-web23.pub"
