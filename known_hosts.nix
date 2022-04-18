@@ -339,7 +339,7 @@
   web31 = {
     hostNames = [ "web31.intr" ];
     publicKeyFile = writeText "web31.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDGdVaUpw17zg9sgDtvG0aQhjcTYdoNjU5IiagDLLe2l";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGlpaxLdiimyb+HkeUftSU+hpQGBDsmarkAD1V0fxri";
   };
   web33 = {
     hostNames = [ "web33.intr" ];
