@@ -424,7 +424,7 @@
   container-web31 = {
     hostNames = [ "container-web31.intr" "172.16.103.141" ];
     publicKeyFile = writeText "container-web31.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDGdVaUpw17zg9sgDtvG0aQhjcTYdoNjU5IiagDLLe2l";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGlpaxLdiimyb+HkeUftSU+hpQGBDsmarkAD1V0fxri";
   };
   container-web32 = {
     hostNames = [ "container-web32.intr" "185.84.108.28" ];
