@@ -361,6 +361,11 @@
     publicKeyFile = writeText "container-web33.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJptvJpWFNeI2oh/hSYP4/y5sNKZNGawk6m1STiYlRM1";
   };
+  container-web35 = {
+    hostNames = [ "container-web35.intr" "172.16.103.137" ];
+    publicKeyFile = writeText "container-web35.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcjIilVAjZwaG6CJRmtRKF3ep6Rb7ni5BwJLcF+SHP6";
+  };
   web35 = {
     hostNames = [ "web35.intr" ];
     publicKeyFile = writeText "web35.pub"
