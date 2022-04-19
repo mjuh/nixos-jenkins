@@ -326,13 +326,18 @@
     publicKeyFile = writeText "web27.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPfuQ3hn+lhsCvLM29YmfV4yAEQW5+b092NvEJkq93FI";
   };
+  deprecated-web28 = {
+    hostNames = [ "deprecated-web28.intr" ];
+    publicKeyFile = writeText "deprecated-web28.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOK7yg78Wt/RCprSaHIomVS6eX6DG7vW8yFQ6A87dYbO";
+  };
   web28 = {
     hostNames = [ "web28.intr" ];
     publicKeyFile = writeText "web28.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOK7yg78Wt/RCprSaHIomVS6eX6DG7vW8yFQ6A87dYbO";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0tBADmsd5xnztYXQWtbITJFlf4XQaUYjgUAD8qAWHE";
   };
   container-web28 = {
-    hostNames = [ "container-web28.intr" "172.16.103.122" ];
+    hostNames = [ "container-web28.intr" ];
     publicKeyFile = writeText "container-web28.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0tBADmsd5xnztYXQWtbITJFlf4XQaUYjgUAD8qAWHE";
   };
