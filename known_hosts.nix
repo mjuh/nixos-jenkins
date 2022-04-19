@@ -406,6 +406,21 @@
     publicKeyFile = writeText "web43.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMiH1LU+Xs6br/50px8/dK3bVNhtbogmApLUoIDRY0SQ";
   };
+  web44 = {
+    hostNames = [ "web44.intr" ];
+    publicKeyFile = writeText "web44.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIII0/XIooT6/L2CwAUuwqYVV0R1Z/8r+u5YzeIv05x2v";
+  };
+  web45 = {
+    hostNames = [ "web45.intr" ];
+    publicKeyFile = writeText "web45.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVPZ7TtT0MQ8piNtUyBNUR6i2afLc6kdBxjTtNwpYU/";
+  };
+  web46 = {
+    hostNames = [ "web46.intr" ];
+    publicKeyFile = writeText "web46.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGG1CfpgdFO5XVLP83oOFB9EEUFTG2+GxR7LbGBlLBr";
+  };
   web98 = {
     hostNames = [ "web98.intr" ];
     publicKeyFile = writeText "web98.pub"
