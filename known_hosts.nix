@@ -369,7 +369,7 @@
   container-web35 = {
     hostNames = [ "container-web35.intr" "172.16.103.137" ];
     publicKeyFile = writeText "container-web35.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcjIilVAjZwaG6CJRmtRKF3ep6Rb7ni5BwJLcF+SHP6";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIfKJ0hSzh+ShA/97gQyNRSG8JpABAz8j31hXFtgVbUp";
   };
   web35 = {
     hostNames = [ "web35.intr" ];
