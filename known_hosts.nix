@@ -256,6 +256,11 @@
     publicKeyFile = writeText "vm30.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdYWDS3hAbBwwF39SavryYu8ZIUuuqM4p69qxzy9Sjl";
   };
+  vm31 = {
+    hostNames = [ "vm31.intr" "172.16.103.133" ];
+    publicKeyFile = writeText "vm31.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBgOXTM4djJiSOdjlFn9tgkAB1PDtYpPNuge/KIcgubT";
+  };
   deprecated-web32 = {
     hostNames = [ "deprecated-web32.intr" "172.16.103.35" ];
     publicKeyFile = writeText "deprecated-web32.pub"
