@@ -356,8 +356,8 @@
     publicKeyFile = writeText "web31.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDGdVaUpw17zg9sgDtvG0aQhjcTYdoNjU5IiagDLLe2l";
   };
-  web33 = {
-    hostNames = [ "web33.intr" ];
+  deprecated-web33 = {
+    hostNames = [ "deprecated-web33.intr" ];
     publicKeyFile = writeText "web33.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAisxyZRFSQRKelzLqezIXMnsdHOL4kj3aihOHm5UCs4";
   };
