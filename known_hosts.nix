@@ -486,11 +486,6 @@
     publicKeyFile = writeText "container-web34.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEjpfdpAaoSYtxFUuq8dLASOH4FkcM5OkZjGJLfkiJ9J";
   };
-  container-web36 = {
-    hostNames = [ "container-web36.intr" "172.16.103.36" ];
-    publicKeyFile = writeText "container-web36.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrcCNqQxgtA47+PxfFi9RFmpLTjzjWMG+a/DIk81oTG";
-  };
   container-web99 = {
     hostNames = [ "container-web99.intr" "185.84.108.223" ];
     publicKeyFile = writeText "container-web99.pub"
