@@ -396,9 +396,9 @@
     publicKeyFile = writeText "container-web36.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIrcCNqQxgtA47+PxfFi9RFmpLTjzjWMG+a/DIk81oTG";
   };
-  web35 = {
-    hostNames = [ "web35.intr" ];
-    publicKeyFile = writeText "web35.pub"
+  deprecated-web35 = {
+    hostNames = [ "deprecated-web35.intr" ];
+    publicKeyFile = writeText "deprecated-web35.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOHlu+T1neLSC7/h/4lLR8NilE07NwNy4gJgiMJc/Q0F";
   };
   deprecated-web36 = {
