@@ -472,6 +472,9 @@
   };
 
   networking = {
+    resolvconf = {
+      useLocalResolver = false;
+    };
     dhcpcd.enable = false;
     hostName = "jenkins";
     firewall.enable = false;
@@ -520,10 +523,10 @@
       address = "172.16.103.1";
       interface = "vlan253";
     };
-    nameservers = [ "172.16.103.2" "172.16.102.2" "8.8.8.8" ];
+    nameservers = [ "172.16.103.238" ];
     search = [ "intr" "majordomo.ru" ];
     extraHosts = ''
-      127.0.0.1 jenkins.intr
+      127.0.0.1 jenkins.intr ci.guix.gnu.org.intr
     '';
   };
 
@@ -607,5 +610,67 @@
   #   ];
   # };
 
-  services.guix-binary.enable = true;
+  # Enable Guix daemon
+  # https://guix.gnu.org/
+  #
+  # Getting substitutes from Tor
+  # https://guix.gnu.org/cookbook/en/html_node/Getting-substitutes-from-Tor.html
+  services.guix-binary = {
+    enable = true;
+    extraArgs = [
+      "--substitute-urls=http://ci.guix.gnu.org.intr"
+    ];
+  };
+  services.tor = {
+    enable = true;
+    settings = {
+      HTTPTunnelPort = 9250;
+      ExitNodes = "{nl},{fr},{de}";
+      DNSPort = 53;
+      AutomapHostsOnResolve = true;
+    };
+  };
+  services.kresd = {
+    enable = true;
+    extraConfig = builtins.readFile ./../kresd.conf;
+  };
+  systemd.services.tinyproxy = {
+    enable = true;
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = lib.concatStringsSep " " [
+        "${pkgs.tinyproxy}/bin/tinyproxy" "-d" "-c" ./../tinyproxy.conf
+      ];
+    };
+  };
+  systemd.services.socat = {
+    enable = true;
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = lib.concatStringsSep " " [
+        "${pkgs.socat}/bin/socat"
+        "tcp4-LISTEN:81,reuseaddr,fork,keepalive,bind=127.0.0.1"
+        "SOCKS4A:127.0.0.1:4zwzi66wwdaalbhgnix55ea3ab4pvvw66ll2ow53kjub6se4q2bclcyd.onion:443,socksport=9050"
+      ];
+    };
+  };
+  services.nginx = {
+    enable = true;
+    upstreams = {
+      onion = {
+        servers = { "172.16.103.238:8888" = {}; };
+      };
+      socat = {
+        servers = { "127.0.0.1:81" = {}; };
+      };
+    };
+    virtualHosts."ci.guix.gnu.org.intr" = {
+      locations."/" = {
+        proxyPass = "https://socat";
+        extraConfig = ''
+          proxy_ssl_verify off;
+        '';
+      };
+    };
+  };
 }
