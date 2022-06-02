@@ -404,6 +404,10 @@
                 labelString = "elk";
                 name = "deprecated-web32";
               }
+              {
+                labelString = "elk";
+                name = "ns2-dh";
+              }
             ]);
         };
       };
