@@ -341,10 +341,15 @@
     publicKeyFile = writeText "web25.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBVaPbk9hqgtjyn0x2p6uZu6/M0p+XJnRQ2NEwN4WvLq";
   };
+  container-web26 = {
+    hostNames = [ "container-web26.intr" ];
+    publicKeyFile = writeText "container-web26.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPfeV7mbQHoF2XcTum7Tq9NJ2/J5l6DCFe+K43sp79CK";
+  };
   web26 = {
     hostNames = [ "web26.intr" ];
     publicKeyFile = writeText "web26.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKS8P9N9OjHnAZTJWLkVLBYgqzdPmzpmujS6KFHQpQn5";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPfeV7mbQHoF2XcTum7Tq9NJ2/J5l6DCFe+K43sp79CK";
   };
   web27 = {
     hostNames = [ "web27.intr" ];
