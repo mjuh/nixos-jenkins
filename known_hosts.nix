@@ -321,6 +321,11 @@
     publicKeyFile = writeText "web20.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVtAMfA9fTTjfOCpWFk04kU/dlXkco3++D5qVh8Es1E";
   };
+  container-web21 = {
+    hostNames = [ "container-web21.intr" ];
+    publicKeyFile = writeText "container-web21.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE2uFJ6aw5OuxnnTf4riRNaJnbpkB4S2xKGZnmw8bHYv";
+  };
   web21 = {
     hostNames = [ "web21.intr" ];
     publicKeyFile = writeText "web21.pub"
