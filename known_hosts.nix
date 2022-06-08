@@ -326,9 +326,9 @@
     publicKeyFile = writeText "container-web21.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE2uFJ6aw5OuxnnTf4riRNaJnbpkB4S2xKGZnmw8bHYv";
   };
-  web21 = {
-    hostNames = [ "web21.intr" ];
-    publicKeyFile = writeText "web21.pub"
+  deprecated-web21 = {
+    hostNames = [ "deprecated-web21.intr" ];
+    publicKeyFile = writeText "deprecated-web21.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGkroacXsngzOYXukFMan8F/+qDmMXU5rRrn+elpZfcA";
   };
   web22 = {
