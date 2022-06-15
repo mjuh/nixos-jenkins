@@ -379,7 +379,7 @@
   container-web29 = {
     hostNames = [ "container-web29.intr" ];
     publicKeyFile = writeText "container-web29.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF0tBADmsd5xnztYXQWtbITJFlf4XQaUYjgUAD8qAWHE";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINU61S4DBZwXftFoJz8IOIawAxmxyflM5aXcnH1wpTsH";
   };
   deprecated-web29 = {
     hostNames = [ "deprecated-web29.intr" ];
