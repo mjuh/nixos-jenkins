@@ -329,7 +329,7 @@
   deprecated-web21 = {
     hostNames = [ "deprecated-web21.intr" ];
     publicKeyFile = writeText "deprecated-web21.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGkroacXsngzOYXukFMan8F/+qDmMXU5rRrn+elpZfcA";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1L5s3cYgjvCogo+DpBRoe42gd6VKAxBZHEeLOz9/K0";
   };
   web22 = {
     hostNames = [ "web22.intr" ];
@@ -339,7 +339,7 @@
   deprecated-web23 = {
     hostNames = [ "deprecated-web23.intr" "172.16.103.69" ];
     publicKeyFile = writeText "deprecated-web23.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0lbZoEBB7tPcRWT8ChgBK1wYmtr9pTxlbsdEuszQiY";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINJ9flIP0QDeKaJ2lfiMFKovbKdL07fB+yvhgtQEMIeb";
   };
   web25 = {
     hostNames = [ "web25.intr" ];
@@ -355,6 +355,11 @@
     hostNames = [ "web26.intr" ];
     publicKeyFile = writeText "web26.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPfeV7mbQHoF2XcTum7Tq9NJ2/J5l6DCFe+K43sp79CK";
+  };
+  deprecated-web26 = {
+    hostNames = [ "deprecated-web26.intr" ];
+    publicKeyFile = writeText "deprecated-web26.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEstsKbBFp/6S0jbZbJF9idmQeuUEa1/19OKmC9TJSOH";
   };
   web27 = {
     hostNames = [ "web27.intr" ];
@@ -384,7 +389,7 @@
   deprecated-web29 = {
     hostNames = [ "deprecated-web29.intr" ];
     publicKeyFile = writeText "deprecated-web29.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC8KAzfJaQD7ZDfgh4D7PuEgAIihHo7/8pC8Hd/eeUSc";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILUU3KChGxhSsQWitUoOseVeMVOCfEk7RQiOExOIX3UW";
   };
   deprecated-web31 = {
     hostNames = [ "deprecated-web31.intr" ];
