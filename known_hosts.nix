@@ -304,7 +304,7 @@
   deprecated-web16 = {
     hostNames = [ "deprecated-web16.intr" ];
     publicKeyFile = writeText "deprecated-web16.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAvpzS5R00ZiCAqtgT3533VqBRpIoh4XrZRuSn24DRSB";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ0S+qo8LG5ooeVXRVtcaaATMsxOmvEZL2QfPnRFaxOh";
   };
   web17 = {
     hostNames = [ "web17.intr" ];
