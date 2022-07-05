@@ -321,10 +321,10 @@
     publicKeyFile = writeText "web19.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxSKZXLn1s+CGY9/nKwTo3HYA5dj5THJbIoh0vDnx8N";
   };
-  web20 = {
-    hostNames = [ "web20.intr" ];
-    publicKeyFile = writeText "web20.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVtAMfA9fTTjfOCpWFk04kU/dlXkco3++D5qVh8Es1E";
+  container-web20 = {
+    hostNames = [ "container-web20.intr" ];
+    publicKeyFile = writeText "container-web20.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGKoOGg8L41jA4HMXgXHyJ+O35s592cp3lsw079y5jb5";
   };
   container-web21 = {
     hostNames = [ "container-web21.intr" ];
