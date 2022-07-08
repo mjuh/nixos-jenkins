@@ -15,6 +15,12 @@
     docker.enableOnBoot = false;
   };
 
+  fileSystems."/var/log/nginx" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=3G" "mode=755" ]; # mode=755 so only root can write to those files
+  };
+
   # XXX:
   # jenkins ALL=NOPASSWD:/run/current-system/sw/bin/nixos-rebuild build*,/run/current-system/sw/bin/nix-channel*
   #
