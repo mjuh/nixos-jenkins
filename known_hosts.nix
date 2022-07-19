@@ -311,6 +311,11 @@
     publicKeyFile = writeText "web17.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICnW97tWV7Zw01zyyheBmZ5WaQd/Yw4HG94yYoLrJo6C";
   };
+  container-web17 = {
+    hostNames = [ "container-web17.intr" ];
+    publicKeyFile = writeText "container-web17.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIVut01DFaRZ17CJffeXE4hnmpQj9M9ygUaIMaoS0w2f";
+  };
   web18 = {
     hostNames = [ "web18.intr" ];
     publicKeyFile = writeText "web18.pub"
