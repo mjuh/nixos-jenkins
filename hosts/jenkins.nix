@@ -315,7 +315,7 @@
                 name = "pop2";
               }
               {
-                labelString = "pop elk";
+                labelString = "pop";
                 name = "pop5";
               }
               {
@@ -409,6 +409,10 @@
               {
                 labelString = "elk";
                 name = "deprecated-web32";
+              }
+              {
+                labelString = "elk";
+                name = "deprecated-web20";
               }
               {
                 labelString = "elk";
