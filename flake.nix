@@ -29,6 +29,7 @@
     home-manager.url = "github:nix-community/home-manager";
     guix.url = "github:foo-dogsquared/nix-overlay-guix";
     nixos-ns.url = "git+ssh://git@gitlab.intr/nixos/ns";
+    flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
   };
 
   outputs = { self
@@ -46,6 +47,7 @@
             , home-manager
             , guix
             , nixos-ns
+            , flake-utils-plus
             , ... } @ inputs:
               let
                 system = "x86_64-linux";
@@ -154,7 +156,10 @@
                           nixpkgs.lib.nixosSystem {
                             pkgs = import nixpkgs {
                               inherit system;
-                              overlays = [ overlay ];
+                              overlays = [
+                                flake-utils-plus.overlay
+                                overlay
+                              ];
                             };
                             inherit system;
                             modules = [
