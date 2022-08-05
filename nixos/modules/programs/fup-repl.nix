@@ -22,7 +22,7 @@ in {
         lock = ../../../etc/nixos/flake.lock;
       };
       description = ''
-        flake.nix and flake.nix which will be coppied to /etc/nixos
+        flake.nix and flake.lock which will be coppied to /etc/nixos
       '';
     };
   };
