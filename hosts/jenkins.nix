@@ -562,7 +562,6 @@
     kvm
     netcat
     nettools
-    fup-repl
     nix-generate-from-cpan
     nix-prefetch-docker
     nix-prefetch-git
@@ -687,5 +686,9 @@
         '';
       };
     };
+  };
+
+  programs.fup-repl = {
+    enable = true;
   };
 }
