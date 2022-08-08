@@ -349,6 +349,11 @@
   web22 = {
     hostNames = [ "web22.intr" ];
     publicKeyFile = writeText "web22.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrJ5heH1QVxOakOAhmzTvZXu0k3TvaL93oIbT0xiNKj";
+  };
+  deprecated-web22 = {
+    hostNames = [ "deprecated-web22.intr" "172.16.103.69" ];
+    publicKeyFile = writeText "deprecated-web22.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkmrKtjfO23ApT4fyli4ONiliteNhk7ud12nLqH1Mw9";
   };
   deprecated-web23 = {
