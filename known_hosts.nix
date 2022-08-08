@@ -347,8 +347,8 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1L5s3cYgjvCogo+DpBRoe42gd6VKAxBZHEeLOz9/K0";
   };
   container-web22 = {
-    hostNames = [ "web22.intr" ];
-    publicKeyFile = writeText "web22.pub"
+    hostNames = [ "container-web22.intr" ];
+    publicKeyFile = writeText "container-web22.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHrJ5heH1QVxOakOAhmzTvZXu0k3TvaL93oIbT0xiNKj";
   };
   deprecated-web22 = {
