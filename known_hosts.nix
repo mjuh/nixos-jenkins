@@ -379,6 +379,11 @@
   web27 = {
     hostNames = [ "web27.intr" ];
     publicKeyFile = writeText "web27.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICOl430+qZeQQAQBz3+BYJtBfdV/y2j2DYCMKN6YUAXa";
+  };
+  deprecated-web27 = {
+    hostNames = [ "deprecated-27.intr" ];
+    publicKeyFile = writeText "deprecated-27.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPfuQ3hn+lhsCvLM29YmfV4yAEQW5+b092NvEJkq93FI";
   };
   deprecated-web28 = {
