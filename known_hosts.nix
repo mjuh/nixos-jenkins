@@ -382,8 +382,8 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEstsKbBFp/6S0jbZbJF9idmQeuUEa1/19OKmC9TJSOH";
   };
   container-web27 = {
-    hostNames = [ "web27.intr" ];
-    publicKeyFile = writeText "web27.pub"
+    hostNames = [ "container-web27.intr" ];
+    publicKeyFile = writeText "container-web27.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICOl430+qZeQQAQBz3+BYJtBfdV/y2j2DYCMKN6YUAXa";
   };
   deprecated-web27 = {
