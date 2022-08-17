@@ -6,6 +6,11 @@
     publicKeyFile = writeText "backup.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL6+2glj3YytDgU7sPYkl4ujvzZH7+fYuaTkViWyuMac";
   };
+  restic-rest-server = {
+    hostNames = [ "restic-rest-server.intr" ];
+    publicKeyFile = writeText "restic-rest-server.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMAkT0/Ih8qCNzELbwhNbpedOg/pm6EDf/GnOC3rEKLM";
+  };
   bareos = {
     hostNames = [ "bareos.intr" ];
     publicKeyFile = writeText "bareos.pub"
