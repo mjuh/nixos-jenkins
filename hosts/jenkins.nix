@@ -691,4 +691,6 @@
   programs.fup-repl = {
     enable = true;
   };
+
+  programs.sysdig.enable = true;
 }
