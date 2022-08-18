@@ -84,7 +84,7 @@
                 remoteFS = "/home/jenkins";
                 retentionStrategy = {
                   demand = {
-                    idleDelay = 1;
+                    idleDelay = 10;
                     inDemandDelay = 0;
                   };
                 };
