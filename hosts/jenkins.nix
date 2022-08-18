@@ -119,10 +119,6 @@
                 name = "dh4";
               }
               {
-                labelString = "dhost-development";
-                name = "dh5";
-              }
-              {
                 labelString = "elk";
                 name = "fluentd";
               }
