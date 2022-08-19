@@ -30,6 +30,7 @@
     guix.url = "github:foo-dogsquared/nix-overlay-guix";
     nixos-ns.url = "git+ssh://git@gitlab.intr/nixos/ns";
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
+    kvm.url = "git+ssh://git@gitlab.intr/nixos/kvm";
   };
 
   outputs = { self
