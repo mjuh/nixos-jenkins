@@ -89,7 +89,8 @@
                   };
                 };
               };
-            })) [
+            }))
+            ([
               {
                 labelString = "restic backup";
                 name = "bareos";
@@ -137,134 +138,6 @@
               {
                 labelString = "production";
                 name = "hms03";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm1";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm10";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm11";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm12";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm13";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm14";
-              }
-              {
-                labelString = "kvm kvm-template-builder";
-                name = "kvm15";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm16";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm17";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm19";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm2";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm20";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm21";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm22";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm23";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm24";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm25";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm26";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm27";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm28";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm29";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm30";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm31";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm32";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm33";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm34";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm35";
-              }
-              {
-                labelString = "";
-                name = "kvm36";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm37";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm5";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm6";
-              }
-              {
-                labelString = "kvm kvmbionic";
-                name = "kvm9";
               }
               {
                 labelString = "prometheus-server";
@@ -414,7 +287,12 @@
                 labelString = "elk";
                 name = "ns2-dh";
               }
-            ]);
+            ]
+
+            ++
+            (map
+              (name: { labelString = "kvm kvmbionic"; inherit name; })
+              (attrNames inputs.kvm.nixosConfigurations))));
         };
       };
     };
