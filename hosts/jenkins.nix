@@ -292,7 +292,7 @@
             ++
             (map
               (name: { labelString = "kvm kvmbionic"; inherit name; })
-              (attrNames inputs.kvm.nixosConfigurations))));
+              (lib.attrNames inputs.kvm.nixosConfigurations))));
         };
       };
     };
