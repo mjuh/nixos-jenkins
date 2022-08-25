@@ -291,7 +291,14 @@
 
             ++
             (map
-              (name: { labelString = "kvm kvmbionic"; inherit name; })
+              (name: {
+                labelString = if (builtins.elem name ["kvm15"])
+                              then
+                                "kvm"
+                              else
+                                "kvm kvmbionic";
+                inherit name;
+              })
               (lib.attrNames inputs.kvm.nixosConfigurations))));
         };
       };
