@@ -12,7 +12,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMAkT0/Ih8qCNzELbwhNbpedOg/pm6EDf/GnOC3rEKLM";
   };
   restic-rest-server-public = {
-    hostNames = [ "restic-rest-server.majordomo.ru" ];
+    hostNames = [ "restic-rest-server-public.intr" "restic-rest-server.majordomo.ru" ];
     publicKeyFile = writeText "restic-rest-server-public.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB5Xm6X+TUWbi25PB0VySq8tB8ST5QPtvKO0JSfsypdN";
   };
