@@ -591,6 +591,11 @@
     publicKeyFile = writeText "staff.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMhMAuWky46KWGCtkjkpIYLXWXtpsQxRTlg4+rwDMNBN";
   };
+  archive = {
+    hostNames = [ "archive.intr" ];
+    publicKeyFile = writeText "archive.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMplhYGPujmK0jmRjQD1t/oZeqb3A/+D92OCNZsDbypK";
+  };
   sup1 = {
     hostNames = [ "172.16.107.41" ];
     publicKeyFile = writeText "sup1.pub"
