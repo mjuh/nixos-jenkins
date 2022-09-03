@@ -236,11 +236,6 @@
     publicKeyFile = writeText "pop1.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDwQvaJq/AvAHbGnwA5/wz6A6L/9d2ti6dfW0naw1XgS";
   };
-  pop2 = {
-    hostNames = [ "pop2.intr" ];
-    publicKeyFile = writeText "pop2.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG1pxA7ntoj3UrdnNa5iZyVeoYJpf/PNWOYaGVQFTC83";
-  };
   pop5 = {
     hostNames = [ "pop5.intr" ];
     publicKeyFile = writeText "pop5.pub"
