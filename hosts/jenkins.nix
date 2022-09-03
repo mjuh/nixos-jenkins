@@ -180,10 +180,6 @@
                 name = "pop1";
               }
               {
-                labelString = "pop pop-nix kvm-template-builder";
-                name = "pop2";
-              }
-              {
                 labelString = "pop";
                 name = "pop5";
               }
