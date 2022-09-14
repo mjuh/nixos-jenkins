@@ -1,8 +1,4 @@
 { config, pkgs, lib, options, inputs, system, ... }: {
-  imports = [
-    inputs.nix-flake-common.nixosModules.ntp
-  ];
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -482,6 +478,7 @@
     eng
     sup
     security
+    inputs.nix-flake-common.nixosModules.ntp
   ];
 
   services.lldpd.enable = true;
