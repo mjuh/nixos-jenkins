@@ -1,1 +1,1 @@
-deployRS(scanPasswords: true, flake: ".#jenkins.system")
+deployRS(scanPasswords: true, deploy: true, flake: ".#jenkins.system")
