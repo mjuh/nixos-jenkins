@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                nginx.Switch("/hms")
+                script {
+                    nginx.Switch("/hms")
+                }
             }
         }
     }
