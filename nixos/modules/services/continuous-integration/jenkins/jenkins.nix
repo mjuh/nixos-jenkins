@@ -241,6 +241,17 @@ in {
                   };
                 }
 
+                {
+                  vaultUsernamePasswordCredentialImpl = {
+                    description = "Password for NGINX frontend used in Blue-green deployment";
+                    engineVersion = 2;
+                    id = "nginx-auth-pass";
+                    passwordKey = "password";
+                    path = "secret/vaultPass/majordomo/nginx1.intr";
+                    scope = "GLOBAL";
+                    usernameKey = "username";
+                  };
+                }
               ];
             }];
           };
