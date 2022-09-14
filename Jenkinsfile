@@ -10,7 +10,7 @@ pipeline {
         stage("build") {
             steps {
                 script {
-                    nginx.Switch("/hms")
+                    // nginx.Switch("/hms")
 
                     // define the secrets and the env variables
                     // engine version can be defined on secret, job, folder or global.
