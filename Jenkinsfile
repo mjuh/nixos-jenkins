@@ -10,7 +10,7 @@ pipeline {
         stage("build") {
             steps {
                 script {
-                    foo()
+                    foo.Bar()
                     nginx.Switch("/hms")
 
                     // // define the secrets and the env variables
