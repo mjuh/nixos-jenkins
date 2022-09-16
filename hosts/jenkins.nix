@@ -283,6 +283,10 @@
                 labelString = "elk";
                 name = "ns2-dh";
               }
+              {
+                labelString = "elk";
+                name = "vm35";
+              }
             ]
 
             ++

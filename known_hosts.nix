@@ -276,6 +276,11 @@
     publicKeyFile = writeText "vm34.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPYeKDv5bneMNK9Q2Kjrnwpr1UHmxnD3/gVfHY+hgqmk";
   };
+  vm35 = {
+    hostNames = [ "vm35.intr" "172.16.103.46" ];
+    publicKeyFile = writeText "vm35.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK6GMxDJhyo5+tezJxMj+EA5suvQEYPYJu1TIs3/upN5";
+  };
   vm36 = {
     hostNames = [ "vm36.intr" "172.16.103.11" ];
     publicKeyFile = writeText "vm36.pub"
