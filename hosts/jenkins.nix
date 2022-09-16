@@ -124,10 +124,6 @@
                 name = "fluentd";
               }
               {
-                labelString = "elk";
-                name = "es2";
-              }
-              {
                 labelString = "production";
                 name = "hms01";
               }
@@ -272,20 +268,24 @@
                 name = "web37";
               }
               {
-                labelString = "elk";
+                labelString = "logstash";
                 name = "deprecated-web32";
               }
               {
-                labelString = "elk";
+                labelString = "logstash";
                 name = "deprecated-web20";
               }
               {
-                labelString = "elk";
+                labelString = "logstash";
                 name = "ns2-dh";
               }
               {
-                labelString = "elk";
+                labelString = "logstash";
                 name = "vm35";
+              }
+              {
+                labelString = "logstash";
+                name = "es2";
               }
             ]
 
