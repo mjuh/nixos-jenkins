@@ -5,20 +5,11 @@ metadata:
   labels:
     {{- include "jenkins.labels" . | nindent 4 }}
 spec:
-  externalTrafficPolicy: Cluster
-  ports:
-  - name: ssh
-    port: {{ .Values.service.port }}
-    protocol: TCP
-    targetPort: 22
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 80
-  - name: https
-    port: 443
-    protocol: TCP
-    targetPort: 443
-  selector:
-    kubevirt.io/vm: {{ include "jenkins.fullname" . }}
   type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "jenkins.selectorLabels" . | nindent 4 }}
