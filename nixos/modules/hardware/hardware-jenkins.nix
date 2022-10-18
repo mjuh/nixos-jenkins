@@ -3,30 +3,29 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
+# This module almost a copy of
+# github.com/NixOS/nixpkgs/nixos/modules/virtualisation/kubevirt.nix
+
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [
+    (modulesPath + "/profiles/qemu-guest.nix")
+  ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/317d2fca-daf5-4cbf-9714-62a0237ff697";
+  config = {
+    fileSystems."/" = {
+      device = "/dev/disk/by-label/nixos";
       fsType = "ext4";
+      autoResize = true;
     };
 
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/EE12-650C";
-      fsType = "vfat";
-    };
+    boot.growPartition = true;
+    boot.kernelParams = [ "console=ttyS0" ];
+    boot.loader.grub.device = "/dev/vda";
+    boot.loader.timeout = 0;
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/c482eac8-fc46-44b1-b911-03fe7e678902"; }
-    ];
-
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    services.qemuGuest.enable = true;
+    services.openssh.enable = true;
+    services.cloud-init.enable = true;
+    systemd.services."serial-getty@ttyS0".enable = true;
+  };
 }
