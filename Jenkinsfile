@@ -1,6 +1,27 @@
-deployRS(scanPasswords: true,
-         deploy: true,
-         flake: ".#jenkins.system",
-         postDeploy: {
-           sh "rm --force /var/lib/jenkins/.ssh/known_hosts; nix-shell --run 'deploy .#jenkins.jenkins -- --print-build-logs'"
-         })
+pipeline {
+    agent { label "jenkins" }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '2', artifactNumToKeepStr: '2'))
+    }
+    stages {
+        stage("build") {
+            steps {
+                sh "nix-shell --run 'nix build --print-build-logs .#default'"
+            }
+        }
+        stage("release") {
+            steps {
+                script {
+                    def result = (sh (script: "readlink -f result/nixos.qcow2", returnStdout: true)).trim()
+                    sh "cp ${result} nixos.qcow2"
+                    archiveArtifacts artifacts: "nixos.qcow2"
+                }
+            }
+        }
+    }
+    post {
+        success {
+            cleanWs()
+        }
+    }
+}

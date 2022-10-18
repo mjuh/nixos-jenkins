@@ -59,6 +59,7 @@
                 hm = import home-manager { inherit system; };
               in rec {
                 packages.${system} = rec {
+                  default = self.nixosConfigurations.jenkins.config.system.build.kubevirtImage;
                   jdk11 = jdk;
                   jdk = pkgs.jdk8.override {
                     cacert = pkgs.runCommand "mycacert" {} ''
