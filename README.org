@@ -23,3 +23,9 @@ To connect to the VM you can run
 #+begin_src bash
   ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 -l vm localhost
 #+end_src
+
+* Kubernetes Helm chart
+
+#+begin_src bash
+  helm install jenkins charts/jenkins --create-namespace --namespace nixos
+#+end_src

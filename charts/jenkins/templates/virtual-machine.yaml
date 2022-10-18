@@ -1,0 +1,41 @@
+apiVersion: kubevirt.io/v1alpha3
+kind: VirtualMachine
+metadata:
+  labels:
+    {{- include "jenkins.labels" . | nindent 4 }}
+    kubevirt.io/vm: {{ include "jenkins.fullname" . }}
+  name: {{ include "jenkins.fullname" . }}
+spec:
+  dataVolumeTemplates:
+    - metadata:
+        name: {{ include "jenkins.fullname" . }}-data-volume
+      spec:
+        pvc:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: {{ .Values.spec.storage }}
+          storageClassName: hostpath-csi
+        source:
+          http:
+            url: {{ .Values.image.repository }}
+  running: {{ .Values.spec.running }}
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: {{ include "jenkins.fullname" . }}
+    spec:
+      domain:
+        devices:
+          disks:
+            - disk:
+                bus: virtio
+              name: {{ include "jenkins.fullname" . }}-data-volume-disk
+        resources:
+          requests:
+            memory: {{ .Values.spec.memory }}
+      volumes:
+        - name: {{ include "jenkins.fullname" . }}-data-volume-disk
+          dataVolume:
+            name: {{ include "jenkins.fullname" . }}-data-volume

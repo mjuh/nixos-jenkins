@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: http://jenkins.intr/job/nixos/job/nixos%252Fkubevirt/job/master/lastSuccessfulBuild/artifact/nixos.qcow2
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -37,8 +37,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 80
+  type: LoadBalancer
+  port: 22
 
 ingress:
   enabled: false
@@ -80,3 +80,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+spec:
+  running: true
+  storage: "32Gi"
+  memory: "4096M"
