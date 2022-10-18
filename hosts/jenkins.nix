@@ -2,23 +2,10 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.grub.mirroredBoots = [{
-    efiSysMountPoint = "/boot1/efi";
-    path = "/boot1";
-    devices = [ "nodev" ];
-  }];
 
   virtualisation = {
     docker.enable = true;
     docker.enableOnBoot = false;
-  };
-
-  fileSystems."/var/log/nginx" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=3G" "mode=755" ]; # mode=755 so only root can write to those files
   };
 
   # XXX:
@@ -367,59 +354,9 @@
   };
 
   networking = {
-    resolvconf = {
-      useLocalResolver = false;
-    };
-    dhcpcd.enable = false;
     hostName = "jenkins";
     firewall.enable = false;
-    bonds.bond0 = {
-      interfaces = [ "enp1s0f0" "enp1s0f1" ];
-      driverOptions = {
-        mode = "802.3ad";
-        lacp_rate = "fast";
-      };
-    };
-    vlans = {
-      vlan252 = {
-        id = 109;
-        interface = "bond0";
-      };
-      vlan253 = {
-        id = 253;
-        interface = "bond0";
-      };
-    };
-    interfaces = {
-      vlan252.ipv4 = {
-        addresses = [{
-          address = "192.168.103.3";
-          prefixLength = 24;
-        }];
-        routes = [{
-          address = "192.168.103.0";
-          prefixLength = 24;
-          via = "192.168.103.1";
-        }];
-      };
-      vlan253.ipv4 = {
-        addresses = [{
-          address = "172.16.103.238";
-          prefixLength = 24;
-        }];
-        routes = [{
-          address = "172.16.0.0";
-          prefixLength = 16;
-          via = "172.16.103.1";
-        }];
-      };
-    };
-    defaultGateway = {
-      address = "172.16.103.1";
-      interface = "vlan253";
-    };
-    nameservers = [ "172.16.103.238" ];
-    search = [ "intr" "majordomo.ru" ];
+    useDHCP = true;
     extraHosts = ''
       127.0.0.1 jenkins.intr ci.guix.gnu.org.intr
     '';
