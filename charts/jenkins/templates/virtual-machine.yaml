@@ -27,6 +27,11 @@ spec:
         kubevirt.io/vm: {{ include "jenkins.fullname" . }}
     spec:
       domain:
+        cpu:
+          cores: 4
+          model: host-model
+          sockets: 1
+          threads: 1
         devices:
           disks:
             - disk:
