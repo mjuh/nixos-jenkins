@@ -15,8 +15,6 @@
   # Don't use “ALL=(ALL:ALL) NOPASSWD:ALL” for zabbix-agent
   security.sudo.extraConfig = ''
     jenkins ALL=(ALL:ALL) NOPASSWD:ALL
-    zabbix-agent ALL=(ALL:ALL) NOPASSWD:ALL
-    veretelnikov ALL=(ALL:ALL) NOPASSWD:ALL
   '';
 
   services = {
@@ -293,7 +291,6 @@
 
     jenkins = {
       packages = with pkgs; [
-        bats
         bind
         deploy-rs
         influxdb-subscription-cleaner
@@ -389,7 +386,6 @@
     screen
     sg3_utils
     skopeo
-    smartmontools
     sysstat
     tmux
     tree
@@ -411,84 +407,14 @@
       }/nix-serve/cache-priv-key.pem";
   };
 
-  disabledModules = [ "services/monitoring/zabbix-agent.nix" ];
   imports = with inputs.nix-flake-common.nixosModules; [
-    zabbix-agent
-    mjzabbix
-    mj-smartd
     eng
     sup
     security
     inputs.nix-flake-common.nixosModules.ntp
   ];
 
-  services.lldpd.enable = true;
-
   users.users.root.password = ""; # Empty password.
-
-  # Enable Guix daemon
-  # https://guix.gnu.org/
-  #
-  # Getting substitutes from Tor
-  # https://guix.gnu.org/cookbook/en/html_node/Getting-substitutes-from-Tor.html
-  services.guix-binary = {
-    enable = true;
-    extraArgs = [
-      "--substitute-urls=http://ci.guix.gnu.org.intr"
-    ];
-  };
-  services.tor = {
-    enable = true;
-    settings = {
-      HTTPTunnelPort = 9250;
-      ExitNodes = "{nl},{fr},{de}";
-      DNSPort = 53;
-      AutomapHostsOnResolve = true;
-    };
-  };
-  services.kresd = {
-    enable = true;
-    extraConfig = builtins.readFile ./../kresd.conf;
-  };
-  systemd.services.tinyproxy = {
-    enable = true;
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = lib.concatStringsSep " " [
-        "${pkgs.tinyproxy}/bin/tinyproxy" "-d" "-c" ./../tinyproxy.conf
-      ];
-    };
-  };
-  systemd.services.socat = {
-    enable = true;
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = lib.concatStringsSep " " [
-        "${pkgs.socat}/bin/socat"
-        "tcp4-LISTEN:81,reuseaddr,fork,keepalive,bind=127.0.0.1"
-        "SOCKS4A:127.0.0.1:4zwzi66wwdaalbhgnix55ea3ab4pvvw66ll2ow53kjub6se4q2bclcyd.onion:443,socksport=9050"
-      ];
-    };
-  };
-  services.nginx = {
-    enable = true;
-    upstreams = {
-      onion = {
-        servers = { "172.16.103.238:8888" = {}; };
-      };
-      socat = {
-        servers = { "127.0.0.1:81" = {}; };
-      };
-    };
-    virtualHosts."ci.guix.gnu.org.intr" = {
-      locations."/" = {
-        proxyPass = "https://socat";
-        extraConfig = ''
-          proxy_ssl_verify off;
-        '';
-      };
-    };
-  };
 
   programs.fup-repl = {
     enable = true;

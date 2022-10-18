@@ -27,7 +27,6 @@
     nixpkgs-20-09.url = "nixpkgs/nixos-20.09";
     vault-secrets.url = "git+https://github.com/serokell/vault-secrets";
     home-manager.url = "github:nix-community/home-manager";
-    guix.url = "github:foo-dogsquared/nix-overlay-guix";
     nixos-ns.url = "git+ssh://git@gitlab.intr/nixos/ns";
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     kvm.url = "git+ssh://git@gitlab.intr/nixos/kvm";
@@ -46,7 +45,6 @@
             , zabbix-agentd-conf
             , vault-secrets
             , home-manager
-            , guix
             , nixos-ns
             , flake-utils-plus
             , ... } @ inputs:
@@ -111,8 +109,6 @@
                   inherit (pkgs-deprecated)
                     openjdk14;
 
-                  inherit (guix.packages.${system}) guix_binary_1_3_0;
-
                   inherit (deploy-rs.packages.${system}) deploy-rs;
                 };
 
@@ -168,7 +164,6 @@
                               self.nixosModules."hardware-${hostName}"
                               host
                               vault-secrets.nixosModules.vault-secrets
-                              guix.nixosModules.guix-binary
                             ] ++ (attrValues self.nixosModules)
                               ++ (if name == "vm" then [(pkgs.path + /nixos/modules/virtualisation/qemu-vm.nix)] else []);
                             specialArgs = {
