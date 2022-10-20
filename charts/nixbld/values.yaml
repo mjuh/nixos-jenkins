@@ -85,3 +85,4 @@ spec:
   running: true
   storage: "32Gi"
   memory: "4096M"
+  cores: 4

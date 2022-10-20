@@ -28,7 +28,7 @@ spec:
     spec:
       domain:
         cpu:
-          cores: 4
+          cores: {{ .Values.spec.cores }}
           model: host-model
           sockets: 1
           threads: 1
