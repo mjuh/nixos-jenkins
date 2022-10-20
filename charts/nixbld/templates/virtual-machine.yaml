@@ -1,0 +1,46 @@
+apiVersion: kubevirt.io/v1alpha3
+kind: VirtualMachine
+metadata:
+  labels:
+    {{- include "nixbld.labels" . | nindent 4 }}
+    kubevirt.io/vm: {{ include "nixbld.fullname" . }}
+  name: {{ include "nixbld.fullname" . }}
+spec:
+  dataVolumeTemplates:
+    - metadata:
+        name: {{ include "nixbld.fullname" . }}-data-volume
+      spec:
+        pvc:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: {{ .Values.spec.storage }}
+          storageClassName: hostpath-csi
+        source:
+          http:
+            url: {{ .Values.image.repository }}
+  running: {{ .Values.spec.running }}
+  template:
+    metadata:
+      labels:
+        kubevirt.io/vm: {{ include "nixbld.fullname" . }}
+    spec:
+      domain:
+        cpu:
+          cores: 4
+          model: host-model
+          sockets: 1
+          threads: 1
+        devices:
+          disks:
+            - disk:
+                bus: virtio
+              name: {{ include "nixbld.fullname" . }}-data-volume-disk
+        resources:
+          requests:
+            memory: {{ .Values.spec.memory }}
+      volumes:
+        - name: {{ include "nixbld.fullname" . }}-data-volume-disk
+          dataVolume:
+            name: {{ include "nixbld.fullname" . }}-data-volume
