@@ -421,4 +421,6 @@
   };
 
   programs.sysdig.enable = true;
+
+  services.cloud-init.enable = lib.mkForce false;
 }
