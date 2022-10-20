@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                sh "nix-shell --run 'nix build --print-build-logs .#default'"
+                sh "nix-shell --run 'nix build --print-build-logs .#kubevirt-nixbld'"
             }
         }
         stage("release") {
