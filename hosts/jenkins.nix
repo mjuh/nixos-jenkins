@@ -474,6 +474,12 @@
       }/nix-serve/cache-priv-key.pem";
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d --max-freed 100G";
+  };
+
   disabledModules = [ "services/monitoring/zabbix-agent.nix" ];
   imports = with inputs.nix-flake-common.nixosModules; [
     zabbix-agent
