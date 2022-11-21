@@ -447,6 +447,7 @@
     nix-prefetch-docker
     nix-prefetch-git
     nodejs
+    parallel
     python27Full
     rsync
     screen
