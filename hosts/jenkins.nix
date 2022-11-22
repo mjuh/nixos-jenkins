@@ -281,10 +281,6 @@
               }
               {
                 labelString = "logstash";
-                name = "vm35";
-              }
-              {
-                labelString = "logstash";
                 name = "es2";
               }
             ]
