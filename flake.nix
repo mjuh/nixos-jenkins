@@ -79,6 +79,7 @@
                             "gitlab-branch-source"
                             "gradle"
                             "hashicorp-vault-plugin"
+                            "jdk-tool"
                             "junit"
                             "lockable-resources"
                             "pipeline-utility-steps"
