@@ -59,14 +59,13 @@
                 hm = import home-manager { inherit system; };
               in rec {
                 packages.${system} = rec {
-                  jdk11 = jdk;
-                  jdk = pkgs.jdk8.override {
-                    cacert = pkgs.runCommand "mycacert" {} ''
-                      mkdir -p $out/etc/ssl/certs
-                      cat ${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt \
-                        ${ssl-certificates.packages.${system}.certificates}/Majordomo_LLC_Root_CA.crt > $out/etc/ssl/certs/ca-bundle.crt
-                    '';
-                  };
+                  # jdk = pkgs.jdk8.override {
+                  #   cacert = pkgs.runCommand "mycacert" {} ''
+                  #     mkdir -p $out/etc/ssl/certs
+                  #     cat ${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt \
+                  #       ${ssl-certificates.packages.${system}.certificates}/Majordomo_LLC_Root_CA.crt > $out/etc/ssl/certs/ca-bundle.crt
+                  #   '';
+                  # };
                   jenkins-update-plugins = with pkgs;
                     let
                       plugins = with builtins; concatStringsSep " "
