@@ -351,6 +351,7 @@
     trustedUsers = [ "root" "eng" ];
     gc = {
       automatic = false;
+      dates = "weekly";
       options = "--delete-older-than 14d";
     };
     requireSignedBinaryCaches = true;
@@ -469,12 +470,6 @@
     secretKeyFile = "${
         inputs.ssl-certificates.packages.${system}.certificates
       }/nix-serve/cache-priv-key.pem";
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d --max-freed 100G";
   };
 
   disabledModules = [ "services/monitoring/zabbix-agent.nix" ];
