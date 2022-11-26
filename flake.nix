@@ -83,6 +83,7 @@
                             "junit"
                             "lockable-resources"
                             "pipeline-utility-steps"
+                            "prometheus"
                             "nexus-jenkins-plugin"
                             "slack"
                             "ssh-slaves"
