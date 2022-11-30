@@ -50,6 +50,7 @@
         { name = "domains"; }
         { name = "jenkinsci"; }
         { name = "folders"; }
+        { name = "helm"; }
         { name = "kvm-templates"; }
         { name = "legacy"; }
         { name = "mail"; }
