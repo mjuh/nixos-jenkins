@@ -51,6 +51,7 @@
         { name = "jenkinsci"; }
         { name = "folders"; }
         { name = "helm"; }
+        { name = "kustomize"; }
         { name = "kvm-templates"; }
         { name = "legacy"; }
         { name = "mail"; }
