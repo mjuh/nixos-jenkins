@@ -114,11 +114,11 @@
                 name = "dh2";
               }
               {
-                labelString = "dhost-production";
+                labelString = "dhost-worker";
                 name = "dh3";
               }
               {
-                labelString = "dhost-development";
+                labelString = "dhost-production";
                 name = "dh4";
               }
               {
