@@ -1,4 +1,8 @@
-{ config, pkgs, lib, options, inputs, system, ... }: {
+{ config, pkgs, lib, options, inputs, system, ... }:
+
+let
+  inherit (inputs.ssl-certificates.lib) ssl;
+in {
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -420,7 +424,7 @@
     nameservers = [ "172.16.103.238" ];
     search = [ "intr" "majordomo.ru" ];
     extraHosts = ''
-      127.0.0.1 jenkins.intr ci.guix.gnu.org.intr
+      127.0.0.1 jenkins.intr ci.guix.gnu.org.intr webssh.intr
     '';
   };
 
@@ -550,6 +554,17 @@
       ];
     };
   };
+  systemd.services."socat-docker.elastic.co" = {
+    enable = true;
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = lib.concatStringsSep " " [
+        "${pkgs.socat}/bin/socat"
+        "tcp4-LISTEN:82,reuseaddr,fork,keepalive,bind=127.0.0.1"
+        "SOCKS4A:127.0.0.1:docker.elastic.co:443,socksport=9050"
+      ];
+    };
+  };
   services.nginx = {
     enable = true;
     upstreams = {
@@ -559,10 +574,24 @@
       socat = {
         servers = { "127.0.0.1:81" = {}; };
       };
+      socat-docker-elastic-co = {
+        servers = { "127.0.0.1:82" = {}; };
+      };
     };
     virtualHosts."ci.guix.gnu.org.intr" = {
       locations."/" = {
         proxyPass = "https://socat";
+        extraConfig = ''
+          proxy_ssl_verify off;
+        '';
+      };
+    };
+    virtualHosts."webssh.intr" = {
+      addSSL = true;
+      sslCertificate = ssl."webssh.intr.pem";
+      sslCertificateKey = ssl."webssh.intr.key";
+      locations."/" = {
+        proxyPass = "https://socat-docker-elastic-co";
         extraConfig = ''
           proxy_ssl_verify off;
         '';
