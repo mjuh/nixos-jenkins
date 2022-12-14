@@ -4192,11 +4192,11 @@
         "zabbix-agentd-conf": "zabbix-agentd-conf_11"
       },
       "locked": {
-        "lastModified": 1660905258,
-        "narHash": "sha256-tNB4b9CK8R7tBrG4zusHKMHDJS0erYHFBqAy/qXRIsg=",
+        "lastModified": 1671030444,
+        "narHash": "sha256-29l388eymB7yewADzpAnhGUi9ELjbvXjMqx4AqI80lk=",
         "ref": "master",
-        "rev": "d333afb79b71e28b9b8ec830ca35d9f66053899e",
-        "revCount": 108,
+        "rev": "a385e0c9c8b6e841e45105a13254bf7a0793ff3e",
+        "revCount": 121,
         "type": "git",
         "url": "ssh://git@gitlab.intr/nixos/kvm"
       },
@@ -5957,7 +5957,6 @@
     "naersk_10": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -5979,7 +5978,6 @@
     "naersk_11": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6001,7 +5999,6 @@
     "naersk_12": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6023,7 +6020,6 @@
     "naersk_13": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6045,7 +6041,6 @@
     "naersk_14": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6067,7 +6062,6 @@
     "naersk_15": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6089,7 +6083,6 @@
     "naersk_16": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6111,7 +6104,6 @@
     "naersk_17": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6133,7 +6125,6 @@
     "naersk_18": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6155,7 +6146,6 @@
     "naersk_19": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6177,7 +6167,6 @@
     "naersk_2": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6199,7 +6188,6 @@
     "naersk_20": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6221,7 +6209,6 @@
     "naersk_21": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6281,7 +6268,6 @@
     "naersk_3": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6303,7 +6289,6 @@
     "naersk_4": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6325,7 +6310,6 @@
     "naersk_5": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6347,7 +6331,6 @@
     "naersk_6": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6369,7 +6352,6 @@
     "naersk_7": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6391,7 +6373,6 @@
     "naersk_8": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6413,7 +6394,6 @@
     "naersk_9": {
       "inputs": {
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -6935,7 +6915,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable_3",
         "nixpkgs-vulnix": "nixpkgs-vulnix",
         "ssl-certificates": [
-          "kvm",
           "ssl-certificates"
         ],
         "telegraf": "telegraf",
@@ -6967,7 +6946,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable_22",
         "nixpkgs-vulnix": "nixpkgs-vulnix_2",
         "ssl-certificates": [
-          "kvm",
           "ssl-certificates"
         ],
         "telegraf": "telegraf_2",
@@ -6999,7 +6977,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable_37",
         "nixpkgs-vulnix": "nixpkgs-vulnix_3",
         "ssl-certificates": [
-          "kvm",
           "ssl-certificates"
         ],
         "telegraf": "telegraf_4",
@@ -7031,7 +7008,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable_57",
         "nixpkgs-vulnix": "nixpkgs-vulnix_4",
         "ssl-certificates": [
-          "kvm",
           "ssl-certificates"
         ],
         "telegraf": "telegraf_5",
@@ -7063,7 +7039,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable_75",
         "nixpkgs-vulnix": "nixpkgs-vulnix_5",
         "ssl-certificates": [
-          "kvm",
           "ssl-certificates"
         ],
         "telegraf": "telegraf_7",
@@ -7095,7 +7070,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable_93",
         "nixpkgs-vulnix": "nixpkgs-vulnix_6",
         "ssl-certificates": [
-          "kvm",
           "ssl-certificates"
         ],
         "telegraf": "telegraf_9",
@@ -16577,11 +16551,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_144"
       },
       "locked": {
-        "lastModified": 1669698341,
-        "narHash": "sha256-+l1oHt0r9HoOrpMsxIZxSBbg46DYgSzix3udTGWttdU=",
+        "lastModified": 1670955961,
+        "narHash": "sha256-1FkQCJ8AUtXIZLOhP/QDUbMjYZxrrI2d4F2iKeuCzEY=",
         "ref": "master",
-        "rev": "78efbf8c4ee731ae3e47612afab7022221eebf2e",
-        "revCount": 198,
+        "rev": "39e1a2a6820143cc96135002fef61e58e320664f",
+        "revCount": 199,
         "type": "git",
         "url": "ssh://git@gitlab.intr/office/ssl-certificates"
       },
@@ -16703,11 +16677,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_99"
       },
       "locked": {
-        "lastModified": 1660748197,
-        "narHash": "sha256-VobuxiEPip3DjVZEpTCvADcQUO+0EuxMc5X/wJUy5PM=",
+        "lastModified": 1670955961,
+        "narHash": "sha256-1FkQCJ8AUtXIZLOhP/QDUbMjYZxrrI2d4F2iKeuCzEY=",
         "ref": "master",
-        "rev": "8ce9ec5dd6d3f39b6f314f5603fffb69aa75d888",
-        "revCount": 176,
+        "rev": "39e1a2a6820143cc96135002fef61e58e320664f",
+        "revCount": 199,
         "type": "git",
         "url": "ssh://git@gitlab.intr/office/ssl-certificates"
       },
@@ -16761,11 +16735,9 @@
     "systemd-nix": {
       "inputs": {
         "deploy-rs": [
-          "kvm",
           "deploy-rs"
         ],
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -16787,11 +16759,9 @@
     "systemd-nix_2": {
       "inputs": {
         "deploy-rs": [
-          "kvm",
           "deploy-rs"
         ],
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -16812,11 +16782,9 @@
     "systemd-nix_3": {
       "inputs": {
         "deploy-rs": [
-          "kvm",
           "deploy-rs"
         ],
         "nixpkgs": [
-          "kvm",
           "nixpkgs"
         ]
       },
@@ -17812,13 +17780,13 @@
         "rev": "7b7e7b66d71930d0af958c107794e3deccd980f5",
         "revCount": 150,
         "type": "git",
-        "url": "ssh://gitlab.intr/vds/vds-xenial"
+        "url": "ssh://git@gitlab.intr/vds/vds-xenial"
       },
       "original": {
         "ref": "master",
         "rev": "7b7e7b66d71930d0af958c107794e3deccd980f5",
         "type": "git",
-        "url": "ssh://gitlab.intr/vds/vds-xenial"
+        "url": "ssh://git@gitlab.intr/vds/vds-xenial"
       }
     },
     "vds-scripts_2": {
@@ -17828,17 +17796,17 @@
         "nixpkgs-unstable": "nixpkgs-unstable_101"
       },
       "locked": {
-        "lastModified": 1628002988,
-        "narHash": "sha256-we2ptvC03zHyWaabpffMCNBk8WSjPPHGLWSv67AUVLQ=",
-        "ref": "master",
-        "rev": "9da1a3ceb1464aec1ab977a15bc9f304660ea457",
-        "revCount": 219,
+        "lastModified": 1662478567,
+        "narHash": "sha256-Buyb8pqQJNYNpA+OAmNnZCqAmONTwrzhdRVitntiljg=",
+        "ref": "refs/heads/master",
+        "rev": "4bb43fe8fd6b82ac77c4f99da57a2ea40f7a68fa",
+        "revCount": 226,
         "type": "git",
-        "url": "ssh://gitlab.intr/vds/vds-xenial"
+        "url": "ssh://git@gitlab.intr/vds/vds-xenial"
       },
       "original": {
         "type": "git",
-        "url": "ssh://gitlab.intr/vds/vds-xenial"
+        "url": "ssh://git@gitlab.intr/vds/vds-xenial"
       }
     },
     "vm": {
