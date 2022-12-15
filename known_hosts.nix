@@ -1,6 +1,6 @@
 { nixosConfigurations, writeText }:
 
-rec {
+{
   backup = {
     hostNames = [ "backup.intr" ];
     publicKeyFile = writeText "backup.pub"
@@ -616,24 +616,21 @@ rec {
     publicKeyFile = writeText "sup4.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhBBXj6kwe4nRmZXt5MNzJbL3X1AnSbUqhYUFE2eIdJ";
   };
-  vm43639 = {
-    hostNames = [ "172.16.102.26" ];
-    publicKeyFile = writeText "vm43639.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJye1aW1vfP1DkTH3yhDBXjbdffeHe1Z9ULcRMue0m+4 root@kubevirt";
+  kube5001 = {
+    hostNames = [ "kube5001" "vm43639" "172.16.102.26" ];
+    publicKeyFile = writeText "kube5001.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJye1aW1vfP1DkTH3yhDBXjbdffeHe1Z9ULcRMue0m+4";
   };
-  kube5001 = vm43639;
-  vm43645 = {
-    hostNames = [ "172.16.102.27" ];
-    publicKeyFile = writeText "vm43645.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBj259GJO14pBYAXqa3BGd7vW9kNl1cZqsB8I2Z3hCu6 root@kubevirt";
+  kube5002 = {
+    hostNames = [ "kube5002" "vm43645" "172.16.102.27" ];
+    publicKeyFile = writeText "kube5002.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBj259GJO14pBYAXqa3BGd7vW9kNl1cZqsB8I2Z3hCu6";
   };
-  kube5002 = vm43645;
-  vm43651 = {
-    hostNames = [ "172.16.102.28" ];
-    publicKeyFile = writeText "vm43651.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA3z2jLfziP1o31/XcltHP2ijRf8MZZZGlPxwSAkhB67 root@kubevirt";
+  kube5003 = {
+    hostNames = [ "kube5003" "vm43651" "172.16.102.28" ];
+    publicKeyFile = writeText "kube5003.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA3z2jLfziP1o31/XcltHP2ijRf8MZZZGlPxwSAkhB67";
   };
-  kube5003 = vm43651;
 } // (let
   ipAddress = host:
     (builtins.head
