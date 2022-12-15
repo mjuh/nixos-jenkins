@@ -617,17 +617,17 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhBBXj6kwe4nRmZXt5MNzJbL3X1AnSbUqhYUFE2eIdJ";
   };
   kube5001 = {
-    hostNames = [ "kube5001" "vm43639" "172.16.102.26" ];
+    hostNames = [ "kube5001.intr" "vm43639.intr" ];
     publicKeyFile = writeText "kube5001.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJye1aW1vfP1DkTH3yhDBXjbdffeHe1Z9ULcRMue0m+4";
   };
   kube5002 = {
-    hostNames = [ "kube5002" "vm43645" "172.16.102.27" ];
+    hostNames = [ "kube5002.intr" "vm43645.intr" ];
     publicKeyFile = writeText "kube5002.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBj259GJO14pBYAXqa3BGd7vW9kNl1cZqsB8I2Z3hCu6";
   };
   kube5003 = {
-    hostNames = [ "kube5003" "vm43651" "172.16.102.28" ];
+    hostNames = [ "kube5003.intr" "vm43651.intr" ];
     publicKeyFile = writeText "kube5003.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA3z2jLfziP1o31/XcltHP2ijRf8MZZZGlPxwSAkhB67";
   };
