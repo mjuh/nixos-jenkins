@@ -631,6 +631,11 @@
     publicKeyFile = writeText "kube5003.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA3z2jLfziP1o31/XcltHP2ijRf8MZZZGlPxwSAkhB67";
   };
+  kube5004 = {
+    hostNames = [ "kube5004.intr" "vm43657.intr" ];
+    publicKeyFile = writeText "kube5004.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFcERZmgRZhZkTJrpsmBs81T6w1AS1Nn/oZSwsbEVe2i";
+  };
 } // (let
   ipAddress = host:
     (builtins.head
