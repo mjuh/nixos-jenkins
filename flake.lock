@@ -4192,11 +4192,11 @@
         "zabbix-agentd-conf": "zabbix-agentd-conf_11"
       },
       "locked": {
-        "lastModified": 1671030444,
-        "narHash": "sha256-29l388eymB7yewADzpAnhGUi9ELjbvXjMqx4AqI80lk=",
+        "lastModified": 1671109402,
+        "narHash": "sha256-GqBgwNTSOvUf15sy7atiIELm7MZNym0RVhtcnSImRA4=",
         "ref": "master",
-        "rev": "a385e0c9c8b6e841e45105a13254bf7a0793ff3e",
-        "revCount": 121,
+        "rev": "6f4c4e630a8c984349e100f0fd30c676f79defe4",
+        "revCount": 124,
         "type": "git",
         "url": "ssh://git@gitlab.intr/nixos/kvm"
       },
@@ -16551,11 +16551,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_144"
       },
       "locked": {
-        "lastModified": 1670955961,
-        "narHash": "sha256-1FkQCJ8AUtXIZLOhP/QDUbMjYZxrrI2d4F2iKeuCzEY=",
+        "lastModified": 1671105439,
+        "narHash": "sha256-HqjEZZb8P0fZk4GJptXhwXBwa859daYIIr6pSQjpVus=",
         "ref": "master",
-        "rev": "39e1a2a6820143cc96135002fef61e58e320664f",
-        "revCount": 199,
+        "rev": "6b98e9951caea9d26201936b4eb371eb09be767a",
+        "revCount": 202,
         "type": "git",
         "url": "ssh://git@gitlab.intr/office/ssl-certificates"
       },
@@ -16677,11 +16677,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_99"
       },
       "locked": {
-        "lastModified": 1670955961,
-        "narHash": "sha256-1FkQCJ8AUtXIZLOhP/QDUbMjYZxrrI2d4F2iKeuCzEY=",
+        "lastModified": 1671105439,
+        "narHash": "sha256-HqjEZZb8P0fZk4GJptXhwXBwa859daYIIr6pSQjpVus=",
         "ref": "master",
-        "rev": "39e1a2a6820143cc96135002fef61e58e320664f",
-        "revCount": 199,
+        "rev": "6b98e9951caea9d26201936b4eb371eb09be767a",
+        "revCount": 202,
         "type": "git",
         "url": "ssh://git@gitlab.intr/office/ssl-certificates"
       },
