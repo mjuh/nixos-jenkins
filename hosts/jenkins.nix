@@ -44,6 +44,7 @@
         { name = "backup"; }
         { name = "base"; }
         { name = "billing2"; }
+        { name = "cd"; }
         { name = "_ci"; }
         { name = "db"; }
         { name = "deploy"; }
