@@ -271,7 +271,7 @@
                 name = "web37";
               }
               {
-                labelString = "logstash";
+                labelString = "";
                 name = "deprecated-web32";
               }
               {
