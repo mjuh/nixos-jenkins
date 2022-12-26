@@ -4192,11 +4192,11 @@
         "zabbix-agentd-conf": "zabbix-agentd-conf_11"
       },
       "locked": {
-        "lastModified": 1671109402,
-        "narHash": "sha256-GqBgwNTSOvUf15sy7atiIELm7MZNym0RVhtcnSImRA4=",
+        "lastModified": 1672019855,
+        "narHash": "sha256-okU10cqa5HRMxT4cTmjAyJWjfxhOidLJIzg6idZ6J3I=",
         "ref": "master",
-        "rev": "6f4c4e630a8c984349e100f0fd30c676f79defe4",
-        "revCount": 124,
+        "rev": "f27de53a06ea1ec2229dec4cec74f38923348b72",
+        "revCount": 127,
         "type": "git",
         "url": "ssh://git@gitlab.intr/nixos/kvm"
       },
