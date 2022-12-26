@@ -114,7 +114,7 @@
   kvm20 = {
     hostNames = [ "kvm20.intr" ];
     publicKeyFile = writeText "kvm20.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHAihaTxMrCT1xPRWUkDQVJXDPBpI++VZkJv38y6pKVU";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEHg+7aCxFwHLIi052JDQwP9UKnMaI3IMcUeP8f5dwkk";
   };
   kvm21 = {
     hostNames = [ "kvm21.intr" ];
