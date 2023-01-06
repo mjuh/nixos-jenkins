@@ -12,6 +12,10 @@
       Host github.com
       User git
       IdentityFile /var/lib/jenkins/.ssh/ssh_deploy_key
+
+      Host kubernetes-nix.intr
+      User root
+      IdentityFile /var/lib/jenkins/.ssh/id_rsa_kubernetes_nixos_nix
     '';
   };
   home.file = {
