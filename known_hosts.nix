@@ -636,6 +636,26 @@
     publicKeyFile = writeText "kube5004.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFcERZmgRZhZkTJrpsmBs81T6w1AS1Nn/oZSwsbEVe2i";
   };
+  p511100 = {
+    hostNames = ["p511100.majordomo.ru" "185.105.108.15"];
+    publicKeyFile = writeText "p511100.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH2FaREj+xrKN8gEjkFSPBE1PHpPplU8YmDsGoFxOek8";
+  };
+  p511101 = {
+    hostNames = ["p511101.majordomo.ru" "185.105.108.16"];
+    publicKeyFile = writeText "p511101.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEM0onHRxHMY+Ich2JnxSs2yp2rcepJOftDcS/kTnONk";
+  };
+  p511102 = {
+    hostNames = ["p511102.majordomo.ru" "185.105.108.17"];
+    publicKeyFile = writeText "p511102.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAlGRWgfGaf2w146EH2BR/Eyv44vW4WuZkPDKZTAVdDi";
+  };
+  p511103 = {
+    hostNames = ["p511103.majordomo.ru" "185.105.108.18"];
+    publicKeyFile = writeText "p511103.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApb3Glph699m3149E3cZZpPHGXP0BVQZEOHUqLj/SYN";
+  };
 } // (let
   ipAddress = host:
     (builtins.head
