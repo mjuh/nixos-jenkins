@@ -3,6 +3,12 @@ deployRS(
     deploy: true,
     flake: ".#jenkins.system",
     preBuild: { nixFlakeLockUpdate (inputs: ["kvm"]) },
+    postBuild: {
+        sh 'nix build --print-build-logs .#kubevirt-image'
+        def result = (sh (script: "readlink -f result/nixos.qcow2", returnStdout: true)).trim()
+        sh "cp ${result} nixos.qcow2"
+        archiveArtifacts artifacts: "nixos.qcow2"
+    }
     postTests: {
         if (env.BRANCH_NAME != "master") {
             sh '''

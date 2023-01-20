@@ -66,6 +66,7 @@
                   #       ${ssl-certificates.packages.${system}.certificates}/Majordomo_LLC_Root_CA.crt > $out/etc/ssl/certs/ca-bundle.crt
                   #   '';
                   # };
+                  kubevirt-image = self.nixosConfigurations.jenkins.config.system.build.kubevirtImage;
                   jenkins-update-plugins = with pkgs;
                     let
                       plugins = with builtins; concatStringsSep " "
