@@ -621,6 +621,11 @@
     publicKeyFile = writeText "kube13.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ0Px2/tKUrmi8y+K0+Ivet5q/wnec+nGbAYHqTb5PdN";
   };
+  mj327 = {
+    hostNames = [ "kube14.intr" "mj327.intr" ];
+    publicKeyFile = writeText "kube14.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/SJn0xk8EzeAgatyHXTrHWU6hpsfUd0aJZZ33p1K4O";
+  };
   kube5001 = {
     hostNames = [ "kube5001.intr" "vm43639.intr" ];
     publicKeyFile = writeText "kube5001.pub"
