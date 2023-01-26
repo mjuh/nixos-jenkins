@@ -144,7 +144,7 @@
               }
               {
                 labelString = "mail-production webmail-mr smtp-out";
-                name = "webmail1-mr";
+                name = "webmail1";
               }
               {
                 labelString = "mail-production webmail-mr smtp-out";
