@@ -569,7 +569,7 @@
   webmail2 = {
     hostNames = [ "webmail2.intr" ];
     publicKeyFile = writeText "webmail2.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBO6X+yRi7xbr8iqOT3th7frxf6vjvp08yqyGrbg7AXT";
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF1t8ExzF9h+aNdBrtGh63ya/mRrNpE71M4xsrMo3oyD";
   };
   webmail3 = {
     hostNames = [ "webmail3.intr" ];
