@@ -148,7 +148,7 @@
               }
               {
                 labelString = "mail-production webmail-mr smtp-out";
-                name = "webmail2-mr";
+                name = "webmail2";
               }
               {
                 labelString = "nginx-mr";
