@@ -16551,11 +16551,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_144"
       },
       "locked": {
-        "lastModified": 1674684162,
-        "narHash": "sha256-mhOBjqxbuPcIlRRzruKKd0M/WziZhp946/F1wbxl5Fk=",
+        "lastModified": 1674700553,
+        "narHash": "sha256-N7UOpH6krGXioQBh/dUW193aky/8rdJly93uxRIBUdY=",
         "ref": "master",
-        "rev": "4b0854ac217566297028ddd5855489d237bc7306",
-        "revCount": 213,
+        "rev": "63e3098084057a7c573b67c40d6daaa0a5a686b6",
+        "revCount": 215,
         "type": "git",
         "url": "ssh://git@gitlab.intr/office/ssl-certificates"
       },
