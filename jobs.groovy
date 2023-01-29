@@ -2,14 +2,14 @@ groups = System.getenv("GITLAB_GROUPS").split(",")
 
 def newFolder(String group) {
     organizationFolder(group) {
-        description("https://gitlab.intr/" + group)
+        description("https://gitlab.corp1.majordomo.ru/" + group)
         displayName(group)
         // "Projects"
         organizations {
             gitLabSCMNavigator {
                 projectOwner(group)
                 credentialsId("gitlab.intr")
-                serverName("gitlab.intr")
+                serverName("gitlab.corp1.majordomo.ru")
                 // "Traits" ("Behaviours" in the GUI) that are "declarative-compatible"
                 traits {
                     subGroupProjectDiscoveryTrait() // discover projects inside subgroups
