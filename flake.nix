@@ -17,9 +17,7 @@
 
     majordomo.url = "git+https://gitlab.intr/_ci/nixpkgs";
     ssl-certificates.url = "git+ssh://git@gitlab.intr/office/ssl-certificates";
-    zabbix-agentd-conf.url = "git+ssh://git@gitlab.intr/chef/service";
     flake-utils.url = "github:numtide/flake-utils";
-    nix-flake-common.url = "git+ssh://git@gitlab.intr/_ci/nixops";
     nixpkgs-vulnix = {
       url = "github:nixos/nixpkgs/329102c47bd1c68f0acdf4feec64232202948c7a";
       flake = false;
@@ -27,10 +25,9 @@
     nixpkgs-20-09.url = "nixpkgs/nixos-20.09";
     vault-secrets.url = "git+https://github.com/serokell/vault-secrets";
     home-manager.url = "github:nix-community/home-manager";
-    guix.url = "github:foo-dogsquared/nix-overlay-guix";
-    nixos-ns.url = "git+ssh://git@gitlab.intr/nixos/ns";
+    nixos-ns.url = "git+https://gitlab.intr/nixos/ns";
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    kvm.url = "git+ssh://git@gitlab.intr/nixos/kvm";
+    kvm.url = "git+https://gitlab.intr/nixos/kvm";
   };
 
   outputs = { self
@@ -42,11 +39,8 @@
             , deploy-rs
             , majordomo
             , ssl-certificates
-            , nix-flake-common
-            , zabbix-agentd-conf
             , vault-secrets
             , home-manager
-            , guix
             , nixos-ns
             , flake-utils-plus
             , ... } @ inputs:
@@ -59,14 +53,7 @@
                 hm = import home-manager { inherit system; };
               in rec {
                 packages.${system} = rec {
-                  jdk11 = jdk;
-                  jdk = pkgs.jdk8.override {
-                    cacert = pkgs.runCommand "mycacert" {} ''
-                      mkdir -p $out/etc/ssl/certs
-                      cat ${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt \
-                        ${ssl-certificates.packages.${system}.certificates}/Majordomo_LLC_Root_CA.crt > $out/etc/ssl/certs/ca-bundle.crt
-                    '';
-                  };
+                  default = self.nixosConfigurations.jenkins.config.system.build.kubevirtImage;
                   jenkins-update-plugins = with pkgs;
                     let
                       plugins = with builtins; concatStringsSep " "
@@ -80,12 +67,15 @@
                             "gitlab-branch-source"
                             "gradle"
                             "hashicorp-vault-plugin"
+                            "jdk-tool"
                             "junit"
                             "lockable-resources"
                             "pipeline-utility-steps"
+                            "prometheus"
                             "nexus-jenkins-plugin"
                             "slack"
                             "ssh-slaves"
+                            "tekton-client"
                             "ws-cleanup"
                             "workflow-aggregator"
                             "workflow-multibranch"
@@ -109,8 +99,6 @@
 
                   inherit (pkgs-deprecated)
                     openjdk14;
-
-                  inherit (guix.packages.${system}) guix_binary_1_3_0;
 
                   inherit (deploy-rs.packages.${system}) deploy-rs;
                 };
@@ -167,7 +155,6 @@
                               self.nixosModules."hardware-${hostName}"
                               host
                               vault-secrets.nixosModules.vault-secrets
-                              guix.nixosModules.guix-binary
                             ] ++ (attrValues self.nixosModules)
                               ++ (if name == "vm" then [(pkgs.path + /nixos/modules/virtualisation/qemu-vm.nix)] else []);
                             specialArgs = {

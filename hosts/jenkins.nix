@@ -2,23 +2,10 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.grub.mirroredBoots = [{
-    efiSysMountPoint = "/boot1/efi";
-    path = "/boot1";
-    devices = [ "nodev" ];
-  }];
 
   virtualisation = {
     docker.enable = true;
     docker.enableOnBoot = false;
-  };
-
-  fileSystems."/var/log/nginx" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=3G" "mode=755" ]; # mode=755 so only root can write to those files
   };
 
   # XXX:
@@ -28,8 +15,6 @@
   # Don't use “ALL=(ALL:ALL) NOPASSWD:ALL” for zabbix-agent
   security.sudo.extraConfig = ''
     jenkins ALL=(ALL:ALL) NOPASSWD:ALL
-    zabbix-agent ALL=(ALL:ALL) NOPASSWD:ALL
-    veretelnikov ALL=(ALL:ALL) NOPASSWD:ALL
   '';
 
   services = {
@@ -44,15 +29,12 @@
         { name = "backup"; }
         { name = "base"; }
         { name = "billing2"; }
-        { name = "cd"; }
         { name = "_ci"; }
         { name = "db"; }
         { name = "deploy"; }
         { name = "domains"; }
         { name = "jenkinsci"; }
         { name = "folders"; }
-        { name = "helm"; }
-        { name = "kustomize"; }
         { name = "kvm-templates"; }
         { name = "legacy"; }
         { name = "mail"; }
@@ -115,11 +97,11 @@
                 name = "dh2";
               }
               {
-                labelString = "dhost-worker";
+                labelString = "dhost-production";
                 name = "dh3";
               }
               {
-                labelString = "dhost-production";
+                labelString = "dhost-development";
                 name = "dh4";
               }
               {
@@ -144,11 +126,11 @@
               }
               {
                 labelString = "mail-production webmail-mr smtp-out";
-                name = "webmail1";
+                name = "webmail1-mr";
               }
               {
                 labelString = "mail-production webmail-mr smtp-out";
-                name = "webmail2";
+                name = "webmail2-mr";
               }
               {
                 labelString = "nginx-mr";
@@ -271,7 +253,7 @@
                 name = "web37";
               }
               {
-                labelString = "";
+                labelString = "logstash";
                 name = "deprecated-web32";
               }
               {
@@ -281,6 +263,10 @@
               {
                 labelString = "logstash";
                 name = "ns2-dh";
+              }
+              {
+                labelString = "logstash";
+                name = "vm35";
               }
               {
                 labelString = "logstash";
@@ -305,7 +291,6 @@
 
     jenkins = {
       packages = with pkgs; [
-        bats
         bind
         deploy-rs
         influxdb-subscription-cleaner
@@ -354,7 +339,6 @@
     trustedUsers = [ "root" "eng" ];
     gc = {
       automatic = false;
-      dates = "weekly";
       options = "--delete-older-than 14d";
     };
     requireSignedBinaryCaches = true;
@@ -367,59 +351,9 @@
   };
 
   networking = {
-    resolvconf = {
-      useLocalResolver = false;
-    };
-    dhcpcd.enable = false;
     hostName = "jenkins";
     firewall.enable = false;
-    bonds.bond0 = {
-      interfaces = [ "enp1s0f0" "enp1s0f1" ];
-      driverOptions = {
-        mode = "802.3ad";
-        lacp_rate = "fast";
-      };
-    };
-    vlans = {
-      vlan252 = {
-        id = 109;
-        interface = "bond0";
-      };
-      vlan253 = {
-        id = 253;
-        interface = "bond0";
-      };
-    };
-    interfaces = {
-      vlan252.ipv4 = {
-        addresses = [{
-          address = "192.168.103.3";
-          prefixLength = 24;
-        }];
-        routes = [{
-          address = "192.168.103.0";
-          prefixLength = 24;
-          via = "192.168.103.1";
-        }];
-      };
-      vlan253.ipv4 = {
-        addresses = [{
-          address = "172.16.103.238";
-          prefixLength = 24;
-        }];
-        routes = [{
-          address = "172.16.0.0";
-          prefixLength = 16;
-          via = "172.16.103.1";
-        }];
-      };
-    };
-    defaultGateway = {
-      address = "172.16.103.1";
-      interface = "vlan253";
-    };
-    nameservers = [ "172.16.103.238" ];
-    search = [ "intr" "majordomo.ru" ];
+    useDHCP = true;
     extraHosts = ''
       127.0.0.1 jenkins.intr ci.guix.gnu.org.intr
     '';
@@ -447,7 +381,6 @@
     nix-prefetch-docker
     nix-prefetch-git
     nodejs
-    parallel
     python27Full
     rsync
     screen
@@ -475,101 +408,86 @@
       }/nix-serve/cache-priv-key.pem";
   };
 
-  disabledModules = [ "services/monitoring/zabbix-agent.nix" ];
-  imports = with inputs.nix-flake-common.nixosModules; [
-    zabbix-agent
-    mjzabbix
-    mj-smartd
-    eng
-    sup
-    security
-    inputs.nix-flake-common.nixosModules.ntp
+  imports = [
+    ({ config, pkgs, ... }:
+      let
+        engSshPublicKey =
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDUrF2h4GoVEuYLhYpeLpwbWvqj+xbPGjNAu/Z6y5GlzZXUkvaPwayZooN+yyWFM4//V1VZkipFJqd+0seDoqDK+JaspZGxO/TqIUAVB7EoAscWWREqIJsC4e/00ki/8H0OQVxjlcx4d4DdXH0/vlb3dyLIbouKA3FRAh/dShyx/+joguero8DhM64/6z6UBT2mRbeKDxi8vdnhD6fvF4dNAdNtwEtsg//P+N32MHQiLZhfrCh+tlP6xovOckYZ9aaGbxRRxL/D1E3v7fzJApbruhPULCeMCM1P8f6CY287KaEgctFu3IsIBQqrSgYQ2cngs6YWlwHZtjCkIgRNKq3P+Lhw9Hvbg4QcYEKBYXtWqrF5/gmTjnLXeT2tvwFy3NjsS6Br6MwMPey2YzT84lP10xmFp7mhm9RPmDiEN/dQj4ykMGeMC80/mal0NbNALkBawrTxdGoJOELxCYG9oyFvxBCI/lvXY+1UGX19sSgOsaU1k6T7f2vyPu/915f35oeAnN9/B6NSOrdU8Vejy0FWrXEcEopt0aGWTK18/98E5nFdhvhclsXheFimvrZgA0FzqnScO3cXMGNOW1GwzTdf2TvzlLcJYybkMAkLm5E1kqqYD8khqdVP3YmU9LmeHOZEsTYzRSzsafBB2QmyD7UwrH++5kvH/N+yL+ywpTwkIw==";
+      in {
+        users = {
+          mutableUsers = false;
+          users = {
+            eng = {
+              isNormalUser = true;
+              extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+              openssh.authorizedKeys.keys = [ engSshPublicKey ];
+              uid = 1000;
+            };
+            root.openssh.authorizedKeys.keys = [ engSshPublicKey ];
+          };
+        };
+      })
+    ({ config, pkgs, ... }: {
+      users.mutableUsers = false;
+      users.users.sup = {
+        isNormalUser = true;
+        #extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+        openssh.authorizedKeys.keys = [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDSb3E/mXF/oTKLDsF/zFmPow65vYMzXOr/+kifRzLSnni7vi3M5o1ofKxgdFPx7z7dj84lIcPs2njnfljPQaWhsgGUdGe3kCqHL05koP1gDd9w8dLvLdUbir+sLkNDEOxlSHMV+IXT/PA2aMl6u8w51ytkAGdj1bnBWlXjqgevf3gRwWqYQk55RJsWQV12jLaDKX06WyBT5VXKzWaVp85RuBWuBcF1wyQy7eWlXC83/0ZH56G9Fua0nSQcRWA2rPjN5YGrShf1iVccHyMpJki7OCt+vWIuvi0wFOmCE4B7ejFRLiIjgdNGF3aXykKHrZPW5WIMn7Ev/ooE7i/vBbEMecOYIqcSfp2D08W6H/1Q8wz4IEaoCjvLCoEjAey/sziauBNnJnYlQ79ff/7cFrMrSx4NGLEF210cr1qTGoMR1ABd1mAN9GP++a9XPLsLLhS6H9e8wnSotjcaAsrlV9N8PNUdI8cdU6Pv/cQX6IUWAe524ZpLfv1EUiRbG5x2gELa6NXgXy6frr1ZiiSWq6ctcRYYIi2AFKDZ9rh0Wr20IbzKzMZFHHsPNdG8fSy1pwaQ3geuR/3h/U7K1GERzicm6aZVwhCmCpInr89/yoDM6L6NVpqOfQSyLASR/L93APPLB+6Z+v/egl8KvKj8loU4MDsWCW1te00k/DYVjbpa2w=="
+        ];
+        uid = 1002;
+      };
+    })
+    ({ config, lib, pkgs, ... }:
+      {
+        security.pki.certificates = [''
+    -----BEGIN CERTIFICATE-----
+    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
+    C17nt7CIsj9xIxtaQLPyGA==
+    -----END CERTIFICATE-----
+  ''];
+      })
+    ({ config, ... }:
+
+      {
+        networking.timeServers = [
+          "172.16.102.1"
+          "172.16.103.1"
+        ];
+      })
   ];
 
-  services.lldpd.enable = true;
-
   users.users.root.password = ""; # Empty password.
-
-  # XXX: Make machinectl default to eng account for convenience before
-  # uncommenting.
-  #
-  # users.users.veretelnikov = {
-  #   description = "Roman Veretelnikov";
-  #   uid = 1003;
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ];
-  #   openssh.authorizedKeys.keys = [
-  #     "no-touch-required sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBJF2yJWXX93EEZs89naMaJqpoNfuNHTZPCYs9laTdgK9Nq1n6N8iDO00O+2yX6gfY9/aeWzezZEjbHUoahlf31cAAAAEc3NoOg== dims@workplace.local"
-  #     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC6Vxd16qVDmY+KEzLh3ChROAcY7REa7hWai+BtBBUy3YTodDr2Lsjn2qLXbAwplu7ZvM+q8hsAV78DtCq9vvnzgyr0+dXrMqH8ZfgzE5kgpiXiAa4QvjBgnqS86cUQKRx3XjkH8sq0mnti4d+nYvdKXmQQWiOQlp5MnyA3uIBK5c0sGD7Ly8HwS4E3nigFhn04uaANJtHAgIMWaL/vQ+6XIw5gpKcHyVnVXxMaZCCFYhmruNhWIo4stucdn2lO7o8osxFJ7WIBqmCqFM7YaomnKzwqH7W6jCxi4enGCiWpwwXfphbP0rOskhWP6TDAgVI5RtO4yXaRYxvF7CnFM14sjl6bMdeYEFRkpYVXiClkV59iHIEwOSFbznUEBrf3TcBji/cwI0prtFFHKiejjWMmBuCKp+qCtYFcFy2U3MTgTsnt376It39DHFvgxdo3yQEWHNtsckyx7sZvdkAk4HWfe/V5HRm3xuPc30JI8f+Qp1J5qX3hEaQ5HOglhjgMKGFPGoz1uLRHtUTVRZRgFTEBizFVwwdEZBdLelY142d/zrBUgj0fM4aSGWm6cy/jTlpl+eAQVRzeeyUOBcQROqwANaYTY5khS+nTR88iNWb1Rw0MPuWN8Si6wAked86SOeLecYqeuIIOLscnhPdGBx+IZz2B8ouqA8A2Ty4qNNBfGQ== cardno:000611584224"
-  #     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD2XLYoULGOplafJzAs6A4bOeYL1UbfG7sEnWemHRteHJ33wNiSc+DghyWFmy0Tn7U08cq9yYt0CR+j+L5hELluRi6mCu9r7nyU9l14BtJC2Y5Ls0H2Qk65xIyI79s7C8i15P1XNr+bVT2+z+iwkIFOGudp2PW3YA9AuRiQfdN8807cYdlJfU9sPvIjF+Nu/m7Kvy8f/ocsUHvcAnjpFvrFoUbH25sc+sXX8b6rMKktQP75tjluM/g8n26xvWMyxiYd+FC04u7onDBiGF5vq2p1wT//vZ+d6em0JQntlAh4P5L6nVuu0Q9kZScECwBsafaJnHRfLHD6HB6fw0B77OKI8C9d7d6Gewg7/FnCGOJxsvUIdvgsViuZhcEe04ej9acihQShDsTGEzf1PAExGv8zy6Zs/vMvIaqIYgSDDs5lnSanLYMFgOteUtpKizu3JoCAdg+9gtusbApIgfy8e8N6EfMmwNVnV/tqDGlgCAkNCCvPedDw0FPWk6QamVcMhPkfwTGXKuoMv6cWfID6FJ6gRyooHF8I0sQ7qBGiN9grXB7mkkWIhlIBF7zUYSLL2G8JLECYI+/DR1/XV5vxMmSV4jepbupx8REJ632+rSdRw0m2PVhCWUlorDPo0jH5q6olQSXOp+WrEMkIHhoCId5ajYCLEGOEfK43tNMkHCl9cw== cardno:000611064215"
-  #     "no-touch-required sk-ecdsa-sha2-nistp256@openssh.com AAAAInNrLWVjZHNhLXNoYTItbmlzdHAyNTZAb3BlbnNzaC5jb20AAAAIbmlzdHAyNTYAAABBBM+VOYZWXHy6wSQt8QCoAX6vymNvDlkRMGomJgmQJnUxKG0BFoPpEswTcnzLlJWo+WOzWjaeoFkbttoWRiXvzn4AAAAEc3NoOg== cyberfunk@cyberfunk"
-  #     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDODo3D1hz8PUbX6EDHHGP7vNJb6tXujzS4gxcqQ9vEndxE110N9aXfgo0voh10upvC3es2GJlhZ/tiDPBsi9ZB0bdRKRkS0r8pTUHKgj4nWsMHRo/47luhS9EAFAb/dFLPADMvs/O1LuaHQIlpbx5JCV/LRP3jJ/6OTS/qdMrYazHo2gsfZOvsfjlwC/sq9pHI/c/O6sd/OT4cvEKoyx9NRPHi7fhdd3twVge1b5T2sekUkX9t6ri9Mjha4wQRXijRhFQJK36K2DYI59aWs+0e7cGniESD+8Q8LzCwTi8ogCLxAcIp5PsD6smbvuiH3BH77fOfTRBQeXCOrAj/w95V roman@iMac-Roman.local"
-  #   ];
-  # };
-
-  # Enable Guix daemon
-  # https://guix.gnu.org/
-  #
-  # Getting substitutes from Tor
-  # https://guix.gnu.org/cookbook/en/html_node/Getting-substitutes-from-Tor.html
-  services.guix-binary = {
-    enable = true;
-    extraArgs = [
-      "--substitute-urls=http://ci.guix.gnu.org.intr"
-    ];
-  };
-  services.tor = {
-    enable = true;
-    settings = {
-      HTTPTunnelPort = 9250;
-      ExitNodes = "{nl},{fr},{de}";
-      DNSPort = 53;
-      AutomapHostsOnResolve = true;
-    };
-  };
-  services.kresd = {
-    enable = true;
-    extraConfig = builtins.readFile ./../kresd.conf;
-  };
-  systemd.services.tinyproxy = {
-    enable = true;
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = lib.concatStringsSep " " [
-        "${pkgs.tinyproxy}/bin/tinyproxy" "-d" "-c" ./../tinyproxy.conf
-      ];
-    };
-  };
-  systemd.services.socat = {
-    enable = true;
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = lib.concatStringsSep " " [
-        "${pkgs.socat}/bin/socat"
-        "tcp4-LISTEN:81,reuseaddr,fork,keepalive,bind=127.0.0.1"
-        "SOCKS4A:127.0.0.1:4zwzi66wwdaalbhgnix55ea3ab4pvvw66ll2ow53kjub6se4q2bclcyd.onion:443,socksport=9050"
-      ];
-    };
-  };
-  services.nginx = {
-    enable = true;
-    upstreams = {
-      onion = {
-        servers = { "172.16.103.238:8888" = {}; };
-      };
-      socat = {
-        servers = { "127.0.0.1:81" = {}; };
-      };
-    };
-    virtualHosts."ci.guix.gnu.org.intr" = {
-      locations."/" = {
-        proxyPass = "https://socat";
-        extraConfig = ''
-          proxy_ssl_verify off;
-        '';
-      };
-    };
-  };
 
   programs.fup-repl = {
     enable = true;

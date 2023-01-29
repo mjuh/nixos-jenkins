@@ -434,8 +434,8 @@ in {
             servers = [{
               credentialsId = "gitlab-personal-access-token";
               manageWebHooks = true;
-              name = "gitlab.intr";
-              serverUrl = "https://gitlab.intr";
+              name = "gitlab.corp1.majordomo.ru";
+              serverUrl = "https://gitlab.corp1.majordomo.ru";
               secretToken =
                 "\${DATA_VAULTPASS_MAJORDOMO_GITLAB.INTR_PERSONAL_ACCESS_TOKEN}";
             }];
@@ -565,7 +565,7 @@ in {
       };
       enable = true;
       port = 8080;
-      listenAddress = "127.0.0.1";
+      listenAddress = "0.0.0.0";
       user = "jenkins";
       extraGroups = [ "docker" "users" "adbusers" "kvm" ];
       plugins =
