@@ -7,7 +7,6 @@
       Host gitlab.intr
       User git
       HostName gitlab.intr
-      IdentityFile /var/lib/jenkins/.ssh/ssh_deploy_key
 
       Host github.com
       User git
