@@ -358,7 +358,7 @@
     firewall.enable = false;
     useDHCP = true;
     extraHosts = ''
-      127.0.0.1 jenkins.intr ci.guix.gnu.org.intr
+      127.0.0.1 ci.guix.gnu.org.intr
       172.16.103.238 cache.nixos.intr
     '';
   };
