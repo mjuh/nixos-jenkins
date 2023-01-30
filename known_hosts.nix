@@ -52,7 +52,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILSaHJIx32vWG8qVUk/AVnItveJDPzz2SYB4kRncASZY";
   };
   gitlab = {
-    hostNames = [ "gitlab.intr" ];
+    hostNames = [ "gitlab.corp1.majordomo.ru" "gitlab.intr" ];
     publicKeyFile = writeText "gitlab.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJw9vd+rL+MwVdVKSKW32+k6irAULLUFv5dmRUve2nUW";
   };
