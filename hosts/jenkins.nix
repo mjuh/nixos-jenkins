@@ -29,12 +29,15 @@
         { name = "backup"; }
         { name = "base"; }
         { name = "billing2"; }
+        { name = "cd"; }
         { name = "_ci"; }
         { name = "db"; }
         { name = "deploy"; }
         { name = "domains"; }
         { name = "jenkinsci"; }
         { name = "folders"; }
+        { name = "helm"; }
+        { name = "kustomize"; }
         { name = "kvm-templates"; }
         { name = "legacy"; }
         { name = "mail"; }
@@ -97,11 +100,11 @@
                 name = "dh2";
               }
               {
-                labelString = "dhost-production";
+                labelString = "dhost-worker";
                 name = "dh3";
               }
               {
-                labelString = "dhost-development";
+                labelString = "dhost-production";
                 name = "dh4";
               }
               {
@@ -126,11 +129,11 @@
               }
               {
                 labelString = "mail-production webmail-mr smtp-out";
-                name = "webmail1-mr";
+                name = "webmail1";
               }
               {
                 labelString = "mail-production webmail-mr smtp-out";
-                name = "webmail2-mr";
+                name = "webmail2";
               }
               {
                 labelString = "nginx-mr";
@@ -253,7 +256,7 @@
                 name = "web37";
               }
               {
-                labelString = "logstash";
+                labelString = "";
                 name = "deprecated-web32";
               }
               {
@@ -263,10 +266,6 @@
               {
                 labelString = "logstash";
                 name = "ns2-dh";
-              }
-              {
-                labelString = "logstash";
-                name = "vm35";
               }
               {
                 labelString = "logstash";
@@ -339,6 +338,7 @@
     trustedUsers = [ "root" "eng" ];
     gc = {
       automatic = false;
+      dates = "weekly";
       options = "--delete-older-than 14d";
     };
     requireSignedBinaryCaches = true;
