@@ -36,6 +36,11 @@
     fileSystems."/var/run/secrets/kubernetes.io/serviceaccount" = {
       device = "/dev/disk/by-label/cfgdata";
       fsType = "iso9660";
+      options = [
+        "ro"
+        "uid=${builtins.toString config.users.users.jenkins.uid}"
+        "gid=${builtins.toString config.users.groups.jenkins.gid}"
+      ];
     };
   };
 }
