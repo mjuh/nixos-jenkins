@@ -2,9 +2,11 @@
 
 with lib;
 
-let cfg = config.services.ci;
-
-in {
+let
+  cfg = config.services.ci;
+  inherit (lib) fold;
+in
+{
   options.services.ci = {
     enable = lib.mkEnableOption "Enable ci service";
     gitlabGroups = lib.mkOption {
@@ -334,10 +336,10 @@ in {
           scmCheckoutRetryCount = 0;
           slaveAgentPort = 0;
           systemMessage = ''
-              Welcome to our build server.
+            Welcome to our build server.
 
-              This Jenkins is 100% configured and managed 'as code'.
-            '';
+            This Jenkins is 100% configured and managed 'as code'.
+          '';
           updateCenter = {
             sites = [{
               id = "default";
@@ -623,32 +625,34 @@ in {
       vaultAddress = "https://vault.intr:443";
 
       secrets = {
-        "jenkins.intr" = let
-          secrets = pkgs.writeText "secrets" ''
-            data/vaultPass/majordomo/gitlab.intr#username
-            data/vaultPass/majordomo/gitlab.intr#password
-            data/vaultPass/majordomo/gitlab.intr#chatops-password
-            data/vaultPass/majordomo/gitlab.intr#personal-access-token
-            data/vaultPass/majordomo/jenkins.intr#username
-            data/vaultPass/majordomo/jenkins.intr#password
-          '';
-        in {
-          secretsKey = "";
-          services = [ "jenkins" ];
-          user = config.users.users.jenkins.name;
-          group = config.users.groups.jenkins.name;
-          extraScript = with config.services.jenkins; ''
-            mkdir -p ${home}/.ssh
-            chown ${user}:${group} ${home}/.ssh
-            base64 -d ${config.vault-secrets.outPrefix}/jenkins.intr/ssh-key > ${home}/.ssh/id_rsa
-            chmod 400 ${home}/.ssh/id_rsa
-            chown ${user}:${group} ${home}/.ssh/id_rsa
+        "jenkins.intr" =
+          let
+            secrets = pkgs.writeText "secrets" ''
+              data/vaultPass/majordomo/gitlab.intr#username
+              data/vaultPass/majordomo/gitlab.intr#password
+              data/vaultPass/majordomo/gitlab.intr#chatops-password
+              data/vaultPass/majordomo/gitlab.intr#personal-access-token
+              data/vaultPass/majordomo/jenkins.intr#username
+              data/vaultPass/majordomo/jenkins.intr#password
+            '';
+          in
+          {
+            secretsKey = "";
+            services = [ "jenkins" ];
+            user = config.users.users.jenkins.name;
+            group = config.users.groups.jenkins.name;
+            extraScript = with config.services.jenkins; ''
+              mkdir -p ${home}/.ssh
+              chown ${user}:${group} ${home}/.ssh
+              base64 -d ${config.vault-secrets.outPrefix}/jenkins.intr/ssh-key > ${home}/.ssh/id_rsa
+              chmod 400 ${home}/.ssh/id_rsa
+              chown ${user}:${group} ${home}/.ssh/id_rsa
 
-            cat ${
-              config.vault-secrets.secrets."jenkins.intr".environmentFile
-            } <(VAULT_ADDR=${vaultAddress} ${pkgs.vaultenv}/bin/vaultenv --no-inherit-env --secrets-file ${secrets} env) > "''${secretsPath}/jenkins.properties"
-          '';
-        };
+              cat ${
+                config.vault-secrets.secrets."jenkins.intr".environmentFile
+              } <(VAULT_ADDR=${vaultAddress} ${pkgs.vaultenv}/bin/vaultenv --no-inherit-env --secrets-file ${secrets} env) > "''${secretsPath}/jenkins.properties"
+            '';
+          };
       };
     };
 
