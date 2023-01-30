@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                sh "nix build .#nixosConfigurations.jenkins.config.system.build.toplevel"
+                sh "nix build --print-build-logs .#nixosConfigurations.jenkins.config.system.build.toplevel"
             }
         }
     }
