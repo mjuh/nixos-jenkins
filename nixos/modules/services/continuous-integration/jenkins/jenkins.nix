@@ -571,7 +571,35 @@ in
       user = "jenkins";
       extraGroups = [ "docker" "users" "adbusers" "kvm" ];
       plugins =
-        (import ../../../../../plugins.nix { inherit (pkgs) fetchurl stdenv; });
+        fold
+          (plugin: plugins:
+            plugins // plugin)
+          { }
+          [
+            (import ../../../../../plugins.nix {
+              inherit (pkgs) fetchurl stdenv;
+            })
+            (
+              let
+                inherit (pkgs) fetchurl stdenv;
+                mkJenkinsPlugin = { name, src }:
+                  stdenv.mkDerivation {
+                    inherit name src;
+                    phases = "installPhase";
+                    installPhase = "cp $src $out";
+                  };
+              in
+              {
+                nix-flake-update = mkJenkinsPlugin {
+                  name = "nix-flake-update";
+                  src = fetchurl {
+                    url = "https://jenkins.corp1.majordomo.ru/job/jenkinsci/job/jenkinsci%252Fnix-flake-lock-update-plugin/job/master/lastSuccessfulBuild/artifact/jenkins-plugin/build/libs/nix-flake-update.hpi";
+                    sha256 = "1p0ha825h4mavlnqp036s8r73fzcb5gl4cqs90yb619pgg1lif7d";
+                  };
+                };
+              }
+            )
+          ];
       packages = with pkgs; [
         bashInteractive
         config.programs.ssh.package
