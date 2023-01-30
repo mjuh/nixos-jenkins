@@ -440,7 +440,7 @@ in {
                 "\${DATA_VAULTPASS_MAJORDOMO_GITLAB.INTR_PERSONAL_ACCESS_TOKEN}";
             }];
           };
-          gitSCM = {
+          scmGit = {
             createAccountBasedOnEmail = false;
             showEntireCommitSummaryInChanges = false;
             useExistingAccountWithSameEmail = false;
