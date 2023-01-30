@@ -285,7 +285,7 @@ in {
               launcher = {
                 ssh = {
                   credentialsId = "jenkins-ssh-deploy";
-                  host = "localhost";
+                  host = "deprecated-jenkins.intr";
                   javaPath = "${pkgs.jdk}/bin/java";
                   port = 22;
                   sshHostKeyVerificationStrategy =
