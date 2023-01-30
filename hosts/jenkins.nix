@@ -347,6 +347,9 @@
       tarball-ttl = 30
       narinfo-cache-negative-ttl = 3
       max-silent-time = ${toString (60 * 10)}
+      binary-caches = https://cache.nixos.org/ http://cache.nixos.intr:5000/
+      trusted-substituters = http://cache.nixos.intr:5000/
+      trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.nixos.intr:6VD7bofl5zZFTEwsIDsUypprsgl7r9I+7OGY4WsubFA=
     '';
   };
 
@@ -356,6 +359,7 @@
     useDHCP = true;
     extraHosts = ''
       127.0.0.1 jenkins.intr ci.guix.gnu.org.intr
+      172.16.103.238 cache.nixos.intr
     '';
   };
 
