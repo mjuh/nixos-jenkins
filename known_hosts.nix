@@ -57,7 +57,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJw9vd+rL+MwVdVKSKW32+k6irAULLUFv5dmRUve2nUW";
   };
   jenkins = {
-    hostNames = [ "jenkins.intr" ];
+    hostNames = [ "deprecated-jenkins.intr" "jenkins.intr" ];
     publicKeyFile = writeText "jenkins.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDngvW1IgUSW4Lna7tOoDBsC2sG+IlpDfYCe1wBVMp2";
   };
