@@ -32,5 +32,10 @@
       format = "qcow2";
     };
     services.cloud-init.enable = lib.mkForce false;
+
+    fileSystems."/var/run/secrets/kubernetes.io/serviceaccount" = {
+      device = "/dev/disk/by-label/cfgdata";
+      fsType = "iso9660";
+    };
   };
 }
