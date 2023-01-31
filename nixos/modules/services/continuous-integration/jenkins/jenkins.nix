@@ -564,6 +564,7 @@ in
         SECRETS_FILE = "/run/secrets/jenkins.intr/jenkins.properties";
         GITLAB_GROUPS = builtins.concatStringsSep ","
           (map (group: group.name) cfg.gitlabGroups);
+        COLLECT_DISK_USAGE = "true"; # Prometheus plugin
       };
       enable = true;
       port = 8080;
