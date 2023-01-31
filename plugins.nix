@@ -942,6 +942,15 @@ in {
         "3ea34acec187c036d5e688192dcd75e70fc1c6b1018969c1c04ae7f1e6bb3410";
     };
   };
+  pipeline-graph-view = mkJenkinsPlugin {
+    name = "pipeline-graph-view";
+    src = fetchurl {
+      url =
+        "https://updates.jenkins-ci.org/download/plugins/pipeline-graph-view/144.vf3924feb_7e35/pipeline-graph-view.hpi";
+      sha256 =
+        "b9d63c646630c167d8859a15e63f52582e64798b7070b3764dfe57852e3ba940";
+    };
+  };
   pipeline-groovy-lib = mkJenkinsPlugin {
     name = "pipeline-groovy-lib";
     src = fetchurl {

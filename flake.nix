@@ -70,6 +70,7 @@
                             "jdk-tool"
                             "junit"
                             "lockable-resources"
+                            "pipeline-graph-view"
                             "pipeline-utility-steps"
                             "prometheus"
                             "nexus-jenkins-plugin"
