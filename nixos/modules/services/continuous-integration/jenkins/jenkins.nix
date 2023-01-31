@@ -628,6 +628,11 @@ in
         # - [[https://www.jenkins.io/doc/upgrade-guide/2.222/#always-enabled-csrf-protection][Upgrading to Jenkins LTS 2.222.x]]
         # - [[https://www.jenkins.io/doc/book/managing/security/#caveats][Managing Security]]
         "-Dhudson.security.csrf.GlobalCrumbIssuerConfiguration.DISABLE_CSRF_PROTECTION=true"
+
+        # Replace Blue Ocean in default display URL (or remove the Blue Ocean
+        # plugins) · Issue #2833 · jenkins-infra/helpdesk
+        # https://github.com/jenkins-infra/helpdesk/issues/2833
+        "-Djenkins.displayurl.provider=org.jenkinsci.plugins.displayurlapi.ClassicDisplayURLProvider"
       ];
     };
 
