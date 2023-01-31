@@ -1212,15 +1212,6 @@ in {
         "bbf45c573e954df247aa83d1c39e66eac2320c14529c2ee13f19943de454cd95";
     };
   };
-  tekton-client = mkJenkinsPlugin {
-    name = "tekton-client";
-    src = fetchurl {
-      url =
-        "https://updates.jenkins-ci.org/download/plugins/tekton-client/1.0.3/tekton-client.hpi";
-      sha256 =
-        "7d53d8f10e0207015c2124bbda24a4bbdb9b5784d09ce8982d17aaefd2c7afb9";
-    };
-  };
   token-macro = mkJenkinsPlugin {
     name = "token-macro";
     src = fetchurl {

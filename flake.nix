@@ -75,7 +75,6 @@
                             "nexus-jenkins-plugin"
                             "slack"
                             "ssh-slaves"
-                            "tekton-client"
                             "ws-cleanup"
                             "workflow-aggregator"
                             "workflow-multibranch"
