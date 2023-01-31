@@ -685,9 +685,9 @@ in {
     name = "jackson2-api";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/jackson2-api/2.14.1-313.v504cdd45c18b/jackson2-api.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/jackson2-api/2.14.2-319.v37853346a_229/jackson2-api.hpi";
       sha256 =
-        "b8b3dc247e38b2b309443cad63dc2da7c576d7c60560e884203485d5d11d7ae9";
+        "a8e9fce51913f55ec42924cb92447c807eb9d8560f8fa6648a5231d31118f896";
     };
   };
   jakarta-activation-api = mkJenkinsPlugin {
