@@ -80,11 +80,11 @@
                             "workflow-aggregator"
                             "workflow-multibranch"
                           ]);
-                    in writeScriptBin "jenkins-update-plugins"
-                      ''
-                        #!${runtimeShell}
-                        exec -a "$0" nix run git+https://github.com/Fuuzetsu/jenkinsPlugins2nix -- ${plugins} "$@"
-                      '';
+                    in writeScriptBin "jenkins-update-plugins" ''
+                      #!${runtimeShell}
+                      nix run git+https://github.com/Fuuzetsu/jenkinsPlugins2nix -- ${plugins} "$@" \
+                          | ${pkgs.nixfmt}/bin/nixfmt
+                    '';
                 };
 
                 overlay = final: prev: packages.${system} // {
