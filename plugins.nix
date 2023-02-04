@@ -7,15 +7,6 @@ let
       installPhase = "cp $src $out";
     };
 in {
-  ace-editor = mkJenkinsPlugin {
-    name = "ace-editor";
-    src = fetchurl {
-      url =
-        "https://updates.jenkins-ci.org/download/plugins/ace-editor/1.1/ace-editor.hpi";
-      sha256 =
-        "abc97028893c8a71581a5f559ea48e8e1f1a65164faee96dabfed9e95e9abad2";
-    };
-  };
   ansicolor = mkJenkinsPlugin {
     name = "ansicolor";
     src = fetchurl {
@@ -47,126 +38,126 @@ in {
     name = "aws-java-sdk";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk/1.12.287-357.vf82d85a_6eefd/aws-java-sdk.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk/1.12.397-362.v050e9394cf8e/aws-java-sdk.hpi";
       sha256 =
-        "f82f62ffbf4799ef613e917734682e574f002fc8850a7757d42cbf8808646720";
+        "701387a4134264bf1f9b46d4937535138b65e6dff552a7008441177878d60d7f";
     };
   };
   aws-java-sdk-cloudformation = mkJenkinsPlugin {
     name = "aws-java-sdk-cloudformation";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-cloudformation/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-cloudformation.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-cloudformation/1.12.397-362.v050e9394cf8e/aws-java-sdk-cloudformation.hpi";
       sha256 =
-        "b7afc23e31a3cac8261206330e21860c3742cef0dd35e03960f09da8cd282869";
+        "96afc0e11ca655c6da1aad8f8439187e1fc2b352c326c0dbb7eab1b4b3cccbf8";
     };
   };
   aws-java-sdk-codebuild = mkJenkinsPlugin {
     name = "aws-java-sdk-codebuild";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-codebuild/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-codebuild.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-codebuild/1.12.397-362.v050e9394cf8e/aws-java-sdk-codebuild.hpi";
       sha256 =
-        "7ccfd697bd744aa685c43ea84a41504f5eee96f332b4ad858fb65c14a001723b";
+        "c24429626b5d35d255e2e6bc721706777da6bc2bd6b6a8e147b0f3190867fe82";
     };
   };
   aws-java-sdk-ec2 = mkJenkinsPlugin {
     name = "aws-java-sdk-ec2";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-ec2/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-ec2.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-ec2/1.12.397-362.v050e9394cf8e/aws-java-sdk-ec2.hpi";
       sha256 =
-        "756b918e6c9c7a034364043e748aa284e484ee1c45f32894d611fe7e3d5ea675";
+        "da54fd74f86ca800e9135d0185faac86a7e8a75f926b58b469ada6345935874f";
     };
   };
   aws-java-sdk-ecr = mkJenkinsPlugin {
     name = "aws-java-sdk-ecr";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-ecr/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-ecr.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-ecr/1.12.397-362.v050e9394cf8e/aws-java-sdk-ecr.hpi";
       sha256 =
-        "d87b81998280afa684a9b0d08fdacff05640664360f3bb0ae1a9fef37fd71f4f";
+        "ef0ef2268f02c9afbbf24324f3ba743efee7e2bb49dce91939be9188ff647d6d";
     };
   };
   aws-java-sdk-ecs = mkJenkinsPlugin {
     name = "aws-java-sdk-ecs";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-ecs/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-ecs.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-ecs/1.12.397-362.v050e9394cf8e/aws-java-sdk-ecs.hpi";
       sha256 =
-        "20b8e5013f0eb63b5d835e806178fd5dd5635a826d33dd89acb14fd54d00da2f";
+        "4f9b212201741e2e42666aa32846956c6a079dca279fdd833171f682d818d810";
     };
   };
   aws-java-sdk-efs = mkJenkinsPlugin {
     name = "aws-java-sdk-efs";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-efs/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-efs.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-efs/1.12.397-362.v050e9394cf8e/aws-java-sdk-efs.hpi";
       sha256 =
-        "b3d6971505bfd1336d855942aad08e8920cbea16425801958d1395d1a1cb00da";
+        "4ad66edfde25cfda241dc6114d7aa417dcdbf72ca683ff1582eb60d5a52926b5";
     };
   };
   aws-java-sdk-elasticbeanstalk = mkJenkinsPlugin {
     name = "aws-java-sdk-elasticbeanstalk";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-elasticbeanstalk/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-elasticbeanstalk.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-elasticbeanstalk/1.12.397-362.v050e9394cf8e/aws-java-sdk-elasticbeanstalk.hpi";
       sha256 =
-        "1bcc6d047cd9975ff067bca2e6d9db353aca6bbec011cddb1052db11af3f1b62";
+        "4356d57fcfa06597b04688c987717d4ce067db188670efcccdc2fcc6a6342c90";
     };
   };
   aws-java-sdk-iam = mkJenkinsPlugin {
     name = "aws-java-sdk-iam";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-iam/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-iam.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-iam/1.12.397-362.v050e9394cf8e/aws-java-sdk-iam.hpi";
       sha256 =
-        "3e792cd0a80351cfed146299fdb8a228605291dd6682abaa8f1588683efdca1b";
+        "46b21dcb10410bb06cd2e0c3bf08f9ab27bad74db066f0cd02bbfc98122d91da";
     };
   };
   aws-java-sdk-logs = mkJenkinsPlugin {
     name = "aws-java-sdk-logs";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-logs/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-logs.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-logs/1.12.397-362.v050e9394cf8e/aws-java-sdk-logs.hpi";
       sha256 =
-        "a9aaf2040d19ca38b652fd40f9085c74be91530fa3e6a3c02f9d507b470c99d0";
+        "3e79f2aa547c76e9f38af2584bbaadb8d10442f531cf853793eb86043ec9fdeb";
     };
   };
   aws-java-sdk-minimal = mkJenkinsPlugin {
     name = "aws-java-sdk-minimal";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-minimal/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-minimal.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-minimal/1.12.397-362.v050e9394cf8e/aws-java-sdk-minimal.hpi";
       sha256 =
-        "67b1498d24070068afb68269650c35c22d6e4d8f4a54d80b4a1459a09ad1ff0b";
+        "9aafe53169fad21e702e8f705adc2311b8aada61558aafccef9aa7bb840c6be5";
     };
   };
   aws-java-sdk-sns = mkJenkinsPlugin {
     name = "aws-java-sdk-sns";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-sns/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-sns.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-sns/1.12.397-362.v050e9394cf8e/aws-java-sdk-sns.hpi";
       sha256 =
-        "50c9ac3eb82ab73a87e8f19ad2720fd307f9a46006a6e69dbebde2fe23722160";
+        "ac47d3a82e0ebf5d5bf705d14631ec910e58f891169bb44aa5075b494a342640";
     };
   };
   aws-java-sdk-sqs = mkJenkinsPlugin {
     name = "aws-java-sdk-sqs";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-sqs/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-sqs.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-sqs/1.12.397-362.v050e9394cf8e/aws-java-sdk-sqs.hpi";
       sha256 =
-        "3c244fa2ab893cd62e69b77c346b281d1f3786bc9dc0baaf05d79170044d694b";
+        "d677fd8e42d744e2cbc9cda50dda73b3f789ad442a520f38a42e432883693556";
     };
   };
   aws-java-sdk-ssm = mkJenkinsPlugin {
     name = "aws-java-sdk-ssm";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-ssm/1.12.287-357.vf82d85a_6eefd/aws-java-sdk-ssm.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/aws-java-sdk-ssm/1.12.397-362.v050e9394cf8e/aws-java-sdk-ssm.hpi";
       sha256 =
-        "8cb8ef54929bdb75e21967234fcbd901ed65f118535d466728c7d68b034c300b";
+        "72b728f8f579b0f0eeca8373d5bf6945d8022a0f48bd57dd5301216a35ebf82b";
     };
   };
   blueocean = mkJenkinsPlugin {
@@ -649,9 +640,9 @@ in {
     name = "hashicorp-vault-plugin";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/hashicorp-vault-plugin/359.v2da_3b_45f17d5/hashicorp-vault-plugin.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/hashicorp-vault-plugin/360.v0a_1c04cf807d/hashicorp-vault-plugin.hpi";
       sha256 =
-        "627ced0093023c6b26a6752b965431497fd3c5ea805b18263319e377fa0e3a75";
+        "8d6d6ef12e26d6107f2d28d12e6e7e1822d996ee9a7cd942b3af7bee7baef4aa";
     };
   };
   htmlpublisher = mkJenkinsPlugin {
@@ -811,18 +802,18 @@ in {
     name = "lockable-resources";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/lockable-resources/1117.v157231b_03882/lockable-resources.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/lockable-resources/1122.v14c3d52cb_1b_1/lockable-resources.hpi";
       sha256 =
-        "3b56f50920ebb8594c002f1956b1ebc8ce9a0e299319150760fff8306ee986a1";
+        "b3578e2f8bca34df302cb7ccaef6539e462b910eb2e7e13378615090f54d96c7";
     };
   };
   mailer = mkJenkinsPlugin {
     name = "mailer";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/mailer/438.v02c7f0a_12fa_4/mailer.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/mailer/448.v5b_97805e3767/mailer.hpi";
       sha256 =
-        "ee52de400615ea293748cf6741aef7d7181cdd5d57a588eb1a51b904e36a3159";
+        "0b5f9925bb002b286e2ea46fa8157b3b957845c8d9cedf57cb00ede6bfe46609";
     };
   };
   managed-scripts = mkJenkinsPlugin {
@@ -1009,9 +1000,9 @@ in {
     name = "pipeline-rest-api";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/pipeline-rest-api/2.30/pipeline-rest-api.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/pipeline-rest-api/2.31/pipeline-rest-api.hpi";
       sha256 =
-        "d155e21c81d5367e0640861bb1402cec095e9709fa6966eeaee0b62ed0f57246";
+        "7a983ff4fefbe05291df51633c006c6db0ba9026284f7095e44bac537062753b";
     };
   };
   pipeline-stage-step = mkJenkinsPlugin {
@@ -1216,9 +1207,18 @@ in {
     name = "support-core";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/support-core/1244.vceb_57079258a/support-core.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/support-core/1258.v665d89fa_3607/support-core.hpi";
       sha256 =
-        "bbf45c573e954df247aa83d1c39e66eac2320c14529c2ee13f19943de454cd95";
+        "9f6e568a093e62a03049c78a564ed16e723be18cd14c6085e4ff4978b5fed6f3";
+    };
+  };
+  text-finder = mkJenkinsPlugin {
+    name = "text-finder";
+    src = fetchurl {
+      url =
+        "https://updates.jenkins-ci.org/download/plugins/text-finder/1.22/text-finder.hpi";
+      sha256 =
+        "c27710b8f5e3d5361beba32d71f5356e9513ad1e1acb1996f276d90e72431707";
     };
   };
   token-macro = mkJenkinsPlugin {
@@ -1288,9 +1288,9 @@ in {
     name = "workflow-cps";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/workflow-cps/3606.v0b_d8b_e512dcf/workflow-cps.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/workflow-cps/3611.v201b_d9f9eb_f7/workflow-cps.hpi";
       sha256 =
-        "eea5162c20f8de090b48b06155aea76bf92cf56e6cea144ba947b945b4701598";
+        "1a134edc1ebb5e84d95c20ca394d8cddc26abfd32d507037d5a650001ac1ae2c";
     };
   };
   workflow-durable-task-step = mkJenkinsPlugin {
