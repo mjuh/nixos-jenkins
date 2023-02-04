@@ -76,6 +76,7 @@
                             "nexus-jenkins-plugin"
                             "slack"
                             "ssh-slaves"
+                            "text-finder"
                             "ws-cleanup"
                             "workflow-aggregator"
                             "workflow-multibranch"
