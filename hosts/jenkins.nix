@@ -275,6 +275,10 @@ in
                           name = "web37.intr";
                         }
                         {
+                          labelString = "kubevirt";
+                          name = "web98.corp1.majordomo.ru";
+                        }
+                        {
                           labelString = "";
                           name = "deprecated-web32.intr";
                         }
