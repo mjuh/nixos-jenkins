@@ -1,4 +1,10 @@
-{ config, pkgs, lib, options, inputs, system, ... }: {
+{ config, pkgs, lib, options, inputs, system, ... }:
+
+let
+  inherit (lib)
+    fold;
+in
+{
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -54,237 +60,254 @@
       ];
       jcasc = options.services.ci.jcasc.default // {
         jenkins = options.services.ci.jcasc.default.jenkins // {
-          nodes = (options.services.ci.jcasc.default.jenkins.nodes ++ (map
-            (host: {
-              permanent = {
-                inherit (host) name labelString;
-                launcher = {
-                  ssh = {
-                    credentialsId = "jenkins-ssh-deploy";
-                    host = host.name + ".intr";
-                    port = 22;
-                    sshHostKeyVerificationStrategy =
-                      "knownHostsFileKeyVerificationStrategy";
-                  };
-                };
-                nodeDescription = host.name;
-                numExecutors = 1;
-                remoteFS = "/home/jenkins";
-                retentionStrategy = {
-                  demand = {
-                    idleDelay = 10;
-                    inDemandDelay = 0;
-                  };
-                };
-              };
-            }))
-            ([
-              {
-                labelString = "restic backup";
-                name = "bareos";
-              }
-              {
-                labelString = "pxe";
-                name = "chef-server";
-              }
-              {
-                labelString = "dhost-production";
-                name = "dh1";
-              }
-              {
-                labelString = "js";
-                name = "ci";
-              }
-              {
-                labelString = "dhost-production";
-                name = "dh2";
-              }
-              {
-                labelString = "dhost-worker";
-                name = "dh3";
-              }
-              {
-                labelString = "dhost-production";
-                name = "dh4";
-              }
-              {
-                labelString = "elk";
-                name = "fluentd";
-              }
-              {
-                labelString = "production";
-                name = "hms01";
-              }
-              {
-                labelString = "production";
-                name = "hms02";
-              }
-              {
-                labelString = "production";
-                name = "hms03";
-              }
-              {
-                labelString = "prometheus-server";
-                name = "mx2-mr";
-              }
-              {
-                labelString = "mail-production webmail-mr smtp-out";
-                name = "webmail1";
-              }
-              {
-                labelString = "mail-production webmail-mr smtp-out";
-                name = "webmail2";
-              }
-              {
-                labelString = "nginx-mr";
-                name = "nginx1";
-              }
-              {
-                labelString = "nginx-mr";
-                name = "nginx2";
-              }
-              {
-                labelString = "dns-production";
-                name = "ns1-dh";
-              }
-              {
-                labelString = "dns-production";
-                name = "ns1-mr";
-              }
-              {
-                labelString = "dns-production";
-                name = "ns2-dh";
-              }
-              {
-                labelString = "dns-production";
-                name = "ns2-mr";
-              }
-              {
-                labelString = "pop";
-                name = "pop1";
-              }
-              {
-                labelString = "pop";
-                name = "pop5";
-              }
-              {
-                labelString = "web";
-                name = "web15";
-              }
-              {
-                labelString = "web";
-                name = "web16";
-              }
-              {
-                labelString = "web";
-                name = "web17";
-              }
-              {
-                labelString = "web";
-                name = "web18";
-              }
-              {
-                labelString = "web";
-                name = "web19";
-              }
-              {
-                labelString = "web";
-                name = "web20";
-              }
-              {
-                labelString = "web";
-                name = "web21";
-              }
-              {
-                labelString = "web";
-                name = "web22";
-              }
-              {
-                labelString = "web";
-                name = "web23";
-              }
-              {
-                labelString = "web";
-                name = "web25";
-              }
-              {
-                labelString = "web";
-                name = "web26";
-              }
-              {
-                labelString = "web";
-                name = "web27";
-              }
-              {
-                labelString = "web";
-                name = "web28";
-              }
-              {
-                labelString = "web";
-                name = "web29";
-              }
-              {
-                labelString = "web";
-                name = "web30";
-              }
-              {
-                labelString = "web";
-                name = "web31";
-              }
-              {
-                labelString = "web";
-                name = "web32";
-              }
-              {
-                labelString = "web";
-                name = "web33";
-              }
-              {
-                labelString = "web";
-                name = "web34";
-              }
-              {
-                labelString = "web";
-                name = "web35";
-              }
-              {
-                labelString = "web";
-                name = "web36";
-              }
-              {
-                labelString = "web";
-                name = "web37";
-              }
-              {
-                labelString = "";
-                name = "deprecated-web32";
-              }
-              {
-                labelString = "logstash";
-                name = "deprecated-web20";
-              }
-              {
-                labelString = "logstash";
-                name = "ns2-dh";
-              }
-              {
-                labelString = "logstash";
-                name = "es2";
-              }
-            ]
+          nodes =
+            fold
+              (node: nodes: nodes ++ node)
+              [ ]
+              [
+                options.services.ci.jcasc.default.jenkins.nodes
 
-            ++
-            (map
-              (name: {
-                labelString =
-                  if (builtins.elem name [ "kvm15" ])
-                  then
-                    "kvm"
-                  else
-                    "kvm kvmbionic";
-                inherit name;
-              })
-              (lib.attrNames inputs.kvm.nixosConfigurations))));
+                (map
+                  (host: {
+                    permanent = {
+                      inherit (host) name labelString;
+                      launcher = {
+                        ssh = {
+                          credentialsId = "jenkins-ssh-deploy";
+                          host = host.name;
+                          port = 22;
+                          sshHostKeyVerificationStrategy =
+                            "knownHostsFileKeyVerificationStrategy";
+                        };
+                      };
+                      nodeDescription = host.name;
+                      numExecutors = 1;
+                      remoteFS = "/home/jenkins";
+                      retentionStrategy = {
+                        demand = {
+                          idleDelay = 10;
+                          inDemandDelay = 0;
+                        };
+                      };
+                    };
+                  })
+
+                  (fold
+                    (node: nodes:
+                      nodes ++ node)
+                    [ ]
+                    [
+                      [
+                        {
+                          labelString = "restic backup";
+                          name = "bareos.intr";
+                        }
+                        {
+                          labelString = "pxe";
+                          name = "chef-server.intr";
+                        }
+                        {
+                          labelString = "dhost-production";
+                          name = "dh1.intr";
+                        }
+                        {
+                          labelString = "js";
+                          name = "ci.intr";
+                        }
+                        {
+                          labelString = "dhost-production";
+                          name = "dh2.intr";
+                        }
+                        {
+                          labelString = "dhost-worker";
+                          name = "dh3.intr";
+                        }
+                        {
+                          labelString = "dhost-production";
+                          name = "dh4.intr";
+                        }
+                        {
+                          labelString = "elk";
+                          name = "fluentd.intr";
+                        }
+                        {
+                          labelString = "production";
+                          name = "hms01.intr";
+                        }
+                        {
+                          labelString = "production";
+                          name = "hms02.intr";
+                        }
+                        {
+                          labelString = "production";
+                          name = "hms03.intr";
+                        }
+                        {
+                          labelString = "prometheus-server";
+                          name = "mx2-mr.intr";
+                        }
+                        {
+                          labelString = "mail-production webmail-mr smtp-out";
+                          name = "webmail1.intr";
+                        }
+                        {
+                          labelString = "mail-production webmail-mr smtp-out";
+                          name = "webmail2.intr";
+                        }
+                        {
+                          labelString = "nginx-mr";
+                          name = "nginx1.intr";
+                        }
+                        {
+                          labelString = "nginx-mr";
+                          name = "nginx2.intr";
+                        }
+                        {
+                          labelString = "dns-production";
+                          name = "ns1-dh.intr";
+                        }
+                        {
+                          labelString = "dns-production";
+                          name = "ns1-mr.intr";
+                        }
+                        {
+                          labelString = "dns-production";
+                          name = "ns2-dh.intr";
+                        }
+                        {
+                          labelString = "dns-production";
+                          name = "ns2-mr.intr";
+                        }
+                        {
+                          labelString = "pop";
+                          name = "pop1.intr";
+                        }
+                        {
+                          labelString = "pop";
+                          name = "pop5.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web15.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web16.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web17.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web18.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web19.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web20.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web21.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web22.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web23.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web25.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web26.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web27.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web28.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web29.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web30.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web31.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web32.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web33.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web34.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web35.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web36.intr";
+                        }
+                        {
+                          labelString = "web";
+                          name = "web37.intr";
+                        }
+                        {
+                          labelString = "";
+                          name = "deprecated-web32.intr";
+                        }
+                        {
+                          labelString = "logstash";
+                          name = "deprecated-web20.intr";
+                        }
+                        {
+                          labelString = "logstash";
+                          name = "ns2-dh.intr";
+                        }
+                        {
+                          labelString = "logstash";
+                          name = "es2.intr";
+                        }
+                      ]
+
+                      (map
+                        (name:
+                          {
+                            labelString =
+                              if (builtins.elem name [ "kvm15" ])
+                              then
+                                "kvm"
+                              else
+                                "kvm kvmbionic";
+                            name = name + ".intr";
+                          }
+                        )
+                        (lib.attrNames inputs.kvm.nixosConfigurations))
+                    ]
+                  ))
+              ];
         };
       };
     };
