@@ -24,7 +24,7 @@ deployRS(
             }
             sh "rmdir build"
         }
-    }
+    },
     postDeploy: {
         sh "rm --force /var/lib/jenkins/.ssh/known_hosts; nix-shell --run 'deploy .#jenkins.jenkins -- --print-build-logs'"
     }
