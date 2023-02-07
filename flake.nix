@@ -73,7 +73,6 @@
                             "pipeline-graph-view"
                             "pipeline-utility-steps"
                             "prometheus"
-                            "purge-build-queue"
                             "nexus-jenkins-plugin"
                             "slack"
                             "ssh-slaves"
