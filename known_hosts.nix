@@ -522,9 +522,9 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGG1CfpgdFO5XVLP83oOFB9EEUFTG2+GxR7LbGBlLBr";
   };
   web98 = {
-    hostNames = [ "web98.intr" ];
-    publicKeyFile = writeText "web98.pub"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBA2ndToN39OkURjT651QwfFAW8aQLed6cpAAioKpWVt";
+    hostNames = [ "web98.corp1.majordomo.ru" ];
+    publicKeyFile = writeText "web98.corp1.majordomo.ru.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJuHa7pAv8XQCkWb4W8x/afnJNCIJhY2e1kXSTpE3wy";
   };
   container-web15 = {
     hostNames = [ "container-web15.intr" "172.16.103.15" ];
