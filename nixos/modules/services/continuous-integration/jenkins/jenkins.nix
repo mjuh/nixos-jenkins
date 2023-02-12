@@ -499,7 +499,7 @@ in
           };
           location = {
             adminAddress = "jenkins@majordomo.ru";
-            url = "https://jenkins.intr/";
+            url = "https://jenkins.corp1.majordomo.ru/";
           };
           lockableResourcesManager = {
             declaredResources = [
