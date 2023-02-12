@@ -440,6 +440,7 @@ in
               serverUrl = "https://gitlab.corp1.majordomo.ru";
               secretToken =
                 "\${DATA_VAULTPASS_MAJORDOMO_GITLAB.INTR_PERSONAL_ACCESS_TOKEN}";
+              immediateHookTrigger = true;
             }];
           };
           scmGit = {
