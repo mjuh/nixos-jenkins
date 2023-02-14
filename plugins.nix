@@ -618,6 +618,15 @@ in {
         "ab3795b2509700b1666ae0a7a40939054bc951c99d37bf957dd456c3a383f895";
     };
   };
+  google-oauth-plugin = mkJenkinsPlugin {
+    name = "google-oauth-plugin";
+    src = fetchurl {
+      url =
+        "https://updates.jenkins-ci.org/download/plugins/google-oauth-plugin/1.0.7/google-oauth-plugin.hpi";
+      sha256 =
+        "2f92bfd9c09e556b94abe3e236fc175af41e17a4d719d00ae2eaeeef0c044f84";
+    };
+  };
   gradle = mkJenkinsPlugin {
     name = "gradle";
     src = fetchurl {
@@ -721,9 +730,9 @@ in {
     name = "jaxb";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/jaxb/2.3.7-1/jaxb.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/jaxb/2.3.8-1/jaxb.hpi";
       sha256 =
-        "44a12a25fc976beb49f2db682db402e518b2b379c40c89e23739eb7c63df3a6c";
+        "607213a0b4d959f9982ef53e908c8cfc37f2334e38bb49487f7f8eed6b6c4956";
     };
   };
   jdk-tool = mkJenkinsPlugin {
@@ -798,13 +807,40 @@ in {
         "d48428e104130a5def88c3e90b6624af35c76a8acf543104fa26370daaf5a04e";
     };
   };
+  kubernetes-cli = mkJenkinsPlugin {
+    name = "kubernetes-cli";
+    src = fetchurl {
+      url =
+        "https://updates.jenkins-ci.org/download/plugins/kubernetes-cli/1.12.0/kubernetes-cli.hpi";
+      sha256 =
+        "b6c924dd08dd857794fbce7a5a5a341967231e4ce0761f87d9c3624ef45caf85";
+    };
+  };
+  kubernetes-client-api = mkJenkinsPlugin {
+    name = "kubernetes-client-api";
+    src = fetchurl {
+      url =
+        "https://updates.jenkins-ci.org/download/plugins/kubernetes-client-api/6.3.1-206.v76d3b_6b_14db_b/kubernetes-client-api.hpi";
+      sha256 =
+        "4ef3645f0736716eb6d6116860e5346f418c954687408df9864f617d43bc97fa";
+    };
+  };
+  kubernetes-credentials = mkJenkinsPlugin {
+    name = "kubernetes-credentials";
+    src = fetchurl {
+      url =
+        "https://updates.jenkins-ci.org/download/plugins/kubernetes-credentials/0.10.0/kubernetes-credentials.hpi";
+      sha256 =
+        "05245d4b4b16741c2062bd3756fc990c4ea612d85a2fc9e5f94f90264cddb328";
+    };
+  };
   lockable-resources = mkJenkinsPlugin {
     name = "lockable-resources";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/lockable-resources/1122.v14c3d52cb_1b_1/lockable-resources.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/lockable-resources/1123.v4002ee23c671/lockable-resources.hpi";
       sha256 =
-        "b3578e2f8bca34df302cb7ccaef6539e462b910eb2e7e13378615090f54d96c7";
+        "bd722858c0d5602b34aeb78dc4f284da862d374aa4145b7f49ed909ff74da94a";
     };
   };
   mailer = mkJenkinsPlugin {
@@ -883,9 +919,9 @@ in {
     name = "nexus-jenkins-plugin";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/nexus-jenkins-plugin/3.16.476.v410d6968f400/nexus-jenkins-plugin.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/nexus-jenkins-plugin/3.16.478.v41ee37380162/nexus-jenkins-plugin.hpi";
       sha256 =
-        "55bb274132715df161f0f59b27315e6575feb4cd822e76efd03ae373924bc14e";
+        "20f4c10dc971281ecce16fe3ab747af55cf384601433b208ebf870e54fd4a8c0";
     };
   };
   node-iterator-api = mkJenkinsPlugin {
@@ -897,13 +933,22 @@ in {
         "106b4ba84478412d2f7bb30fa7e4aad13c5235b235cfbbf62f072904342969ea";
     };
   };
+  oauth-credentials = mkJenkinsPlugin {
+    name = "oauth-credentials";
+    src = fetchurl {
+      url =
+        "https://updates.jenkins-ci.org/download/plugins/oauth-credentials/0.5/oauth-credentials.hpi";
+      sha256 =
+        "cb88a634a31f923b79aa551c84bc4b4e311ffb2244ee20072ea97f62027ea517";
+    };
+  };
   okhttp-api = mkJenkinsPlugin {
     name = "okhttp-api";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/okhttp-api/4.9.3-108.v0feda04578cf/okhttp-api.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/okhttp-api/4.10.0-117.vf786fdfa_22c0/okhttp-api.hpi";
       sha256 =
-        "8f203819fccb921dc7144b630c35eea29cb62869605873372ae67261b84f04a4";
+        "cf7aa875cfd25e740d130a7ab410c11a68022bcbee2c1eae5de7c4c4d933221c";
     };
   };
   parameterized-trigger = mkJenkinsPlugin {
@@ -1221,6 +1266,15 @@ in {
         "c27710b8f5e3d5361beba32d71f5356e9513ad1e1acb1996f276d90e72431707";
     };
   };
+  theme-manager = mkJenkinsPlugin {
+    name = "theme-manager";
+    src = fetchurl {
+      url =
+        "https://updates.jenkins-ci.org/download/plugins/theme-manager/1.6/theme-manager.hpi";
+      sha256 =
+        "1ea4f6b571befade0611ddb104cd49b94ecd41a427deadfcf3cb504903222d63";
+    };
+  };
   token-macro = mkJenkinsPlugin {
     name = "token-macro";
     src = fetchurl {
@@ -1288,9 +1342,9 @@ in {
     name = "workflow-cps";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/workflow-cps/3611.v201b_d9f9eb_f7/workflow-cps.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/workflow-cps/3618.v13db_a_21f0fcf/workflow-cps.hpi";
       sha256 =
-        "1a134edc1ebb5e84d95c20ca394d8cddc26abfd32d507037d5a650001ac1ae2c";
+        "b7b6f5ee0a8d67b68d6fed516653364b515b9ba96b1ff26e42d346239e6fbc70";
     };
   };
   workflow-durable-task-step = mkJenkinsPlugin {
@@ -1315,9 +1369,9 @@ in {
     name = "workflow-multibranch";
     src = fetchurl {
       url =
-        "https://updates.jenkins-ci.org/download/plugins/workflow-multibranch/716.vc692a_e52371b_/workflow-multibranch.hpi";
+        "https://updates.jenkins-ci.org/download/plugins/workflow-multibranch/733.v109046189126/workflow-multibranch.hpi";
       sha256 =
-        "9df7f291ed4d10a79e49c594b853eaa34934d0b83a19aaf57c9cff112ccefd00";
+        "539e0d6a50f840af044ee4976b2e027b6ac4947d45a371c32a2352259f28a2d9";
     };
   };
   workflow-scm-step = mkJenkinsPlugin {

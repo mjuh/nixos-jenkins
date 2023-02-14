@@ -69,6 +69,7 @@
                             "hashicorp-vault-plugin"
                             "jdk-tool"
                             "junit"
+                            "kubernetes-cli"
                             "lockable-resources"
                             "pipeline-graph-view"
                             "pipeline-utility-steps"
