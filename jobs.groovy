@@ -20,6 +20,9 @@ def newFolder(String group) {
                         strategyId(1) // discover MRs and merge them with target branch
                     }
                     projectNamingStrategyTrait {
+                        // Configure job URLs.  For example, 'nixos' group
+                        // 'jenkins' project 'master' branch will be:
+                        // JENKINS_DOMAIN_NAME/job/nixos/job/jenkins/job/master/
                         strategyId(4)
                     }
                     gitLabTagDiscovery() // discover tags
