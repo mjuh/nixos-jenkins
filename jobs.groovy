@@ -23,7 +23,7 @@ def newFolder(String group) {
                         // Configure job URLs.  For example, 'nixos' group
                         // 'jenkins' project 'master' branch will be:
                         // JENKINS_DOMAIN_NAME/job/nixos/job/jenkins/job/master/
-                        strategyId(4)
+                        strategyId(2)
                     }
                     gitLabTagDiscovery() // discover tags
                     // Configure SSH private key for Git clone, see
