@@ -19,6 +19,9 @@ def newFolder(String group) {
                     originMergeRequestDiscoveryTrait {
                         strategyId(1) // discover MRs and merge them with target branch
                     }
+                    projectNamingStrategyTrait {
+                        strategyId(4)
+                    }
                     gitLabTagDiscovery() // discover tags
                     // Configure SSH private key for Git clone, see
                     // https://github.com/jenkinsci/gitlab-branch-source-plugin/blob/317f76b071948dc264d3615a973616f2343afc95/src/main/java/io/jenkins/plugins/gitlabbranchsource/GitLabSCMBuilder.java#L110
