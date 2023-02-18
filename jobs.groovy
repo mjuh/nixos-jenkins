@@ -12,6 +12,7 @@ def newFolder(String group) {
                 serverName("gitlab.corp1.majordomo.ru")
                 // "Traits" ("Behaviours" in the GUI) that are "declarative-compatible"
                 traits {
+                    projectNamingStrategy(2)
                     subGroupProjectDiscoveryTrait() // discover projects inside subgroups
                     gitLabBranchDiscovery {
                         strategyId(3) // discover all branches
