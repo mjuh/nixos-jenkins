@@ -298,6 +298,10 @@ in
                           labelString = "logstash";
                           name = "es2.intr";
                         }
+                        {
+                          labelString = "zabbix-server";
+                          name = "zabbix.intr";
+                        }
                       ]
 
                       (map

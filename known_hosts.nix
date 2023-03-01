@@ -666,6 +666,11 @@
     publicKeyFile = writeText "p511103.pub"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApb3Glph699m3149E3cZZpPHGXP0BVQZEOHUqLj/SYN";
   };
+  zabbix = {
+    hostNames = ["zabbix.intr"];
+    publicKeyFile = writeText "zabbix.intr.pub"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL7OInxCWi8FWnCfdnIEHzQg01a3eaJ+4p6RhfNjQNhu";
+  };
 } // (let
   ipAddress = host:
     (builtins.head
