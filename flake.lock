@@ -29139,11 +29139,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_250"
       },
       "locked": {
-        "lastModified": 1675400821,
-        "narHash": "sha256-6RwK6Apa1cOJiLk3ISU/OEE50ZCXfHglHT+ETl+KwVA=",
+        "lastModified": 1677059615,
+        "narHash": "sha256-+5gGuk2I+Q8TZaHyFK/m9nHXhViHzxn+Lv6kME/smG8=",
         "ref": "master",
-        "rev": "5cd51041bb639d2fc42fd464a7b097ad2b0ff333",
-        "revCount": 217,
+        "rev": "6f9c25653e5bd6ef23c4eca976cb9b3f669c2374",
+        "revCount": 222,
         "type": "git",
         "url": "ssh://git@gitlab.intr/office/ssl-certificates"
       },
