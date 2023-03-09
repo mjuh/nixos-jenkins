@@ -40,6 +40,7 @@ in
         { name = "db"; }
         { name = "deploy"; }
         { name = "domains"; }
+        { name = "exercises"; }
         { name = "jenkinsci"; }
         { name = "folders"; }
         { name = "helm"; }
