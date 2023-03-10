@@ -1,7 +1,10 @@
 deployRS(
     scanPasswords: true,
     deploy: true,
-    flake: ".#jenkins.system",
+    sequential: true,
+    showTrace: true,
+    profile: "system",
+    deployRsOptions: ["--fast-connection=true"],
     preBuild: {
         nixFlakeLockUpdate (inputs: ["kvm"])
         sh "nix build --print-build-logs .#nixosConfigurations.jenkins.config.system.build.toplevel"
@@ -24,5 +27,4 @@ deployRS(
             }
             sh "rmdir build"
         }
-    }
-)
+    })

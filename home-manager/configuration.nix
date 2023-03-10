@@ -1,6 +1,7 @@
 { pkgs, nixosConfigurations, ... }:
 
 {
+  manual.manpages.enable = false;
   programs.ssh = {
     enable = true;
     extraConfig = ''

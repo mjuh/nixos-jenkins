@@ -25,9 +25,11 @@
     nixpkgs-20-09.url = "nixpkgs/nixos-20.09";
     vault-secrets.url = "git+https://github.com/serokell/vault-secrets";
     home-manager.url = "github:nix-community/home-manager";
+    guix.url = "github:foo-dogsquared/nix-overlay-guix";
     nixos-ns.url = "git+https://gitlab.intr/nixos/ns";
     flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
     kvm.url = "git+https://gitlab.intr/nixos/kvm";
+    nixos-kubernetes.url = "git+ssh://gitlab.intr/nixos/kubernetes";
   };
 
   outputs = { self
@@ -41,10 +43,13 @@
             , ssl-certificates
             , vault-secrets
             , home-manager
+            , guix
             , nixos-ns
             , flake-utils-plus
+            , nixos-kubernetes
             , ... } @ inputs:
               let
+                inherit (nixos-kubernetes.inputs) nixpkgs;
                 system = "x86_64-linux";
                 pkgs = import nixpkgs { inherit system; };
                 pkgs-unstable = import nixpkgs-unstable { inherit system; };
@@ -102,6 +107,8 @@
                   inherit (pkgs-deprecated)
                     openjdk14;
 
+                  inherit (guix.packages.${system}) guix_binary_1_3_0;
+
                   inherit (deploy-rs.packages.${system}) deploy-rs;
                 };
 
@@ -136,7 +143,7 @@
 
                 nixosConfigurations =
                   with pkgs.lib;
-                  foldr
+                  fold
                     (host: hosts:
                       hosts //
                       (let
@@ -153,12 +160,26 @@
                               ];
                             };
                             inherit system;
-                            modules = [
-                              self.nixosModules."hardware-${hostName}"
-                              host
-                              vault-secrets.nixosModules.vault-secrets
-                            ] ++ (attrValues self.nixosModules)
-                              ++ (if name == "vm" then [(pkgs.path + /nixos/modules/virtualisation/qemu-vm.nix)] else []);
+                            modules =
+                              fold
+                                (module: modules: modules ++ module)
+                                [ ]
+                                [
+                                  [
+                                    self.nixosModules."hardware-${hostName}"
+                                    host
+                                    vault-secrets.nixosModules.vault-secrets
+                                    guix.nixosModules.guix-binary
+                                    self.nixosModules.fup-repl
+                                    self.nixosModules.jenkins
+                                    self.nixosModules.prometheus-blackbox
+                                    nixos-kubernetes.nixosModules.drbd
+                                    nixos-kubernetes.nixosModules.containerd
+                                    nixos-kubernetes.nixosModules.kubernetes-node
+                                    nixos-kubernetes.nixosModules.netboot-xyz
+                                  ]
+                                  (if name == "vm" then [(pkgs.path + /nixos/modules/virtualisation/qemu-vm.nix)] else [])
+                                ];
                             specialArgs = {
                               inherit inputs system;
                               flake = self;
@@ -166,7 +187,7 @@
                           };
                       }))
                     { }
-                    (pkgs-unstable.lib.filesystem.listFilesRecursive ./hosts);
+                    (nixpkgs.lib.filesystem.listFilesRecursive ./hosts);
 
                 deploy.nodes = with pkgs.lib;
                   listToAttrs

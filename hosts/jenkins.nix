@@ -415,7 +415,7 @@ in
     jdk
     jq
     killall
-    kvm
+    qemu_kvm
     netcat
     nettools
     nix-generate-from-cpan
