@@ -42355,11 +42355,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_363"
       },
       "locked": {
-        "lastModified": 1677684366,
-        "narHash": "sha256-bHUm/UVHzb2hepawczqKEwVv6CuREqYUWOa6Qy+k268=",
-        "ref": "master",
-        "rev": "52f6d8812defef8cc064ab90851cffac41c04646",
-        "revCount": 250,
+        "lastModified": 1679425171,
+        "narHash": "sha256-ZOSysWFX+g7jbrkzyNjP+ExjYLAiFPFZYtz8mmdxxpg=",
+        "ref": "refs/heads/master",
+        "rev": "3ea50bbb98a3f72c7ba7d29cbd95810abf3ebff2",
+        "revCount": 252,
         "type": "git",
         "url": "ssh://git@gitlab.intr/office/ssl-certificates"
       },
